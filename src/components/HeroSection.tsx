@@ -63,7 +63,7 @@ export const HeroSection = () => {
                 { icon: Zap, text: "เทคโนโลยีทันสมัย", color: "text-dental-success" },
                 { icon: CheckCircle, text: "รับประกันคุณภาพ", color: "text-dental-warning" }
               ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-soft">
+                <div key={index} className="flex items-center space-x-3 bg-white/60 rounded-2xl p-4 shadow-soft">
                   <item.icon className={`w-5 h-5 ${item.color}`} />
                   <span className="text-body font-medium text-dental">{item.text}</span>
                 </div>
@@ -103,9 +103,9 @@ export const HeroSection = () => {
             <div className="relative card-elevated hover:shadow-3xl group overflow-hidden">
               <div className="aspect-[4/3] relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop"
+                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop&auto=format&q=75"
                   alt="ทีมทันตแพทย์และคนไข้ยิ้ม"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="eager"
                 />
                 
@@ -114,22 +114,22 @@ export const HeroSection = () => {
                 
                 {/* Floating Stats - Enhanced */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-strong border border-white/20">
+                  <div className="bg-white/95 rounded-3xl p-6 shadow-strong border border-white/20">
                     <div className="grid grid-cols-3 gap-6 text-center">
                       <div className="group">
-                        <div className="text-3xl md:text-4xl font-bold gradient-primary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <div className="text-3xl md:text-4xl font-bold gradient-primary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-200">
                           98%
                         </div>
                         <div className="text-caption text-dental-light">ความพอใจ</div>
                       </div>
                       <div className="group border-x border-dental-accent px-4">
-                        <div className="text-3xl md:text-4xl font-bold text-dental-secondary mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <div className="text-3xl md:text-4xl font-bold text-dental-secondary mb-2 group-hover:scale-110 transition-transform duration-200">
                           10+
                         </div>
                         <div className="text-caption text-dental-light">ปีประสบการณ์</div>
                       </div>
                       <div className="group">
-                        <div className="text-3xl md:text-4xl font-bold text-dental-success mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <div className="text-3xl md:text-4xl font-bold text-dental-success mb-2 group-hover:scale-110 transition-transform duration-200">
                           1.2K+
                         </div>
                         <div className="text-caption text-dental-light">ลูกค้า</div>
@@ -143,12 +143,12 @@ export const HeroSection = () => {
               <div className="absolute top-6 left-6 flex flex-col space-y-3">
                 {[
                   { text: "จัดฟันใส", color: "bg-dental-primary" },
-                  { text: "ฟอกสีฟ���น", color: "bg-dental-secondary" },
+                  { text: "ฟอกสีฟัน", color: "bg-dental-secondary" },
                   { text: "รากฟันเทียม", color: "bg-dental-success" }
                 ].map((service, index) => (
                   <div 
                     key={index}
-                    className={`${service.color} text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm animate-scale-in`}
+                    className={`${service.color} text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-scale-in`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
                     {service.text}

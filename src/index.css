@@ -173,25 +173,30 @@
     @apply text-[12px] md:text-[14px] text-dental-light;
   }
 
-  /* === BUTTON SYSTEM === */
+  /* === OPTIMIZED BUTTON SYSTEM === */
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-dental-primary hover:bg-dental-primary-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center bg-dental-primary hover:bg-dental-primary-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    will-change: transform;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    will-change: transform;
   }
 
   .btn-success {
-    @apply inline-flex items-center justify-center bg-dental-success hover:bg-dental-success-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center bg-dental-success hover:bg-dental-success-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    will-change: transform;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center border-2 border-dental-primary bg-white text-dental-primary hover:bg-dental-primary hover:text-white font-medium px-6 py-3 rounded-2xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center border-2 border-dental-primary bg-white text-dental-primary hover:bg-dental-primary hover:text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+    will-change: transform;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center bg-transparent hover:bg-dental-accent text-dental-primary font-medium px-6 py-3 rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center bg-transparent hover:bg-dental-accent text-dental-primary font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+    will-change: transform;
   }
 
   /* === SPACING SYSTEM === */
@@ -211,13 +216,15 @@
     @apply space-y-6 md:space-y-8;
   }
 
-  /* === LAYOUT SYSTEM === */
+  /* === OPTIMIZED LAYOUT SYSTEM === */
   .card-modern {
-    @apply bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100/50 backdrop-blur-sm;
+    @apply bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100/50;
+    will-change: transform;
   }
 
   .card-elevated {
-    @apply bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 hover:-translate-y-2;
+    @apply bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-200 border-0 hover:-translate-y-2;
+    will-change: transform;
   }
 
   .gradient-primary {
@@ -243,30 +250,30 @@
 
   /* === MOBILE OPTIMIZATION === */
   .mobile-cta {
-    @apply w-full md:w-auto px-8 py-4 text-base font-semibold rounded-2xl transition-all duration-300;
+    @apply w-full md:w-auto px-8 py-4 text-base font-semibold rounded-2xl transition-all duration-200;
   }
 
   .mobile-touch {
     @apply min-h-[44px] min-w-[44px];
   }
 
-  /* === ANIMATIONS === */
+  /* === OPTIMIZED ANIMATIONS === */
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.4s ease-out forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
+    animation: slideUp 0.5s ease-out forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.4s ease-out forwards;
+    animation: scaleIn 0.3s ease-out forwards;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(15px);
     }
     to {
       opacity: 1;
@@ -277,7 +284,7 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -288,7 +295,7 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
     to {
       opacity: 1;
@@ -297,20 +304,16 @@
   }
 
   /* === UTILITY CLASSES === */
-  .backdrop-blur-subtle {
-    backdrop-filter: blur(8px);
-  }
-
   .shadow-soft {
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
   .shadow-strong {
-    box-shadow: 0 8px 64px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
   }
 
   .shadow-3xl {
-    box-shadow: 0 25px 100px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   }
 }
 

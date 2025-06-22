@@ -11,7 +11,7 @@ const services = [
     description: "ฟันขาวสะอาดใน 1 ชั่วโมง ด้วยเทคโนโลยีล้ำสมัย",
     price: "เริ่มต้น ฿1,500",
     popular: true,
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop&auto=format"
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=250&fit=crop&auto=format&q=75"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const services = [
     description: "ฟันสวยเป็นธรรมชาติ เปลี่ยนรอยยิ้มให้สมบูรณ์แบบ",
     price: "เริ่มต้น ฿8,000",
     popular: false,
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop&auto=format"
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=250&fit=crop&auto=format&q=75"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const services = [
     description: "รักษาฟันผุ ถอนฟันคุด ด้วยเทคนิคไม่เจ็บ",
     price: "เริ่มต้น ฿300",
     popular: false,
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&auto=format"
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&auto=format&q=75"
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const services = [
     description: "รักษาฟันให้อยู่ได้นาน ป้องกันการสูญเสียฟัน",
     price: "เริ่มต้น ฿3,000",
     popular: false,
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&auto=format"
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop&auto=format&q=75"
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const services = [
     description: "ทดแทนฟันที่หายไป แข็งแรงเหมือนฟันจริง",
     price: "เริ่มต้น ฿25,000",
     popular: true,
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=400&fit=crop&auto=format"
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=250&fit=crop&auto=format&q=75"
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ const services = [
     description: "เหมาะกับวัยรุ่นและวัยทำงาน มองไม่เห็นขณะใส่",
     price: "เริ่มต้น ฿80,000",
     popular: true,
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop&auto=format"
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=250&fit=crop&auto=format&q=75"
   }
 ];
 
@@ -73,7 +73,7 @@ export const ServicesSection = () => {
       <div className="container-spacing relative z-10">
         {/* Section Header */}
         <div className="text-center element-spacing max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-soft mb-6">
+          <div className="inline-flex items-center bg-white/80 rounded-full px-6 py-3 shadow-soft mb-6">
             <Heart className="w-5 h-5 text-dental-primary mr-2" />
             <span className="text-caption font-medium text-dental-primary uppercase tracking-wider">
               บริการของเรา
@@ -106,10 +106,10 @@ export const ServicesSection = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service) => (
-            <Card key={service.id} className="group card-elevated hover:-translate-y-3 transition-all duration-500 overflow-hidden bg-white/95 backdrop-blur-sm border-0">
+            <Card key={service.id} className="group card-elevated hover:-translate-y-2 transition-all duration-200 overflow-hidden bg-white/95 border-0">
               {service.popular && (
                 <div className="absolute top-4 right-4 z-20">
-                  <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-pulse">
+                  <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
                     <Sparkles className="w-3 h-3 mr-1 inline" />
                     ยอดนิยม
                   </div>
@@ -122,13 +122,14 @@ export const ServicesSection = () => {
                   <img 
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                   
                   {/* Floating Icon */}
                   <div className="absolute top-4 left-4">
-                    <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
                       <service.icon className="w-6 h-6 text-dental-primary" />
                     </div>
                   </div>
@@ -137,7 +138,7 @@ export const ServicesSection = () => {
                 {/* Content Section */}
                 <div className="card-spacing space-y-4">
                   <div className="space-y-3">
-                    <h4 className="heading-card group-hover:text-dental-primary transition-colors duration-300">
+                    <h4 className="heading-card group-hover:text-dental-primary transition-colors duration-200">
                       {service.title}
                     </h4>
                     
@@ -158,12 +159,12 @@ export const ServicesSection = () => {
                   
                   {/* CTA Button */}
                   <Button 
-                    className="btn-primary w-full group-hover:bg-dental-primary-hover transition-all duration-300"
+                    className="btn-primary w-full group-hover:bg-dental-primary-hover transition-all duration-200"
                     onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
                   >
                     <Facebook className="w-4 h-4 mr-2" />
                     สอบถามและจองคิว
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                   </Button>
                 </div>
               </CardContent>
@@ -215,7 +216,7 @@ export const ServicesSection = () => {
                 <div className="w-1 h-8 bg-dental-accent"></div>
                 <div className="text-center">
                   <div className="text-lg font-bold text-dental-primary">4.9/5</div>
-                  <div className="text-caption text-dental-light">คะแนนรีวิว</div>
+                  <div className="text-caption text-dental-light">ค่าแนนรีวิว</div>
                 </div>
               </div>
             </div>

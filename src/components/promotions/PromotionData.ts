@@ -28,7 +28,7 @@ export const promotions: Promotion[] = [
     isNew: false,
     isPopular: true,
     gradient: "from-red-500 to-pink-500",
-    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=300&h=200&fit=crop&auto=format&q=75",
     endDate: "2024-12-31"
   },
   {
@@ -43,7 +43,7 @@ export const promotions: Promotion[] = [
     isNew: true,
     isPopular: false,
     gradient: "from-blue-500 to-cyan-500",
-    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=300&h=200&fit=crop&auto=format&q=75",
     endDate: "2025-01-15"
   },
   {
@@ -58,7 +58,7 @@ export const promotions: Promotion[] = [
     isNew: false,
     isPopular: false,
     gradient: "from-purple-500 to-indigo-500",
-    image: "https://images.unsplash.com/photo-1606811843722-d80b4b3fb5e5?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1606811843722-d80b4b3fb5e5?w=300&h=200&fit=crop&auto=format&q=75",
     endDate: "2025-02-28"
   },
   {
@@ -73,7 +73,7 @@ export const promotions: Promotion[] = [
     isNew: false,
     isPopular: true,
     gradient: "from-green-500 to-emerald-500",
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=300&h=200&fit=crop&auto=format&q=75",
     endDate: "2025-03-31"
   }
 ];
