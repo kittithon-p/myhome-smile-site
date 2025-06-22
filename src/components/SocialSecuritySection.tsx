@@ -1,9 +1,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CreditCard, Shield, CheckCircle, Phone, MapPin, Clock } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CreditCard, Shield, CheckCircle, Phone, MapPin, Clock, Heart, Star } from "lucide-react";
 
-const services = [
+const goldCardServices = [
   "ตรวจสุขภาพฟัน",
   "ถอนฟัน", 
   "ขูดหินปูน",
@@ -12,103 +13,219 @@ const services = [
   "เคลือบฟลูออไรด์"
 ];
 
+const socialSecurityServices = [
+  "ตรวจสุขภาพฟัน",
+  "ถอนฟัน",
+  "ขูดหินปูน", 
+  "อุดฟัน",
+  "รักษารากฟัน (บางกรณี)",
+  "ผ่าฟันคุด (บางกรณี)"
+];
+
 export const SocialSecuritySection = () => {
   return (
-    <section className="section-spacing bg-gradient-to-br from-green-50/50 via-blue-50/30 to-white relative overflow-hidden">
+    <section className="section-spacing bg-gradient-to-br from-amber-50/30 via-green-50/20 to-blue-50/30 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-amber-400 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-green-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+      </div>
+
       <div className="container mx-auto container-spacing relative z-10">
         {/* Header */}
-        <div className="text-center whitespace-section">
-          <div className="inline-flex items-center btn-success px-10 py-6 radius-card shadow-sm mb-12">
-            <CreditCard className="w-8 h-8 mr-4" />
-            <span className="text-xl font-medium">บัตรทอง</span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center bg-gradient-to-r from-amber-500 to-green-500 text-white px-8 py-4 rounded-2xl shadow-lg mb-8">
+            <Heart className="w-6 h-6 mr-3" />
+            <span className="text-lg font-medium">สิทธิการรักษา</span>
           </div>
           
-          <h2 className="heading-section mb-12 leading-tight">
-            สามารถใช้รักษาฟันได้
-            <span className="block font-medium text-dental-secondary mt-4">
-              หลากหลายรายการ
+          <h2 className="heading-section mb-6 leading-tight">
+            เลือกสิทธิที่เหมาะกับคุณ
+            <span className="block font-medium text-dental-secondary mt-2">
+              รักษาฟันครบทุกรายการ
             </span>
           </h2>
           
-          <p className="text-body-large mb-8">
-            เพียงยื่น<span className="text-dental-secondary font-semibold">บัตรประชาชนเท่านั้น!</span>
+          <p className="text-body-large text-dental-light max-w-2xl mx-auto">
+            MY HOME Dental Clinic รับทั้งบัตรทองและประกันสังคม 
+            <span className="text-dental-secondary font-semibold"> แค่นำบัตรประชาชนมา!</span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
-          {/* Left Side - Services List */}
-          <Card className="relative overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-500 border-0 bg-white radius-large">
-            <CardContent className="card-spacing">
-              <div className="flex items-center mb-8 md:mb-12">
-                <Shield className="w-8 h-8 md:w-12 md:h-12 mr-3 md:mr-5 text-dental-secondary" />
-                <h3 className="heading-card">บริการที่ครอบคลุม</h3>
-              </div>
-              
-              <div className="space-y-4 md:space-y-6">
-                {services.map((service, index) => (
-                  <div key={index} className="flex items-center card-spacing bg-gray-50 radius-card hover:bg-gray-100 transition-all duration-300">
-                    <CheckCircle className="w-6 h-6 md:w-7 md:h-7 text-dental-success mr-3 md:mr-5 flex-shrink-0" />
-                    <span className="text-base md:text-xl font-medium text-dental">{service}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-8 md:mt-12 card-spacing bg-gradient-to-r from-green-50 to-emerald-50 radius-large border-2 border-green-100">
-                <div className="text-center">
-                  <div className="text-3xl md:text-5xl font-light text-dental-secondary mb-4">900 บาท/ปี</div>
-                  <div className="text-lg md:text-xl text-dental-secondary font-medium">สิทธิประกันสังคม</div>
-                  <div className="text-body mt-3 text-green-500">ไม่ต้องสำรองจ่าย</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Tabs for Gold Card and Social Security */}
+        <Tabs defaultValue="gold-card" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 mb-12 h-14 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-2">
+            <TabsTrigger 
+              value="gold-card" 
+              className="text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-yellow-500 data-[state=active]:text-white rounded-xl transition-all duration-300"
+            >
+              <CreditCard className="w-5 h-5 mr-2" />
+              บัตรทอง
+            </TabsTrigger>
+            <TabsTrigger 
+              value="social-security" 
+              className="text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-emerald-500 data-[state=active]:text-white rounded-xl transition-all duration-300"
+            >
+              <Shield className="w-5 h-5 mr-2" />
+              ประกันสังคม
+            </TabsTrigger>
+          </TabsList>
 
-          {/* Right Side - Call to Action */}
-          <div className="text-center lg:text-left space-y-8 md:space-y-12">
-            <div className="bg-white/90 backdrop-blur-sm radius-large card-spacing shadow-lg border border-gray-100">
-              <div className="heading-card mb-8 md:mb-12 leading-relaxed">
-                ไม่ต้องรอปวดฟัน<br />
-                <span className="text-dental-secondary font-medium">รีบมาดูแลกันนะครับ</span>
-              </div>
-              
-              <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
-                <div className="flex items-center justify-center lg:justify-start">
-                  <CheckCircle className="w-6 h-6 md:w-7 md:h-7 text-dental-success mr-4" />
-                  <span className="text-base md:text-xl font-medium text-dental">แค่บัตรประชาชนใบเดียว</span>
+          {/* Gold Card Content */}
+          <TabsContent value="gold-card" className="space-y-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Side - Gold Card Info */}
+              <Card className="relative overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-amber-50 to-yellow-50">
+                <CardContent className="card-spacing">
+                  <div className="flex items-center mb-8">
+                    <div className="bg-gradient-to-r from-amber-500 to-yellow-500 p-3 rounded-2xl mr-4">
+                      <CreditCard className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="heading-card text-amber-600">บัตรทอง</h3>
+                      <p className="text-sm text-amber-600/70">บัตรประกันสุขภาพถ้วนหน้า</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    {goldCardServices.map((service, index) => (
+                      <div key={index} className="flex items-center p-3 bg-white/70 rounded-xl hover:bg-white transition-all duration-300">
+                        <CheckCircle className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" />
+                        <span className="text-base font-medium text-dental">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-6 rounded-2xl border-2 border-amber-200">
+                    <div className="text-center">
+                      <div className="text-4xl font-light text-amber-600 mb-2">ฟรี</div>
+                      <div className="text-lg text-amber-600 font-medium">ไม่มีค่าใช้จ่าย</div>
+                      <div className="text-sm text-amber-600/70 mt-2">สิทธิบัตรทอง</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Right Side - Gold Card CTA */}
+              <div className="text-center lg:text-left space-y-8">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-amber-100">
+                  <div className="heading-card mb-8 text-amber-600 leading-relaxed">
+                    บัตรทองใช้ได้เลย!<br />
+                    <span className="text-dental font-medium">ฟรีทุกรายการ</span>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center justify-center lg:justify-start">
+                      <CheckCircle className="w-6 h-6 text-amber-500 mr-4" />
+                      <span className="text-base font-medium text-dental">แค่บัตรประชาชน + บัตรทอง</span>
+                    </div>
+                    <div className="flex items-center justify-center lg:justify-start">
+                      <CheckCircle className="w-6 h-6 text-amber-500 mr-4" />
+                      <span className="text-base font-medium text-dental">ไม่ต้องจ่ายเงินเพิ่ม</span>
+                    </div>
+                    <div className="flex items-center justify-center lg:justify-start">
+                      <CheckCircle className="w-6 h-6 text-amber-500 mr-4" />
+                      <span className="text-base font-medium text-dental">รักษาได้ทันที</span>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    size="lg" 
+                    className="mobile-cta bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white"
+                    onClick={() => window.open('tel:062-649-9979', '_self')}
+                  >
+                    <Phone className="w-5 h-5 mr-3" />
+                    โทรจองคิวบัตรทอง
+                  </Button>
                 </div>
-                <div className="flex items-center justify-center lg:justify-start">
-                  <CheckCircle className="w-6 h-6 md:w-7 md:h-7 text-dental-success mr-4" />
-                  <span className="text-base md:text-xl font-medium text-dental">ได้ทั้ง ถอน อุด ขูด ผ่า</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start">
-                  <CheckCircle className="w-6 h-6 md:w-7 md:h-7 text-dental-success mr-4" />
-                  <span className="text-base md:text-xl font-medium text-dental">รักษาก่อน สบายกว่า</span>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <Button 
-                  size="lg" 
-                  className="mobile-cta btn-success"
-                  onClick={() => window.open('tel:062-649-9979', '_self')}
-                >
-                  <Phone className="w-5 h-5 md:w-7 md:h-7 mr-4" />
-                  โทรสอบถาม 062-649-9979
-                </Button>
               </div>
             </div>
-          </div>
-        </div>
+          </TabsContent>
+
+          {/* Social Security Content */}
+          <TabsContent value="social-security" className="space-y-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Side - Social Security Info */}
+              <Card className="relative overflow-hidden shadow-xl group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-green-50 to-emerald-50">
+                <CardContent className="card-spacing">
+                  <div className="flex items-center mb-8">
+                    <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-3 rounded-2xl mr-4">
+                      <Shield className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="heading-card text-green-600">ประกันสังคม</h3>
+                      <p className="text-sm text-green-600/70">สิทธิประกันสังคม</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    {socialSecurityServices.map((service, index) => (
+                      <div key={index} className="flex items-center p-3 bg-white/70 rounded-xl hover:bg-white transition-all duration-300">
+                        <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                        <span className="text-base font-medium text-dental">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-green-100 to-emerald-100 p-6 rounded-2xl border-2 border-green-200">
+                    <div className="text-center">
+                      <div className="text-4xl font-light text-green-600 mb-2">900 บาท/ปี</div>
+                      <div className="text-lg text-green-600 font-medium">สิทธิประกันสังคม</div>
+                      <div className="text-sm text-green-600/70 mt-2">ไม่ต้องสำรองจ่าย</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Right Side - Social Security CTA */}
+              <div className="text-center lg:text-left space-y-8">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100">
+                  <div className="heading-card mb-8 text-green-600 leading-relaxed">
+                    ประกันสังคมครอบคลุม<br />
+                    <span className="text-dental font-medium">รักษาสบายกว่า</span>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center justify-center lg:justify-start">
+                      <CheckCircle className="w-6 h-6 text-green-500 mr-4" />
+                      <span className="text-base font-medium text-dental">แค่บัตรประชาชนเท่านั้น</span>
+                    </div>
+                    <div className="flex items-center justify-center lg:justify-start">
+                      <CheckCircle className="w-6 h-6 text-green-500 mr-4" />
+                      <span className="text-base font-medium text-dental">ได้ทั้ง ถอน อุด ขูด ผ่า</span>
+                    </div>
+                    <div className="flex items-center justify-center lg:justify-start">
+                      <CheckCircle className="w-6 h-6 text-green-500 mr-4" />
+                      <span className="text-base font-medium text-dental">รักษาก่อน สบายกว่า</span>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    size="lg" 
+                    className="mobile-cta bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white"
+                    onClick={() => window.open('tel:062-649-9979', '_self')}
+                  >
+                    <Phone className="w-5 h-5 mr-3" />
+                    โทรจองคิวประกันสังคม
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
         
         {/* Bottom highlight */}
-        <div className="text-center mt-16 md:mt-24">
-          <div className="inline-block bg-white/90 backdrop-blur-sm radius-large card-spacing shadow-lg border border-gray-100">
-            <div className="heading-card mb-6">
-              <CheckCircle className="w-8 h-8 md:w-10 md:h-10 text-dental-success inline mr-4" />
-              ตรวจสุขภาพช่องปาก #ฟรี ไม่มีค่าใช้จ่าย
+        <div className="text-center mt-16">
+          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100">
+            <div className="flex items-center justify-center mb-4">
+              <Star className="w-8 h-8 text-amber-500 mr-3" />
+              <div className="heading-card">
+                ตรวจสุขภาพช่องปาก #ฟรี ไม่มีค่าใช้จ่าย
+              </div>
             </div>
-            <div className="text-body-large">
-              ให้บริการที่ MY HOME Dental Clinic
+            <div className="text-body-large text-dental-light">
+              ให้บริการที่ MY HOME Dental Clinic ทั้งบัตรทองและประกันสังคม
             </div>
           </div>
         </div>
