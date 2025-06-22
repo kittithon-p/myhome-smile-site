@@ -1,110 +1,169 @@
 
 import { Button } from "@/components/ui/button";
-import { Facebook, CheckCircle, Clock, Award, Users, Phone, MessageCircle } from "lucide-react";
+import { Facebook, CheckCircle, Clock, Award, Users, Phone, MessageCircle, Star, Shield, Zap } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-white via-blue-50/30 to-green-50/20 text-dental section-spacing overflow-hidden min-h-[80vh] md:min-h-screen">
-      {/* Background elements - smaller on mobile */}
-      <div className="absolute top-20 right-10 md:top-32 md:right-32 w-48 h-48 md:w-96 md:h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 md:bottom-32 md:left-32 w-40 h-40 md:w-80 md:h-80 bg-green-100/15 rounded-full blur-3xl"></div>
+    <section id="home" className="relative gradient-hero min-h-screen flex items-center overflow-hidden">
+      {/* Professional Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-dental-primary/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-dental-secondary/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-dental-accent/10 rounded-full blur-3xl"></div>
+      </div>
       
-      <div className="container mx-auto container-spacing relative z-10 h-full flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-32 items-center w-full">
-          {/* Left Side - Content */}
-          <div className="lg:col-span-5 text-center lg:text-left space-y-6 md:space-y-8">
-            {/* Trust indicators - Mobile optimized */}
-            <div className="flex items-center justify-center lg:justify-start mb-6 md:mb-8">
-              <div className="flex flex-col md:flex-row items-center md:space-x-6 bg-white/90 backdrop-blur-sm radius-card px-4 py-3 md:px-8 md:py-4 shadow-sm border border-gray-100/50 space-y-2 md:space-y-0">
+      <div className="container-spacing relative z-10 section-spacing">
+        <div className="grid-hero">
+          {/* Left Content - Enhanced */}
+          <div className="lg:col-span-6 text-center lg:text-left animate-fade-in">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-soft mb-8 border border-dental-accent">
+              <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
-                  <Award className="w-4 h-4 md:w-5 md:h-5 text-dental-primary" />
-                  <span className="text-sm md:text-base font-medium text-gray-700">ประสบการณ์ 10+ ปี</span>
+                  <Award className="w-5 h-5 text-dental-primary" />
+                  <span className="text-caption font-semibold text-dental">ประสบการณ์ 10+ ปี</span>
                 </div>
-                <div className="hidden md:block w-px h-6 bg-gray-200"></div>
+                <div className="w-px h-4 bg-dental-accent"></div>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-4 h-4 md:w-5 md:h-5 text-dental-secondary" />
-                  <span className="text-sm md:text-base font-medium text-gray-700">ลูกค้า 1,200+ ราย</span>
+                  <Users className="w-5 h-5 text-dental-secondary" />
+                  <span className="text-caption font-semibold text-dental">ลูกค้า 1,200+ ราย</span>
+                </div>
+                <div className="w-px h-4 bg-dental-accent"></div>
+                <div className="flex items-center space-x-1">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  ))}
+                  <span className="text-caption font-semibold text-dental ml-1">4.8</span>
                 </div>
               </div>
             </div>
             
-            {/* Main headline - Mobile first */}
-            <div className="space-y-4 md:space-y-6">
-              <h1 className="heading-hero">
-                ยิ้มสวย
-                <span className="block font-semibold text-dental-primary mt-2 md:mt-4">
+            {/* Main Headlines */}
+            <div className="element-spacing mb-12">
+              <h1 className="heading-hero mb-6">
+                <span className="block">ยิ้มสวย</span>
+                <span className="block bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent font-bold">
                   มั่นใจทุกวัน
                 </span>
               </h1>
               
-              <p className="text-body-large">
-                คลินิกทันตกรรมครบวงจร
-                <span className="block text-body mt-2 text-gray-500">
-                  บางละมุง ชลบุรี
+              <p className="text-body-large max-w-lg mx-auto lg:mx-0 mb-8">
+                คลินิกทันตกรรมครบวงจร บางละมุง ชลบุรี
+                <span className="block text-dental-light mt-2">
+                  ด้วยเทคโนโลยีทันสมัย และทีมแพทย์ผู้เชี่ยวชาญ
                 </span>
               </p>
             </div>
             
-            {/* Key benefits */}
-            <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 text-gray-500">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-dental-success" />
-                <span className="text-body">ทันตแพทย์ผู้เชี่ยวชาญ</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 md:w-5 md:h-5 text-dental-primary" />
-                <span className="text-body">เปิดถึง 20:00 น.</span>
-              </div>
+            {/* Key Benefits */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto lg:mx-0">
+              {[
+                { icon: Shield, text: "ทันตแพทย์ผู้เชี่ยวชาญ", color: "text-dental-primary" },
+                { icon: Clock, text: "เปิดถึง 20:00 น.", color: "text-dental-secondary" },
+                { icon: Zap, text: "เทคโนโลยีทันสมัย", color: "text-dental-success" },
+                { icon: CheckCircle, text: "รับประกันคุณภาพ", color: "text-dental-warning" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-soft">
+                  <item.icon className={`w-5 h-5 ${item.color}`} />
+                  <span className="text-body font-medium text-dental">{item.text}</span>
+                </div>
+              ))}
             </div>
             
-            {/* Mobile CTA Buttons */}
-            <div className="pt-4 md:pt-6 space-y-3 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+            {/* CTA Buttons - Enhanced */}
+            <div className="flex flex-col md:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="mobile-cta btn-success order-1 md:order-2"
+                className="mobile-cta btn-success shadow-strong hover:shadow-3xl group"
                 onClick={() => window.open('tel:062-649-9979', '_self')}
               >
-                <Phone className="w-5 h-5 mr-3" />
-                โทรเลย 062-649-9979
+                <Phone className="w-6 h-6 mr-3 group-hover:animate-bounce" />
+                <div className="text-left">
+                  <div className="font-bold">โทรเลย</div>
+                  <div className="text-sm opacity-90">062-649-9979</div>
+                </div>
               </Button>
               
               <Button 
                 size="lg" 
-                className="mobile-cta btn-primary order-2 md:order-1"
+                className="mobile-cta btn-primary shadow-strong hover:shadow-3xl group"
                 onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
               >
-                <Facebook className="w-5 h-5 mr-3" />
-                รับคำปรึกษาฟรี
+                <Facebook className="w-6 h-6 mr-3 group-hover:animate-bounce" />
+                <div className="text-left">
+                  <div className="font-bold">จองคิวออนไลน์</div>
+                  <div className="text-sm opacity-90">ตอบภายใน 1 ชม.</div>
+                </div>
               </Button>
             </div>
           </div>
 
-          {/* Right Side - Hero Image */}
-          <div className="lg:col-span-7 order-first lg:order-last">
-            <div className="relative radius-large overflow-hidden shadow-xl group bg-white p-2 md:p-4">
-              <img 
-                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop"
-                alt="ทีมทันตแพทย์และคนไข้ยิ้ม"
-                className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700 radius-card"
-                loading="eager"
-              />
-              
-              {/* Floating stats */}
-              <div className="absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6 bg-white/95 backdrop-blur-sm radius-large card-spacing shadow-lg border border-gray-100">
-                <div className="flex items-center justify-center space-x-8 md:space-x-12">
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-dental-primary mb-1 md:mb-2">98%</div>
-                    <div className="text-xs md:text-sm text-gray-600">ลูกค้าพอใจ</div>
-                  </div>
-                  <div className="w-px h-12 md:h-16 bg-gray-200"></div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-dental-secondary mb-1 md:mb-2">10+</div>
-                    <div className="text-xs md:text-sm text-gray-600">ปีประสบการณ์</div>
+          {/* Right Content - Hero Image Enhanced */}
+          <div className="lg:col-span-6 animate-slide-up">
+            <div className="relative card-elevated hover:shadow-3xl group overflow-hidden">
+              <div className="aspect-[4/3] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop"
+                  alt="ทีมทันตแพทย์และคนไข้ยิ้ม"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="eager"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                
+                {/* Floating Stats - Enhanced */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-strong border border-white/20">
+                    <div className="grid grid-cols-3 gap-6 text-center">
+                      <div className="group">
+                        <div className="text-3xl md:text-4xl font-bold gradient-primary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                          98%
+                        </div>
+                        <div className="text-caption text-dental-light">ความพอใจ</div>
+                      </div>
+                      <div className="group border-x border-dental-accent px-4">
+                        <div className="text-3xl md:text-4xl font-bold text-dental-secondary mb-2 group-hover:scale-110 transition-transform duration-300">
+                          10+
+                        </div>
+                        <div className="text-caption text-dental-light">ปีประสบการณ์</div>
+                      </div>
+                      <div className="group">
+                        <div className="text-3xl md:text-4xl font-bold text-dental-success mb-2 group-hover:scale-110 transition-transform duration-300">
+                          1.2K+
+                        </div>
+                        <div className="text-caption text-dental-light">ลูกค้า</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* Service Preview Badges */}
+              <div className="absolute top-6 left-6 flex flex-col space-y-3">
+                {[
+                  { text: "จัดฟันใส", color: "bg-dental-primary" },
+                  { text: "ฟอกสีฟ���น", color: "bg-dental-secondary" },
+                  { text: "รากฟันเทียม", color: "bg-dental-success" }
+                ].map((service, index) => (
+                  <div 
+                    key={index}
+                    className={`${service.color} text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm animate-scale-in`}
+                    style={{ animationDelay: `${index * 200}ms` }}
+                  >
+                    {service.text}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-dental-primary rounded-full flex justify-center items-start p-2">
+          <div className="w-1 h-3 bg-dental-primary rounded-full animate-pulse"></div>
         </div>
       </div>
     </section>
