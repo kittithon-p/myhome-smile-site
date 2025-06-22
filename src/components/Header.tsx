@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Facebook, Phone, Menu, X } from "lucide-react";
+import { Facebook, Phone, Menu, X, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 export const Header = () => {
