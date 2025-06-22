@@ -144,6 +144,10 @@
     border-color: hsl(var(--dental-success));
   }
 
+  .outline-dental-primary {
+    outline-color: hsl(var(--dental-primary));
+  }
+
   /* === TYPOGRAPHY SYSTEM === */
   .heading-hero {
     @apply text-[28px] md:text-[42px] lg:text-[52px] font-bold text-dental leading-[1.2] tracking-tight;
