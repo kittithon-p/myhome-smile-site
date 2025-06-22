@@ -16,35 +16,35 @@ const reviewImages = [
     id: 2,
     src: "/lovable-uploads/69e47a0f-288d-4dad-99b8-8b4da9b987f9.png",
     title: "ผลลัพธ์ก่อน-หลังการอุดฟันหน้า",
-    description: "อุดเติมฟันหน้า เพื่อความสวยงาม ไม่ให้การอุดฟันผุผะคะ",
+    description: "อุดเติมฟันหน้า เพื่อความสวยงาม",
     category: "อุดฟัน"
   },
   {
     id: 3,
     src: "/lovable-uploads/3ca78caf-38bf-470e-b7e4-01b06d8cf9eb.png",
     title: "ผลลัพธ์ก่อน-หลังขูดหินปูน",
-    description: "ควรขูดหินปูนเป็นประจำทุก 6-12 เดือน เพื่อสุขภาพเหงือกที่ดี",
+    description: "ควรขูดหินปูนเป็นประจำทุก 6-12 เดือน",
     category: "ขูดหินปูน"
   },
   {
     id: 4,
     src: "/lovable-uploads/e4ed645f-b1a2-4c03-b046-14345a4e0eac.png",
     title: "ผลลัพธ์ก่อน-หลังฟอกสีฟัน",
-    description: "ผลลัพธ์ที่น่อยใจในฟันแต่ละบุคคล หลังหอกควรเสียงการกาบอาหารสีเข้มขุ่นะคะ",
+    description: "ผลลัพธ์ที่น่าพอใจในฟันแต่ละบุคคล",
     category: "ฟอกสีฟัน"
   },
   {
     id: 5,
     src: "/lovable-uploads/947af994-08d4-4d55-ade2-9f3ddae28ad0.png",
     title: "ผลลัพธ์ก่อน-หลังใส่ครอบฟัน",
-    description: "การทำครอบฟันอาจรู้สึกเจ็บ หรือเสียวฟันระหว่างการรรักษา",
+    description: "การทำครอบฟันเพื่อฟันที่สวยงาม",
     category: "ครอบฟัน"
   },
   {
     id: 6,
     src: "/lovable-uploads/bf476b9c-c12c-4eb9-b38a-111f28ca0342.png",
-    title: "Composite Veneer (คอมโพสิต วิเนียร์)",
-    description: "สวยงามเป็นธรรมชาติ ไม่ต้องกรอฟันมาก ทำเสร็จในวันเดียว",
+    title: "Composite Veneer",
+    description: "สวยงามเป็นธรรมชาติ ทำเสร็จในวันเดียว",
     category: "วิเนียร์"
   }
 ];
@@ -68,20 +68,21 @@ export const ReviewsSection = () => {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl lg:text-4xl font-light text-gray-800 mb-6">
+    <section className="section-spacing bg-gray-50/50 relative overflow-hidden">
+      <div className="container mx-auto container-spacing relative z-10">
+        {/* Section Header */}
+        <div className="text-center whitespace-section">
+          <h2 className="text-4xl lg:text-5xl font-light text-dental mb-8">
             ผลงานการรักษา
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            ชมผลงานการรักษาจริงจากลูกค้าของเรา เห็นความแตกต่างก่อนและหลังการรักษา
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            ชมผลงานการรักษาจริงจากลูกค้าของเรา
           </p>
-          <div className="w-16 h-px bg-gray-300 mx-auto mt-8"></div>
+          <div className="w-24 h-1 bg-blue-200 mx-auto mt-12 rounded-full"></div>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        {/* Category Filter - cleaner design */}
+        <div className="flex flex-wrap justify-center gap-4 mb-20">
           {categories.map((category) => (
             <button
               key={category}
@@ -89,10 +90,10 @@ export const ReviewsSection = () => {
                 setSelectedCategory(category);
                 setCurrentImageIndex(0);
               }}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-8 py-4 rounded-2xl text-base font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? "bg-gray-800 text-white shadow-sm"
-                  : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
+                  ? "bg-blue-700 text-white shadow-md"
+                  : "bg-white text-gray-600 border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300"
               }`}
             >
               {category}
@@ -100,16 +101,16 @@ export const ReviewsSection = () => {
           ))}
         </div>
 
-        {/* Main Image Display - เน้นรูปภาพให้ใหญ่และเด่น */}
+        {/* Main Image Display - larger and more prominent */}
         {filteredImages.length > 0 && (
-          <div className="max-w-5xl mx-auto mb-16">
-            <Card className="overflow-hidden shadow-lg border-0 bg-white">
+          <div className="max-w-6xl mx-auto mb-20">
+            <Card className="overflow-hidden shadow-xl border-0 bg-white rounded-3xl">
               <CardContent className="p-0">
                 <div className="relative">
                   <img 
                     src={filteredImages[currentImageIndex].src}
                     alt={filteredImages[currentImageIndex].title}
-                    className="w-full h-auto object-contain bg-white max-h-[600px]"
+                    className="w-full h-auto object-contain bg-white max-h-[700px]"
                   />
                   
                   {/* Navigation Arrows */}
@@ -117,42 +118,42 @@ export const ReviewsSection = () => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                        className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-gray-700 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-110"
                       >
-                        <ChevronLeft className="w-6 h-6" />
+                        <ChevronLeft className="w-8 h-8" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                        className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-gray-700 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-110"
                       >
-                        <ChevronRight className="w-6 h-6" />
+                        <ChevronRight className="w-8 h-8" />
                       </button>
                     </>
                   )}
                   
                   {/* Image Counter */}
                   {filteredImages.length > 1 && (
-                    <div className="absolute bottom-6 right-6 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
+                    <div className="absolute bottom-8 right-8 bg-black/80 text-white px-6 py-3 rounded-2xl text-base font-medium">
                       {currentImageIndex + 1} / {filteredImages.length}
                     </div>
                   )}
                 </div>
                 
-                <div className="p-8 lg:p-12">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                <div className="card-spacing">
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="inline-block bg-blue-100 text-blue-700 px-6 py-3 rounded-2xl text-base font-medium">
                       {filteredImages[currentImageIndex].category}
                     </span>
                     <div className="flex items-center text-yellow-500">
                       {[1,2,3,4,5].map(i => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
+                        <Star key={i} className="w-5 h-5 fill-current" />
                       ))}
                     </div>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                  <h3 className="text-3xl font-medium text-dental mb-6">
                     {filteredImages[currentImageIndex].title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
+                  <p className="text-gray-600 leading-relaxed text-xl">
                     {filteredImages[currentImageIndex].description}
                   </p>
                 </div>
@@ -161,16 +162,16 @@ export const ReviewsSection = () => {
           </div>
         )}
 
-        {/* Thumbnails */}
+        {/* Thumbnails - larger and more spaced */}
         {filteredImages.length > 1 && (
-          <div className="flex justify-center gap-4 mb-16 overflow-x-auto pb-4">
+          <div className="flex justify-center gap-6 mb-20 overflow-x-auto pb-4">
             {filteredImages.map((image, index) => (
               <button
                 key={image.id}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-xl overflow-hidden border-2 transition-all duration-300 hover:scale-110 ${
+                className={`flex-shrink-0 w-28 h-28 lg:w-32 lg:h-32 rounded-2xl overflow-hidden border-3 transition-all duration-300 hover:scale-110 ${
                   index === currentImageIndex
-                    ? "border-gray-800 shadow-md"
+                    ? "border-blue-700 shadow-lg"
                     : "border-gray-200 hover:border-gray-400"
                 }`}
               >
@@ -184,19 +185,19 @@ export const ReviewsSection = () => {
           </div>
         )}
 
-        {/* CTA Section */}
-        <div className="text-center bg-white rounded-3xl p-12 shadow-sm border border-gray-100">
-          <h3 className="text-2xl lg:text-3xl font-light text-gray-800 mb-6">
+        {/* CTA Section - simplified */}
+        <div className="text-center bg-white rounded-3xl p-16 shadow-lg border border-gray-100">
+          <h3 className="text-3xl lg:text-4xl font-light text-dental mb-8">
             ต้องการผลลัพธ์แบบนี้เหมือนกัน? 
           </h3>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            ปรึกษาทันตแพทย์ผู้เชี่ยวชาญของเราได้ฟรี ผ่าน Facebook
+          <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+            ปรึกษาทันตแพทย์ผู้เชี่ยวชาญของเราได้ฟรี
           </p>
           <Button 
             size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 h-auto font-medium shadow-sm hover:shadow-md transition-all duration-300 rounded-xl"
+            className="bg-blue-700 hover:bg-blue-800 text-white px-12 py-6 h-auto text-lg font-medium shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl"
           >
-            <Facebook className="w-5 h-5 mr-3" />
+            <Facebook className="w-6 h-6 mr-4" />
             ปรึกษาฟรีทาง Facebook
           </Button>
         </div>
