@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Hospital, Phone, MapPin, Clock, Facebook, Star } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { SocialSecuritySection } from "@/components/SocialSecuritySection";
 import { PromotionsSection } from "@/components/PromotionsSection";
 import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -19,6 +21,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <ServicesSection />
+      <SocialSecuritySection />
       <PromotionsSection />
       <ReviewsSection />
       <WhyChooseUsSection />

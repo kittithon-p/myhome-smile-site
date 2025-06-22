@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Clock, Navigation, Facebook } from "lucide-react";
+import { MapPin, Phone, Clock, Navigation, Facebook, MessageCircle } from "lucide-react";
 
 export const ContactSection = () => {
   return (
@@ -25,11 +25,13 @@ export const ContactSection = () => {
                   <div className="text-center text-gray-600">
                     <MapPin className="w-12 h-12 mx-auto mb-4" />
                     <p className="text-lg font-semibold">Google Maps</p>
-                    <p className="text-sm">77/16 หมู่ 3 ต.ตะเคียนเตี้ย</p>
-                    <p className="text-sm">อ.บางละมุง จ.ชลบุรี 20150</p>
+                    <p className="text-sm">หมู่บ้าน Life Garden Home โรงโป๊ะ</p>
+                    <p className="text-sm">ตรงข้าม CJ mall ข้างร้านส้มโมบาย</p>
+                    <p className="text-sm">77/16 หมู่ 3 ต.ตะเคียนเตี้ย อ.บางละมุง จ.ชลบุรี 20150</p>
                     <Button 
                       variant="outline" 
                       className="mt-4 border-[#284c5d] text-[#284c5d] hover:bg-[#284c5d] hover:text-white"
+                      onClick={() => window.open('https://maps.app.goo.gl/W36TsP5M8CpBGGjq7', '_blank')}
                     >
                       <Navigation className="w-4 h-4 mr-2" />
                       ดูแผนที่ขนาดใหญ่
@@ -48,6 +50,8 @@ export const ContactSection = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-2">ที่อยู่คลินิก</h3>
                   <p className="text-white/90 leading-relaxed">
+                    หมู่บ้าน Life Garden Home โรงโป๊ะ<br />
+                    ตรงข้าม CJ mall ข้างร้านส้มโมบาย<br />
                     77/16 หมู่ 3 ต.ตะเคียนเตี้ย<br />
                     อ.บางละมุง จ.ชลบุรี 20150
                   </p>
@@ -63,6 +67,7 @@ export const ContactSection = () => {
                   <Button 
                     variant="outline" 
                     className="border-white text-white hover:bg-white hover:text-[#284c5d] mb-2"
+                    onClick={() => window.open('tel:062-649-9979', '_self')}
                   >
                     <Phone className="w-4 h-4 mr-2" />
                     062-649-9979
@@ -91,15 +96,26 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="pt-8 border-t border-white/20">
+            <div className="pt-8 border-t border-white/20 space-y-4">
               <Button 
                 size="lg" 
                 className="w-full bg-white text-[#284c5d] hover:bg-white/90 text-lg py-4"
+                onClick={() => window.open('https://www.facebook.com/myhomedentalclinic', '_blank')}
               >
                 <Facebook className="w-5 h-5 mr-3" />
                 นัดหมายทาง Facebook
               </Button>
-              <p className="text-center text-white/80 text-sm mt-3">
+              
+              <Button 
+                size="lg" 
+                className="w-full bg-green-500 text-white hover:bg-green-600 text-lg py-4"
+                onClick={() => window.open('https://lin.ee/8rP1iJi', '_blank')}
+              >
+                <MessageCircle className="w-5 h-5 mr-3" />
+                ติดต่อทาง Line
+              </Button>
+              
+              <p className="text-center text-white/80 text-sm">
                 ระบบนัดหมายออนไลน์ ตอบรับภายใน 1 ชั่วโมง
               </p>
             </div>
