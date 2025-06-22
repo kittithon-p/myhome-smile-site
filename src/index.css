@@ -217,15 +217,15 @@
   }
 
   .gradient-primary {
-    @apply bg-gradient-to-br from-dental-primary via-dental-primary to-dental-secondary;
+    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
   }
 
   .gradient-accent {
-    @apply bg-gradient-to-br from-dental-accent via-white to-dental-light;
+    background: linear-gradient(135deg, hsl(var(--dental-accent)), white, hsl(var(--dental-light)));
   }
 
   .gradient-hero {
-    @apply bg-gradient-to-br from-white via-dental-accent/30 to-dental-light/50;
+    background: linear-gradient(135deg, white, hsl(var(--dental-accent) / 0.3), hsl(var(--dental-light) / 0.5));
   }
 
   /* === GRID SYSTEM === */
