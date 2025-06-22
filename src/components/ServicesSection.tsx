@@ -7,7 +7,7 @@ const serviceCategories = [
   {
     category: "ความงาม",
     icon: Sparkles,
-    color: "bg-blue-100 text-blue-700",
+    color: "bg-blue-100 text-dental-primary",
     services: [
       {
         id: 1,
@@ -30,7 +30,7 @@ const serviceCategories = [
   {
     category: "สุขภาพฟัน",
     icon: Shield,
-    color: "bg-green-100 text-green-700",
+    color: "bg-green-100 text-dental-secondary",
     services: [
       {
         id: 3,
@@ -79,34 +79,34 @@ export const ServicesSection = () => {
   return (
     <section id="services" className="section-spacing bg-white relative overflow-hidden">
       <div className="container mx-auto container-spacing relative z-10">
-        {/* Section Header - tighter spacing */}
+        {/* Section Header */}
         <div className="text-center whitespace-section">
-          <h2 className="mobile-section-title mb-4">
+          <h2 className="heading-section mb-4">
             บริการของเรา
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-body-large max-w-2xl mx-auto">
             บริการทันตกรรมครบวงจร ด้วยทีมแพทย์ผู้เชี่ยวชาญ
           </p>
-          <div className="w-16 h-1 bg-blue-200 mx-auto mt-6 rounded-full"></div>
+          <div className="w-16 h-1 bg-blue-200 mx-auto mt-6 radius-standard"></div>
         </div>
 
         {serviceCategories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-8 md:mb-12">
-            {/* Category Header - simplified and tighter */}
+            {/* Category Header */}
             <div className="flex items-center justify-center mb-6 md:mb-8">
-              <div className={`flex items-center ${category.color} px-6 py-3 rounded-xl shadow-sm`}>
+              <div className={`flex items-center ${category.color} px-6 py-3 radius-standard shadow-sm`}>
                 <category.icon className="w-5 h-5 mr-3" />
-                <h3 className="text-lg md:text-xl font-medium">{category.category}</h3>
+                <h3 className="heading-card">{category.category}</h3>
               </div>
             </div>
 
-            {/* Services Grid - tighter spacing */}
-            <div className="mobile-grid">
+            {/* Services Grid */}
+            <div className="grid-standard">
               {category.services.map((service) => (
-                <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 border-0 shadow-sm overflow-hidden bg-white rounded-2xl">
+                <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 border-0 shadow-sm overflow-hidden bg-white radius-card">
                   {service.popular && (
                     <div className="absolute top-3 right-3 z-20">
-                      <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm">
+                      <div className="bg-orange-500 text-white px-3 py-1 radius-standard text-xs font-medium shadow-sm">
                         <Sparkles className="w-3 h-3 mr-1 inline" />
                         ยอดนิยม
                       </div>
@@ -114,7 +114,7 @@ export const ServicesSection = () => {
                   )}
                   
                   <CardContent className="p-0">
-                    {/* Image Section - smaller for mobile */}
+                    {/* Image Section */}
                     <div className="relative h-48 md:h-56 overflow-hidden">
                       <img 
                         src={service.image}
@@ -124,23 +124,23 @@ export const ServicesSection = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                     </div>
                     
-                    {/* Content Section - tighter spacing */}
-                    <div className="p-4 md:p-5 text-center space-y-3 md:space-y-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gray-50 text-gray-600 rounded-xl">
+                    {/* Content Section */}
+                    <div className="card-spacing text-center space-y-3 md:space-y-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gray-50 text-gray-600 radius-standard">
                         <service.icon className="w-6 h-6" />
                       </div>
                       
-                      <h4 className="text-lg md:text-xl font-medium text-dental">
+                      <h4 className="heading-card">
                         {service.title}
                       </h4>
                       
-                      <p className="text-gray-600 text-sm md:text-base">
+                      <p className="text-body">
                         {service.description}
                       </p>
                       
                       <div className="pt-2">
                         <Button 
-                          className="bg-blue-700 hover:bg-blue-800 transition-all duration-300 rounded-lg text-sm font-medium text-white px-6 py-2"
+                          className="btn-primary text-sm px-6 py-2"
                         >
                           <Facebook className="w-4 h-4 mr-2" />
                           สอบถาม

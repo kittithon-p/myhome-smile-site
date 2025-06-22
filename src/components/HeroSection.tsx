@@ -15,14 +15,14 @@ export const HeroSection = () => {
           <div className="lg:col-span-5 text-center lg:text-left space-y-6 md:space-y-8">
             {/* Trust indicators - Mobile optimized */}
             <div className="flex items-center justify-center lg:justify-start mb-6 md:mb-8">
-              <div className="flex flex-col md:flex-row items-center md:space-x-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-3 md:px-8 md:py-4 shadow-sm border border-gray-100/50 space-y-2 md:space-y-0">
+              <div className="flex flex-col md:flex-row items-center md:space-x-6 bg-white/90 backdrop-blur-sm radius-card px-4 py-3 md:px-8 md:py-4 shadow-sm border border-gray-100/50 space-y-2 md:space-y-0">
                 <div className="flex items-center space-x-2">
-                  <Award className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
+                  <Award className="w-4 h-4 md:w-5 md:h-5 text-dental-primary" />
                   <span className="text-sm md:text-base font-medium text-gray-700">ประสบการณ์ 10+ ปี</span>
                 </div>
                 <div className="hidden md:block w-px h-6 bg-gray-200"></div>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
+                  <Users className="w-4 h-4 md:w-5 md:h-5 text-dental-secondary" />
                   <span className="text-sm md:text-base font-medium text-gray-700">ลูกค้า 1,200+ ราย</span>
                 </div>
               </div>
@@ -30,30 +30,30 @@ export const HeroSection = () => {
             
             {/* Main headline - Mobile first */}
             <div className="space-y-4 md:space-y-6">
-              <h1 className="mobile-hero-text text-dental">
+              <h1 className="heading-hero">
                 ยิ้มสวย
-                <span className="block font-semibold text-blue-700 mt-2 md:mt-4">
+                <span className="block font-semibold text-dental-primary mt-2 md:mt-4">
                   มั่นใจทุกวัน
                 </span>
               </h1>
               
-              <p className="text-lg md:text-2xl lg:text-3xl text-gray-600 font-light leading-relaxed">
+              <p className="text-body-large">
                 คลินิกทันตกรรมครบวงจร
-                <span className="block text-base md:text-xl mt-2 text-gray-500">
+                <span className="block text-body mt-2 text-gray-500">
                   บางละมุง ชลบุรี
                 </span>
               </p>
             </div>
             
-            {/* Key benefits - Mobile optimized */}
+            {/* Key benefits */}
             <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 text-gray-500">
               <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
-                <span className="text-sm md:text-base">ทันตแพทย์ผู้เชี่ยวชาญ</span>
+                <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-dental-success" />
+                <span className="text-body">ทันตแพทย์ผู้เชี่ยวชาญ</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
-                <span className="text-sm md:text-base">เปิดถึง 20:00 น.</span>
+                <Clock className="w-4 h-4 md:w-5 md:h-5 text-dental-primary" />
+                <span className="text-body">เปิดถึง 20:00 น.</span>
               </div>
             </div>
             
@@ -61,44 +61,44 @@ export const HeroSection = () => {
             <div className="pt-4 md:pt-6 space-y-3 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
               <Button 
                 size="lg" 
-                className="mobile-cta bg-green-500 hover:bg-green-600 text-white shadow-sm hover:shadow-md transition-all duration-300 rounded-xl group order-1 md:order-2"
+                className="mobile-cta btn-success order-1 md:order-2"
                 onClick={() => window.open('tel:062-649-9979', '_self')}
               >
-                <Phone className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                <Phone className="w-5 h-5 mr-3" />
                 โทรเลย 062-649-9979
               </Button>
               
               <Button 
                 size="lg" 
-                className="mobile-cta bg-blue-700 hover:bg-blue-800 text-white shadow-sm hover:shadow-md transition-all duration-300 rounded-xl group order-2 md:order-1"
+                className="mobile-cta btn-primary order-2 md:order-1"
                 onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
               >
-                <Facebook className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                <Facebook className="w-5 h-5 mr-3" />
                 รับคำปรึกษาฟรี
               </Button>
             </div>
           </div>
 
-          {/* Right Side - Hero Image - Mobile optimized */}
+          {/* Right Side - Hero Image */}
           <div className="lg:col-span-7 order-first lg:order-last">
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl group bg-white p-2 md:p-4">
+            <div className="relative radius-large overflow-hidden shadow-xl group bg-white p-2 md:p-4">
               <img 
                 src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop"
                 alt="ทีมทันตแพทย์และคนไข้ยิ้ม"
-                className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700 rounded-xl md:rounded-2xl"
+                className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700 radius-card"
                 loading="eager"
               />
               
-              {/* Floating stats - Mobile optimized */}
-              <div className="absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6 bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg border border-gray-100">
+              {/* Floating stats */}
+              <div className="absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6 bg-white/95 backdrop-blur-sm radius-large card-spacing shadow-lg border border-gray-100">
                 <div className="flex items-center justify-center space-x-8 md:space-x-12">
                   <div className="text-center">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-blue-700 mb-1 md:mb-2">98%</div>
+                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-dental-primary mb-1 md:mb-2">98%</div>
                     <div className="text-xs md:text-sm text-gray-600">ลูกค้าพอใจ</div>
                   </div>
                   <div className="w-px h-12 md:h-16 bg-gray-200"></div>
                   <div className="text-center">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-green-700 mb-1 md:mb-2">10+</div>
+                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-dental-secondary mb-1 md:mb-2">10+</div>
                     <div className="text-xs md:text-sm text-gray-600">ปีประสบการณ์</div>
                   </div>
                 </div>
