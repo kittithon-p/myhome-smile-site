@@ -116,9 +116,9 @@
     color: hsl(var(--dental-text));
   }
 
-  /* Mobile-first spacing */
+  /* Mobile-first spacing - much tighter for mobile */
   .section-spacing {
-    @apply py-12 md:py-20 lg:py-32;
+    @apply py-8 md:py-12 lg:py-20;
   }
 
   .container-spacing {
@@ -130,7 +130,7 @@
   }
 
   .whitespace-section {
-    @apply mb-8 md:mb-12 lg:mb-16;
+    @apply mb-6 md:mb-8 lg:mb-12;
   }
 
   /* Mobile-optimized text sizes */
@@ -155,7 +155,7 @@ img {
 
 /* Mobile-first grid system */
 .mobile-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6;
 }
 
 /* Line clamp utilities for mobile */

@@ -35,50 +35,50 @@ export const WhyChooseUsSection = () => {
   return (
     <section className="section-spacing bg-white relative overflow-hidden">
       <div className="container mx-auto container-spacing relative z-10">
-        {/* Section Header */}
+        {/* Section Header - tighter spacing */}
         <div className="text-center whitespace-section">
-          <h2 className="text-4xl lg:text-5xl font-light text-dental mb-8">
+          <h2 className="mobile-section-title text-dental mb-4">
             3 เหตุผลที่ควรเลือกเรา
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             ความสะดวก ความเชื่อใจ และการบริการที่ดีที่สุด
           </p>
-          <div className="w-24 h-1 bg-blue-200 mx-auto mt-12 rounded-full"></div>
+          <div className="w-16 h-1 bg-blue-200 mx-auto mt-6 rounded-full"></div>
         </div>
 
-        {/* Stats Section - more spacious */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24">
+        {/* Stats Section - tighter spacing */}
+        <div className="mobile-grid mb-8 md:mb-12">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-50 rounded-3xl shadow-sm mb-8 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className={`w-10 h-10 ${stat.color}`} />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 rounded-2xl shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                <stat.icon className={`w-8 h-8 ${stat.color}`} />
               </div>
-              <div className={`text-5xl font-light ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`text-3xl md:text-4xl font-light ${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
                 {stat.number}
               </div>
-              <div className="text-gray-600 font-medium text-lg">{stat.label}</div>
+              <div className="text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Reasons Grid - more spacious */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        {/* Reasons Grid - tighter spacing */}
+        <div className="mobile-grid">
           {reasons.map((reason, index) => (
             <div key={index} className="text-center group relative">
-              <div className="relative z-10 p-12 lg:p-16 rounded-3xl bg-white hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-gray-200">
-                <div className={`inline-flex items-center justify-center w-20 h-20 bg-gray-50 ${reason.color} rounded-3xl mb-10 group-hover:scale-125 transition-all duration-500 shadow-sm group-hover:shadow-md`}>
-                  <reason.icon className="w-10 h-10" />
+              <div className="relative z-10 p-6 md:p-8 rounded-2xl bg-white hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-gray-200">
+                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gray-50 ${reason.color} rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300 shadow-sm`}>
+                  <reason.icon className="w-8 h-8" />
                 </div>
                 
-                <h3 className="text-2xl lg:text-3xl font-medium text-dental mb-6 group-hover:text-gray-900 transition-colors duration-300">
+                <h3 className="text-lg md:text-xl font-medium text-dental mb-3 group-hover:text-gray-900 transition-colors duration-300">
                   {reason.title}
                 </h3>
                 
-                <p className={`${reason.color} font-medium text-xl mb-8`}>
+                <p className={`${reason.color} font-medium mb-4`}>
                   {reason.description}
                 </p>
                 
-                <p className="text-gray-600 leading-relaxed text-lg group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-gray-600 text-sm md:text-base group-hover:text-gray-700 transition-colors duration-300">
                   {reason.detail}
                 </p>
               </div>

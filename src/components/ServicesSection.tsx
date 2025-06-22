@@ -79,70 +79,70 @@ export const ServicesSection = () => {
   return (
     <section id="services" className="section-spacing bg-white relative overflow-hidden">
       <div className="container mx-auto container-spacing relative z-10">
-        {/* Section Header - more spacious */}
+        {/* Section Header - tighter spacing */}
         <div className="text-center whitespace-section">
-          <h2 className="text-4xl lg:text-5xl font-light text-dental mb-8">
+          <h2 className="mobile-section-title mb-4">
             บริการของเรา
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             บริการทันตกรรมครบวงจร ด้วยทีมแพทย์ผู้เชี่ยวชาญ
           </p>
-          <div className="w-24 h-1 bg-blue-200 mx-auto mt-12 rounded-full"></div>
+          <div className="w-16 h-1 bg-blue-200 mx-auto mt-6 rounded-full"></div>
         </div>
 
         {serviceCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="whitespace-section">
-            {/* Category Header - simplified */}
-            <div className="flex items-center justify-center mb-20">
-              <div className={`flex items-center ${category.color} px-10 py-5 rounded-2xl shadow-sm`}>
-                <category.icon className="w-7 h-7 mr-4" />
-                <h3 className="text-2xl font-medium">{category.category}</h3>
+          <div key={categoryIndex} className="mb-8 md:mb-12">
+            {/* Category Header - simplified and tighter */}
+            <div className="flex items-center justify-center mb-6 md:mb-8">
+              <div className={`flex items-center ${category.color} px-6 py-3 rounded-xl shadow-sm`}>
+                <category.icon className="w-5 h-5 mr-3" />
+                <h3 className="text-lg md:text-xl font-medium">{category.category}</h3>
               </div>
             </div>
 
-            {/* Services Grid - more spacious */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            {/* Services Grid - tighter spacing */}
+            <div className="mobile-grid">
               {category.services.map((service) => (
-                <Card key={service.id} className="group hover:shadow-xl transition-all duration-500 border-0 shadow-sm overflow-hidden bg-white rounded-3xl">
+                <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 border-0 shadow-sm overflow-hidden bg-white rounded-2xl">
                   {service.popular && (
-                    <div className="absolute top-6 right-6 z-20">
-                      <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm">
-                        <Sparkles className="w-4 h-4 mr-1 inline" />
+                    <div className="absolute top-3 right-3 z-20">
+                      <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm">
+                        <Sparkles className="w-3 h-3 mr-1 inline" />
                         ยอดนิยม
                       </div>
                     </div>
                   )}
                   
                   <CardContent className="p-0">
-                    {/* Image Section - larger and more prominent */}
-                    <div className="relative h-64 overflow-hidden">
+                    {/* Image Section - smaller for mobile */}
+                    <div className="relative h-48 md:h-56 overflow-hidden">
                       <img 
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                     </div>
                     
-                    {/* Content Section - more spacious */}
-                    <div className="card-spacing text-center space-y-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 text-gray-600 rounded-2xl">
-                        <service.icon className="w-8 h-8" />
+                    {/* Content Section - tighter spacing */}
+                    <div className="p-4 md:p-5 text-center space-y-3 md:space-y-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gray-50 text-gray-600 rounded-xl">
+                        <service.icon className="w-6 h-6" />
                       </div>
                       
-                      <h4 className="text-2xl font-medium text-dental">
+                      <h4 className="text-lg md:text-xl font-medium text-dental">
                         {service.title}
                       </h4>
                       
-                      <p className="text-gray-600 text-lg leading-relaxed">
+                      <p className="text-gray-600 text-sm md:text-base">
                         {service.description}
                       </p>
                       
-                      <div className="pt-4">
+                      <div className="pt-2">
                         <Button 
-                          className="bg-blue-700 hover:bg-blue-800 transition-all duration-300 rounded-xl font-medium text-white px-8 py-3"
+                          className="bg-blue-700 hover:bg-blue-800 transition-all duration-300 rounded-lg text-sm font-medium text-white px-6 py-2"
                         >
-                          <Facebook className="w-5 h-5 mr-3" />
+                          <Facebook className="w-4 h-4 mr-2" />
                           สอบถาม
                         </Button>
                       </div>
