@@ -68,24 +68,20 @@ export const ReviewsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-[#dae6ec]/20 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#284c5d]/5 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#dae6ec]/30 rounded-full blur-3xl translate-x-32 translate-y-32"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#284c5d] to-[#3a5f72] bg-clip-text text-transparent mb-4">
-            เคสรีวิว ผลงานการรักษา
+    <section className="py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl lg:text-4xl font-light text-gray-800 mb-6">
+            ผลงานการรักษา
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            ชมผลงานการรักษาจริงจากลูกค้าของเรา พร้อมเห็นความแตกต่างก่อนและหลังการรักษา
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            ชมผลงานการรักษาจริงจากลูกค้าของเรา เห็นความแตกต่างก่อนและหลังการรักษา
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#284c5d] to-[#dae6ec] mx-auto mt-4 rounded-full"></div>
+          <div className="w-16 h-px bg-gray-300 mx-auto mt-8"></div>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
           {categories.map((category) => (
             <button
               key={category}
@@ -93,10 +89,10 @@ export const ReviewsSection = () => {
                 setSelectedCategory(category);
                 setCurrentImageIndex(0);
               }}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? "bg-gradient-to-r from-[#284c5d] to-[#3a5f72] text-white shadow-lg"
-                  : "bg-white text-[#284c5d] border border-[#284c5d]/20 hover:bg-[#284c5d]/5"
+                  ? "bg-gray-800 text-white shadow-sm"
+                  : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
               }`}
             >
               {category}
@@ -104,16 +100,16 @@ export const ReviewsSection = () => {
           ))}
         </div>
 
-        {/* Main Image Display */}
+        {/* Main Image Display - เน้นรูปภาพให้ใหญ่และเด่น */}
         {filteredImages.length > 0 && (
-          <div className="max-w-4xl mx-auto mb-12">
-            <Card className="overflow-hidden shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
+          <div className="max-w-5xl mx-auto mb-16">
+            <Card className="overflow-hidden shadow-lg border-0 bg-white">
               <CardContent className="p-0">
                 <div className="relative">
                   <img 
                     src={filteredImages[currentImageIndex].src}
                     alt={filteredImages[currentImageIndex].title}
-                    className="w-full h-auto object-contain bg-white"
+                    className="w-full h-auto object-contain bg-white max-h-[600px]"
                   />
                   
                   {/* Navigation Arrows */}
@@ -121,13 +117,13 @@ export const ReviewsSection = () => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#284c5d] p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                        className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#284c5d] p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                        className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>
@@ -136,15 +132,15 @@ export const ReviewsSection = () => {
                   
                   {/* Image Counter */}
                   {filteredImages.length > 1 && (
-                    <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                    <div className="absolute bottom-6 right-6 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
                       {currentImageIndex + 1} / {filteredImages.length}
                     </div>
                   )}
                 </div>
                 
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-block bg-gradient-to-r from-[#284c5d] to-[#3a5f72] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="p-8 lg:p-12">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
                       {filteredImages[currentImageIndex].category}
                     </span>
                     <div className="flex items-center text-yellow-500">
@@ -153,10 +149,10 @@ export const ReviewsSection = () => {
                       ))}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-[#284c5d] mb-2">
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">
                     {filteredImages[currentImageIndex].title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-lg">
                     {filteredImages[currentImageIndex].description}
                   </p>
                 </div>
@@ -167,15 +163,15 @@ export const ReviewsSection = () => {
 
         {/* Thumbnails */}
         {filteredImages.length > 1 && (
-          <div className="flex justify-center gap-4 mb-12 overflow-x-auto pb-4">
+          <div className="flex justify-center gap-4 mb-16 overflow-x-auto pb-4">
             {filteredImages.map((image, index) => (
               <button
                 key={image.id}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 hover:scale-110 ${
+                className={`flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-xl overflow-hidden border-2 transition-all duration-300 hover:scale-110 ${
                   index === currentImageIndex
-                    ? "border-[#284c5d] shadow-lg"
-                    : "border-gray-200 hover:border-[#284c5d]/50"
+                    ? "border-gray-800 shadow-md"
+                    : "border-gray-200 hover:border-gray-400"
                 }`}
               >
                 <img 
@@ -189,16 +185,16 @@ export const ReviewsSection = () => {
         )}
 
         {/* CTA Section */}
-        <div className="text-center bg-gradient-to-br from-[#284c5d] to-[#3a5f72] rounded-3xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">
+        <div className="text-center bg-white rounded-3xl p-12 shadow-sm border border-gray-100">
+          <h3 className="text-2xl lg:text-3xl font-light text-gray-800 mb-6">
             ต้องการผลลัพธ์แบบนี้เหมือนกัน? 
           </h3>
-          <p className="text-lg mb-6 opacity-90">
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             ปรึกษาทันตแพทย์ผู้เชี่ยวชาญของเราได้ฟรี ผ่าน Facebook
           </p>
           <Button 
             size="lg"
-            className="bg-white text-[#284c5d] hover:bg-gray-100 text-lg px-8 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 h-auto font-medium shadow-sm hover:shadow-md transition-all duration-300 rounded-xl"
           >
             <Facebook className="w-5 h-5 mr-3" />
             ปรึกษาฟรีทาง Facebook

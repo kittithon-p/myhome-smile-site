@@ -4,58 +4,64 @@ import { Facebook, Gift, Users, Award, Clock, CheckCircle } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-[#284c5d] to-[#3a5f72] text-white py-20 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-black/20"></div>
+    <section id="home" className="relative bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 py-24 lg:py-40 overflow-hidden">
+      {/* Background decorative elements - more subtle */}
+      <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-40 h-40 bg-green-100/20 rounded-full blur-3xl"></div>
       
-      {/* Background decorative elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#dae6ec]/10 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Content */}
-          <div className="text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start mb-6">
-              <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                <Award className="w-6 h-6 text-yellow-400 animate-pulse" />
-                <span className="text-sm font-semibold">ประสบการณ์ 10+ ปี</span>
-                <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-                <Users className="w-6 h-6 text-green-400" />
-                <span className="text-sm font-semibold">ลูกค้าพอใจ 1,200+ ราย</span>
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left Side - Content with more spacing */}
+          <div className="text-center lg:text-left space-y-8">
+            <div className="flex items-center justify-center lg:justify-start mb-8">
+              <div className="flex items-center space-x-6 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-sm border border-gray-100">
+                <div className="flex items-center space-x-2">
+                  <Award className="w-5 h-5 text-amber-500" />
+                  <span className="text-sm font-medium text-gray-600">ประสบการณ์ 10+ ปี</span>
+                </div>
+                <div className="w-px h-6 bg-gray-200"></div>
+                <div className="flex items-center space-x-2">
+                  <Users className="w-5 h-5 text-emerald-500" />
+                  <span className="text-sm font-medium text-gray-600">ลูกค้า 1,200+ ราย</span>
+                </div>
               </div>
             </div>
             
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              ยิ้มสวยมั่นใจ
-              <br />
-              <span className="text-[#dae6ec] bg-gradient-to-r from-[#dae6ec] to-white bg-clip-text text-transparent">
-                ที่ MY HOME Dental Clinic
-              </span>
-            </h1>
+            <div className="space-y-6">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-light leading-tight">
+                ยิ้มสวย
+                <span className="block font-semibold text-blue-600 mt-2">
+                  มั่นใจทุกวัน
+                </span>
+              </h1>
+              
+              <p className="text-xl lg:text-2xl text-gray-600 font-light leading-relaxed">
+                คลินิกทันตกรรมครบวงจร
+                <span className="block text-lg mt-2 text-gray-500">
+                  บางละมุง ชลบุรี
+                </span>
+              </p>
+            </div>
             
-            <p className="text-xl lg:text-2xl mb-4 text-white/90 font-medium">
-              คลินิกทันตกรรมครบวงจร บางละมุง ชลบุรี
-            </p>
-            
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8 text-white/80">
-              <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-gray-500 text-sm">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
                 <span>ทันตแพทย์ผู้เชี่ยวชาญ</span>
               </div>
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-blue-400 mr-2" />
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4 text-blue-400" />
                 <span>เปิดถึง 20:00 น.</span>
               </div>
-              <div className="flex items-center">
-                <Gift className="w-5 h-5 text-pink-400 mr-2" />
-                <span>โปรพิเศษลูกค้าใหม่</span>
+              <div className="flex items-center space-x-2">
+                <Gift className="w-4 h-4 text-pink-400" />
+                <span>โปรลูกค้าใหม่</span>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button 
                 size="lg" 
-                className="bg-white text-[#284c5d] hover:bg-white/90 text-lg px-8 py-4 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 h-auto font-medium shadow-sm hover:shadow-md transition-all duration-300 rounded-xl group"
               >
                 <Facebook className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
                 รับคำปรึกษาฟรี
@@ -63,43 +69,38 @@ export const HeroSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-[#284c5d] text-lg px-8 py-4 h-auto font-semibold transition-all duration-300 hover:scale-105 group"
+                className="border-2 border-gray-200 text-gray-700 hover:bg-gray-50 px-8 py-4 h-auto font-medium transition-all duration-300 rounded-xl"
               >
-                <Gift className="w-5 h-5 mr-3 group-hover:animate-bounce" />
-                เริ่มต้นเปลี่ยนรอยยิ้มวันนี้
+                <Gift className="w-5 h-5 mr-3" />
+                ดูโปรโมชั่น
               </Button>
             </div>
           </div>
 
-          {/* Right Side - Visual */}
+          {/* Right Side - Visual with more emphasis */}
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl group bg-white p-2">
               <img 
-                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&h=400&fit=crop"
+                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop"
                 alt="ทีมทันตแพทย์และคนไข้ยิ้ม"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 rounded-2xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#284c5d]/20 to-transparent"></div>
               
-              {/* Floating stats */}
-              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <div className="flex items-center space-x-3">
+              {/* Floating stats - cleaner design */}
+              <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="flex items-center space-x-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-[#284c5d]">98%</div>
-                    <div className="text-xs text-gray-600">ลูกค้าพอใจ</div>
+                    <div className="text-3xl font-bold text-blue-600">98%</div>
+                    <div className="text-sm text-gray-500 mt-1">ลูกค้าพอใจ</div>
                   </div>
-                  <div className="w-px h-8 bg-gray-300"></div>
+                  <div className="w-px h-12 bg-gray-200"></div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-[#284c5d]">10+</div>
-                    <div className="text-xs text-gray-600">ปีประสบการณ์</div>
+                    <div className="text-3xl font-bold text-emerald-600">10+</div>
+                    <div className="text-sm text-gray-500 mt-1">ปีประสบการณ์</div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
           </div>
         </div>
       </div>
