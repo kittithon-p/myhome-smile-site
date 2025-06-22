@@ -143,6 +143,23 @@
     color: hsl(var(--dental-text));
   }
 
+  /* Border Color System */
+  .border-dental-primary {
+    border-color: hsl(var(--dental-primary));
+  }
+  
+  .border-dental-secondary {
+    border-color: hsl(var(--dental-secondary));
+  }
+  
+  .border-dental-accent {
+    border-color: hsl(var(--dental-accent));
+  }
+  
+  .border-dental-success {
+    border-color: hsl(var(--dental-success));
+  }
+
   /* Standard Typography Classes */
   .heading-hero {
     @apply text-2xl md:text-3xl lg:text-4xl font-medium text-dental leading-tight;
