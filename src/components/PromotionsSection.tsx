@@ -14,7 +14,8 @@ const promotions = [
     description: "จัดฟันใสแบบครบวงจร รวมถอนฟันคุด",
     validUntil: "31 ธันวาคม 2024",
     isHot: true,
-    gradient: "from-red-500 to-pink-500"
+    gradient: "from-red-500 to-pink-500",
+    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop"
   },
   {
     id: 2,
@@ -25,7 +26,8 @@ const promotions = [
     description: "ฟอกสีฟัน Laser + ขูดหินปูน ในราคาพิเศษ",
     validUntil: "15 มกราคม 2025",
     isHot: false,
-    gradient: "from-blue-500 to-cyan-500"
+    gradient: "from-blue-500 to-cyan-500",
+    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=300&fit=crop"
   },
   {
     id: 3,
@@ -36,7 +38,8 @@ const promotions = [
     description: "รากฟันเทียมแท้ 100% รวมครอบฟันเซรามิก",
     validUntil: "28 กุมภาพันธ์ 2025",
     isHot: true,
-    gradient: "from-purple-500 to-indigo-500"
+    gradient: "from-purple-500 to-indigo-500",
+    image: "https://images.unsplash.com/photo-1606811843722-d80b4b3fb5e5?w=400&h=300&fit=crop"
   },
   {
     id: 4,
@@ -47,7 +50,8 @@ const promotions = [
     description: "ตรวจสุขภาพฟันฟรี สำหรับลูกค้าใหม่",
     validUntil: "31 มีนาคม 2025",
     isHot: false,
-    gradient: "from-green-500 to-emerald-500"
+    gradient: "from-green-500 to-emerald-500",
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=300&fit=crop"
   }
 ];
 
@@ -82,17 +86,26 @@ export const PromotionsSection = () => {
                   </Badge>
                 </div>
               )}
+              
+              {/* Image Section */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={promo.image} 
+                  alt={promo.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${promo.gradient} shadow-lg`}>
+                  {promo.discount}
+                </div>
+              </div>
+
               <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-[#dae6ec]/20 group-hover:from-[#dae6ec]/20 group-hover:to-white/50 transition-all duration-500"></div>
               <CardContent className="p-6 relative z-10">
                 <div className="mb-4">
                   <h3 className="text-lg font-bold text-[#284c5d] mb-3 line-clamp-2 group-hover:text-[#3a5f72] transition-colors duration-300">
                     {promo.title}
                   </h3>
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="secondary" className="bg-gradient-to-r from-[#dae6ec] to-[#284c5d]/20 text-[#284c5d] font-bold border-0 shadow-md">
-                      {promo.discount}
-                    </Badge>
-                  </div>
                 </div>
 
                 <div className="mb-4">
