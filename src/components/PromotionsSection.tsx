@@ -2,7 +2,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gift, Clock, Sparkles } from "lucide-react";
+import { Gift, Clock, Sparkles, Flame, Star, Timer } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const promotions = [
   {
@@ -14,8 +15,11 @@ const promotions = [
     description: "จัดฟันใสแบบครบวงจร รวมถอนฟันคุด",
     validUntil: "31 ธันวาคม 2024",
     isHot: true,
+    isNew: false,
+    isPopular: true,
     gradient: "from-red-500 to-pink-500",
-    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop"
+    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop",
+    endDate: "2024-12-31"
   },
   {
     id: 2,
@@ -26,8 +30,11 @@ const promotions = [
     description: "ฟอกสีฟัน Laser + ขูดหินปูน ในราคาพิเศษ",
     validUntil: "15 มกราคม 2025",
     isHot: false,
+    isNew: true,
+    isPopular: false,
     gradient: "from-blue-500 to-cyan-500",
-    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=300&fit=crop"
+    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=300&fit=crop",
+    endDate: "2025-01-15"
   },
   {
     id: 3,
@@ -38,8 +45,11 @@ const promotions = [
     description: "รากฟันเทียมแท้ 100% รวมครอบฟันเซรามิก",
     validUntil: "28 กุมภาพันธ์ 2025",
     isHot: true,
+    isNew: false,
+    isPopular: false,
     gradient: "from-purple-500 to-indigo-500",
-    image: "https://images.unsplash.com/photo-1606811843722-d80b4b3fb5e5?w=400&h=300&fit=crop"
+    image: "https://images.unsplash.com/photo-1606811843722-d80b4b3fb5e5?w=400&h=300&fit=crop",
+    endDate: "2025-02-28"
   },
   {
     id: 4,
@@ -50,15 +60,56 @@ const promotions = [
     description: "ตรวจสุขภาพฟันฟรี สำหรับลูกค้าใหม่",
     validUntil: "31 มีนาคม 2025",
     isHot: false,
+    isNew: false,
+    isPopular: true,
     gradient: "from-green-500 to-emerald-500",
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=300&fit=crop"
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=300&fit=crop",
+    endDate: "2025-03-31"
   }
 ];
 
+const CountdownTimer = ({ endDate }: { endDate: string }) => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = +new Date(endDate) - +new Date();
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60)
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 60000);
+
+    return () => clearInterval(timer);
+  }, [endDate]);
+
+  if (timeLeft.days <= 7) {
+    return (
+      <div className="flex items-center justify-center bg-red-500/90 text-white px-3 py-2 rounded-lg text-xs font-bold animate-pulse">
+        <Timer className="w-3 h-3 mr-1" />
+        เหลือ {timeLeft.days}วัน {timeLeft.hours}ชม.
+      </div>
+    );
+  }
+  
+  return null;
+};
+
 export const PromotionsSection = () => {
   return (
-    <section id="promotions" className="py-20 bg-gradient-to-br from-white via-[#dae6ec]/10 to-white">
-      <div className="container mx-auto px-4">
+    <section id="promotions" className="py-20 bg-gradient-to-br from-white via-[#dae6ec]/10 to-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-20 left-20 w-64 h-64 bg-[#284c5d]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#dae6ec]/20 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <div className="relative">
@@ -78,14 +129,27 @@ export const PromotionsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {promotions.map((promo) => (
             <Card key={promo.id} className="group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-              {promo.isHot && (
-                <div className="absolute top-4 right-4 z-20">
+              {/* Multiple Badges */}
+              <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
+                {promo.isHot && (
                   <Badge className={`bg-gradient-to-r ${promo.gradient} hover:bg-gradient-to-l text-white font-bold animate-pulse shadow-lg`}>
-                    <Sparkles className="w-3 h-3 mr-1" />
+                    <Flame className="w-3 h-3 mr-1" />
                     HOT!
                   </Badge>
-                </div>
-              )}
+                )}
+                {promo.isNew && (
+                  <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold shadow-lg">
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    ใหม่
+                  </Badge>
+                )}
+                {promo.isPopular && (
+                  <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold shadow-lg">
+                    <Star className="w-3 h-3 mr-1" />
+                    ยอดนิยม
+                  </Badge>
+                )}
+              </div>
               
               {/* Image Section */}
               <div className="relative h-48 overflow-hidden">
@@ -95,8 +159,13 @@ export const PromotionsSection = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                <div className={`absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${promo.gradient} shadow-lg`}>
+                <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-sm font-bold text-white bg-gradient-to-r ${promo.gradient} shadow-lg`}>
                   {promo.discount}
+                </div>
+                
+                {/* Countdown Timer */}
+                <div className="absolute bottom-3 left-3">
+                  <CountdownTimer endDate={promo.endDate} />
                 </div>
               </div>
 
