@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gift, Clock, Percent } from "lucide-react";
+import { Gift, Clock, Sparkles } from "lucide-react";
 
 const promotions = [
   {
@@ -13,7 +13,8 @@ const promotions = [
     salePrice: "56,000",
     description: "จัดฟันใสแบบครบวงจร รวมถอนฟันคุด",
     validUntil: "31 ธันวาคม 2024",
-    isHot: true
+    isHot: true,
+    gradient: "from-red-500 to-pink-500"
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const promotions = [
     salePrice: "1,500",
     description: "ฟอกสีฟัน Laser + ขูดหินปูน ในราคาพิเศษ",
     validUntil: "15 มกราคม 2025",
-    isHot: false
+    isHot: false,
+    gradient: "from-blue-500 to-cyan-500"
   },
   {
     id: 3,
@@ -33,7 +35,8 @@ const promotions = [
     salePrice: "45,000",
     description: "รากฟันเทียมแท้ 100% รวมครอบฟันเซรามิก",
     validUntil: "28 กุมภาพันธ์ 2025",
-    isHot: true
+    isHot: true,
+    gradient: "from-purple-500 to-indigo-500"
   },
   {
     id: 4,
@@ -43,41 +46,50 @@ const promotions = [
     salePrice: "0",
     description: "ตรวจสุขภาพฟันฟรี สำหรับลูกค้าใหม่",
     validUntil: "31 มีนาคม 2025",
-    isHot: false
+    isHot: false,
+    gradient: "from-green-500 to-emerald-500"
   }
 ];
 
 export const PromotionsSection = () => {
   return (
-    <section id="promotions" className="py-20 bg-white">
+    <section id="promotions" className="py-20 bg-gradient-to-br from-white via-[#dae6ec]/10 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-4">
-            <Gift className="w-8 h-8 text-[#284c5d] mr-3" />
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#284c5d]">
+          <div className="flex items-center justify-center mb-6">
+            <div className="relative">
+              <Gift className="w-10 h-10 text-[#284c5d] mr-4 animate-bounce" />
+              <Sparkles className="w-4 h-4 text-yellow-400 absolute -top-1 -right-1 animate-pulse" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#284c5d] to-[#3a5f72] bg-clip-text text-transparent">
               โปรโมชั่นประจำเดือน
             </h2>
           </div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             ข้อเสนอพิเศษที่คุณไม่ควรพลาด ประหยัดได้มากถึง 50%
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#284c5d] to-[#dae6ec] mx-auto mt-4 rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {promotions.map((promo) => (
-            <Card key={promo.id} className="relative hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg overflow-hidden">
+            <Card key={promo.id} className="group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-0 shadow-lg overflow-hidden bg-white/80 backdrop-blur-sm">
               {promo.isHot && (
-                <Badge className="absolute top-4 right-4 bg-red-500 hover:bg-red-500 text-white font-bold z-10">
-                  HOT!
-                </Badge>
+                <div className="absolute top-4 right-4 z-20">
+                  <Badge className={`bg-gradient-to-r ${promo.gradient} hover:bg-gradient-to-l text-white font-bold animate-pulse shadow-lg`}>
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    HOT!
+                  </Badge>
+                </div>
               )}
-              <CardContent className="p-6">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-[#dae6ec]/20 group-hover:from-[#dae6ec]/20 group-hover:to-white/50 transition-all duration-500"></div>
+              <CardContent className="p-6 relative z-10">
                 <div className="mb-4">
-                  <h3 className="text-lg font-bold text-[#284c5d] mb-2 line-clamp-2">
+                  <h3 className="text-lg font-bold text-[#284c5d] mb-3 line-clamp-2 group-hover:text-[#3a5f72] transition-colors duration-300">
                     {promo.title}
                   </h3>
                   <div className="flex items-center justify-between mb-3">
-                    <Badge variant="secondary" className="bg-[#dae6ec] text-[#284c5d] font-bold">
+                    <Badge variant="secondary" className="bg-gradient-to-r from-[#dae6ec] to-[#284c5d]/20 text-[#284c5d] font-bold border-0 shadow-md">
                       {promo.discount}
                     </Badge>
                   </div>
@@ -91,8 +103,14 @@ export const PromotionsSection = () => {
                       </span>
                     )}
                   </div>
-                  <div className="text-2xl font-bold text-red-600">
-                    {promo.salePrice === "0" ? "ฟรี!" : `฿${promo.salePrice}`}
+                  <div className={`text-2xl font-bold ${promo.salePrice === "0" ? "text-green-600" : "text-red-600"} group-hover:scale-110 transition-transform duration-300`}>
+                    {promo.salePrice === "0" ? (
+                      <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
+                        ฟรี! ✨
+                      </span>
+                    ) : (
+                      `฿${promo.salePrice}`
+                    )}
                   </div>
                 </div>
 
@@ -105,17 +123,19 @@ export const PromotionsSection = () => {
                   <span>ถึง {promo.validUntil}</span>
                 </div>
 
-                <Button className="w-full bg-[#284c5d] hover:bg-[#284c5d]/90">
+                <Button className="w-full bg-gradient-to-r from-[#284c5d] to-[#3a5f72] hover:from-[#3a5f72] hover:to-[#284c5d] transition-all duration-300 hover:shadow-lg hover:scale-105 group-hover:animate-pulse text-white">
                   <Gift className="w-4 h-4 mr-2" />
                   จองโปรนี้
                 </Button>
               </CardContent>
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-[#dae6ec]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Card>
           ))}
         </div>
 
         <div className="text-center">
-          <Button size="lg" variant="outline" className="border-[#284c5d] text-[#284c5d] hover:bg-[#284c5d] hover:text-white">
+          <Button size="lg" variant="outline" className="border-2 border-[#284c5d] text-[#284c5d] hover:bg-gradient-to-r hover:from-[#284c5d] hover:to-[#3a5f72] hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 bg-white/80 backdrop-blur-sm">
+            <Gift className="w-5 h-5 mr-2" />
             ดูโปรโมชั่นทั้งหมด
           </Button>
         </div>
