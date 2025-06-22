@@ -1,9 +1,4 @@
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Hospital, Phone, MapPin, Clock, Facebook, Star } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { SocialSecuritySection } from "@/components/SocialSecuritySection";
@@ -14,6 +9,7 @@ import { FacebookSection } from "@/components/FacebookSection";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 
 const Index = () => {
   return (
@@ -28,6 +24,7 @@ const Index = () => {
       <FacebookSection />
       <ContactSection />
       <Footer />
+      <FloatingActionButtons />
     </div>
   );
 };
