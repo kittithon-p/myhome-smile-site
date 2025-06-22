@@ -3,84 +3,60 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Facebook, Sparkles, Heart, Shield, Smile, Stethoscope, Zap, Wrench, ArrowRight, Star } from "lucide-react";
 
-const serviceCategories = [
+const services = [
   {
-    category: "ทันตกรรมความงาม",
-    icon: Sparkles,
-    color: "bg-blue-50 text-dental-primary border-dental-primary/20",
-    gradient: "from-blue-50 to-blue-100",
-    services: [
-      {
-        id: 1,
-        title: "ฟอกสีฟัน",
-        icon: Zap,
-        description: "ฟันขาวสะอาดใน 1 ชั่วโมง ด้วยเทคโนโลยีล้ำสมัย",
-        price: "เริ่มต้น ฿1,500",
-        popular: true,
-        image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop&auto=format"
-      },
-      {
-        id: 2,
-        title: "ครอบฟัน/วีเนียร์",
-        icon: Smile,
-        description: "ฟันสวยเป็นธรรมชาติ เปลี่ยนรอยยิ้มให้สมบูรณ์แบบ",
-        price: "เริ่มต้น ฿8,000",
-        popular: false,
-        image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop&auto=format"
-      }
-    ]
+    id: 1,
+    title: "ฟอกสีฟัน",
+    icon: Zap,
+    description: "ฟันขาวสะอาดใน 1 ชั่วโมง ด้วยเทคโนโลยีล้ำสมัย",
+    price: "เริ่มต้น ฿1,500",
+    popular: true,
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop&auto=format"
   },
   {
-    category: "ทันตกรรมทั่วไป",
-    icon: Shield,
-    color: "bg-green-50 text-dental-secondary border-dental-secondary/20",
-    gradient: "from-green-50 to-green-100",
-    services: [
-      {
-        id: 3,
-        title: "อุดฟัน/ถอนฟัน",
-        icon: Wrench,
-        description: "รักษาฟันผุ ถอนฟันคุด ด้วยเทคนิคไม่เจ็บ",
-        price: "เริ่มต้น ฿300",
-        popular: false,
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&auto=format"
-      },
-      {
-        id: 4,
-        title: "รักษารากฟัน",
-        icon: Stethoscope,
-        description: "รักษาฟันให้อยู่ได้นาน ป้องกันการสูญเสียฟัน",
-        price: "เริ่มต้น ฿3,000",
-        popular: false,
-        image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&auto=format"
-      },
-      {
-        id: 5,
-        title: "รากฟันเทียม",
-        icon: Heart,
-        description: "ทดแทนฟันที่หายไป แข็งแรงเหมือนฟันจริง",
-        price: "เริ่มต้น ฿25,000",
-        popular: true,
-        image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=400&fit=crop&auto=format"
-      }
-    ]
-  },
-  {
-    category: "จัดฟัน",
+    id: 2,
+    title: "ครอบฟัน/วีเนียร์",
     icon: Smile,
-    color: "bg-purple-50 text-purple-700 border-purple-200",
-    gradient: "from-purple-50 to-purple-100",
-    services: [
-      {
-        id: 6,
-        title: "จัดฟันใส",
-        icon: Sparkles,
-        description: "เหมาะกับวัยรุ่นและวัยทำงาน มองไม่เห็นขณะใส่",
-        price: "เริ่มต้น ฿80,000",
-        popular: true,
-        image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop&auto=format"
-      }
-    ]
+    description: "ฟันสวยเป็นธรรมชาติ เปลี่ยนรอยยิ้มให้สมบูรณ์แบบ",
+    price: "เริ่มต้น ฿8,000",
+    popular: false,
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    id: 3,
+    title: "อุดฟัน/ถอนฟัน",
+    icon: Wrench,
+    description: "รักษาฟันผุ ถอนฟันคุด ด้วยเทคนิคไม่เจ็บ",
+    price: "เริ่มต้น ฿300",
+    popular: false,
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    id: 4,
+    title: "รักษารากฟัน",
+    icon: Stethoscope,
+    description: "รักษาฟันให้อยู่ได้นาน ป้องกันการสูญเสียฟัน",
+    price: "เริ่มต้น ฿3,000",
+    popular: false,
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    id: 5,
+    title: "รากฟันเทียม",
+    icon: Heart,
+    description: "ทดแทนฟันที่หายไป แข็งแรงเหมือนฟันจริง",
+    price: "เริ่มต้น ฿25,000",
+    popular: true,
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=400&fit=crop&auto=format"
+  },
+  {
+    id: 6,
+    title: "จัดฟันใส",
+    icon: Sparkles,
+    description: "เหมาะกับวัยรุ่นและวัยทำงาน มองไม่เห็นขณะใส่",
+    price: "เริ่มต้น ฿80,000",
+    popular: true,
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop&auto=format"
   }
 ];
 
@@ -127,91 +103,76 @@ export const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Services Categories */}
-        <div className="space-y-16">
-          {serviceCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="animate-fade-in">
-              {/* Category Header */}
-              <div className="text-center mb-12">
-                <div className={`inline-flex items-center ${category.color} border px-8 py-4 rounded-2xl shadow-soft backdrop-blur-sm`}>
-                  <category.icon className="w-6 h-6 mr-3" />
-                  <h3 className="heading-card font-bold">{category.category}</h3>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {services.map((service) => (
+            <Card key={service.id} className="group card-elevated hover:-translate-y-3 transition-all duration-500 overflow-hidden bg-white/95 backdrop-blur-sm border-0">
+              {service.popular && (
+                <div className="absolute top-4 right-4 z-20">
+                  <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-pulse">
+                    <Sparkles className="w-3 h-3 mr-1 inline" />
+                    ยอดนิยม
+                  </div>
                 </div>
-              </div>
-
-              {/* Services Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.services.map((service, index) => (
-                  <Card key={service.id} className="group card-elevated hover:-translate-y-3 transition-all duration-500 overflow-hidden bg-white/95 backdrop-blur-sm border-0">
-                    {service.popular && (
-                      <div className="absolute top-4 right-4 z-20">
-                        <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-pulse">
-                          <Sparkles className="w-3 h-3 mr-1 inline" />
-                          ยอดนิยม
-                        </div>
-                      </div>
-                    )}
+              )}
+              
+              <CardContent className="p-0">
+                {/* Image Section */}
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                  
+                  {/* Floating Icon */}
+                  <div className="absolute top-4 left-4">
+                    <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-6 h-6 text-dental-primary" />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="card-spacing space-y-4">
+                  <div className="space-y-3">
+                    <h4 className="heading-card group-hover:text-dental-primary transition-colors duration-300">
+                      {service.title}
+                    </h4>
                     
-                    <CardContent className="p-0">
-                      {/* Image Section */}
-                      <div className="relative h-64 overflow-hidden">
-                        <img 
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                        
-                        {/* Floating Icon */}
-                        <div className="absolute top-4 left-4">
-                          <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <service.icon className="w-6 h-6 text-dental-primary" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Content Section */}
-                      <div className="card-spacing space-y-4">
-                        <div className="space-y-3">
-                          <h4 className="heading-card group-hover:text-dental-primary transition-colors duration-300">
-                            {service.title}
-                          </h4>
-                          
-                          <p className="text-body text-dental-light leading-relaxed">
-                            {service.description}
-                          </p>
-                        </div>
-                        
-                        {/* Price */}
-                        <div className="bg-dental-accent rounded-xl p-4">
-                          <div className="text-dental-primary font-bold text-lg">
-                            {service.price}
-                          </div>
-                          <div className="text-caption text-dental-light">
-                            ราคาอาจแตกต่างตามความยากง่าย
-                          </div>
-                        </div>
-                        
-                        {/* CTA Button */}
-                        <Button 
-                          className="btn-primary w-full group-hover:bg-dental-primary-hover transition-all duration-300"
-                          onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
-                        >
-                          <Facebook className="w-4 h-4 mr-2" />
-                          สอบถามและจองคิว
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
+                    <p className="text-body text-dental-light leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                  
+                  {/* Price */}
+                  <div className="bg-dental-accent rounded-xl p-4">
+                    <div className="text-dental-primary font-bold text-lg">
+                      {service.price}
+                    </div>
+                    <div className="text-caption text-dental-light">
+                      ราคาอาจแตกต่างตามความยากง่าย
+                    </div>
+                  </div>
+                  
+                  {/* CTA Button */}
+                  <Button 
+                    className="btn-primary w-full group-hover:bg-dental-primary-hover transition-all duration-300"
+                    onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
+                  >
+                    <Facebook className="w-4 h-4 mr-2" />
+                    สอบถามและจองคิว
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="mt-20 text-center">
+        <div className="text-center">
           <div className="card-modern card-spacing max-w-4xl mx-auto bg-gradient-to-br from-white to-dental-accent/30">
             <div className="space-y-6">
               <div className="space-y-4">
