@@ -1,113 +1,195 @@
 
-import { Facebook, Phone, MapPin, Clock } from "lucide-react";
+import { Facebook, Phone, MapPin, Clock, Heart, Star, Users, Calendar } from "lucide-react";
 
 export const Footer = () => {
+  const quickStats = [
+    { icon: Users, value: "2,500+", label: "ผู้ป่วย" },
+    { icon: Star, value: "4.9", label: "คะแนน" },
+    { icon: Calendar, value: "5", label: "ปี" }
+  ];
+
+  const services = [
+    "จัดฟัน",
+    "รักษารากฟัน", 
+    "ทำฟันปลอม",
+    "ขูดหินปูน",
+    "อุดฟัน",
+    "ถอนฟัน"
+  ];
+
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#284c5d]/10 via-transparent to-[#dae6ec]/10"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[#284c5d]/5 rounded-full blur-3xl -translate-x-48 -translate-y-48"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#dae6ec]/5 rounded-full blur-3xl translate-x-40 translate-y-40"></div>
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-x-48 -translate-y-48"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl translate-x-40 translate-y-40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent)] pointer-events-none"></div>
+      </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Left - Logo & Info */}
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="relative">
-                <img 
-                  src="/lovable-uploads/4c63632a-0dc5-4fdc-ba0e-4adb5cf31b03.png" 
-                  alt="MY HOME Dental Clinic Logo" 
-                  className="w-12 h-12 object-contain filter brightness-0 invert"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        {/* Main Footer Content */}
+        <div className="py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
+            {/* Brand Section */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-white/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                  <img 
+                    src="/lovable-uploads/4c63632a-0dc5-4fdc-ba0e-4adb5cf31b03.png" 
+                    alt="MY HOME Dental Clinic Logo" 
+                    className="relative w-16 h-16 object-contain filter brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+                    MY HOME
+                  </h3>
+                  <p className="text-gray-400">Dental Clinic</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-[#dae6ec] bg-clip-text text-transparent">MY HOME</h3>
-                <p className="text-sm text-gray-300">Dental Clinic</p>
+              
+              <p className="text-gray-400 leading-relaxed mb-8">
+                คลินิกทันตกรรมครบวงจร บางละมุง ชลบุรี 
+                ให้บริการด้วยความเชี่ยวชาญและเทคโนโลยีทันสมัย
+              </p>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                {quickStats.map((stat, index) => (
+                  <div key={index} className="text-center p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10">
+                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-blue-400" />
+                    <div className="text-lg font-bold text-white">{stat.value}</div>
+                    <div className="text-xs text-gray-400">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              คลินิกทันตกรรมครบวงจร บางละมุง ชลบุรี 
-              ให้บริการด้วยความเชี่ยวชาญและเทคโนโลยีทันสมัย
-            </p>
-          </div>
 
-          {/* Center - Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 bg-gradient-to-r from-white to-[#dae6ec] bg-clip-text text-transparent">ลิงก์ด่วน</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <a href="#home" className="hover:text-white transition-all duration-300 relative group">
-                  หน้าแรก
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#dae6ec] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-all duration-300 relative group">
-                  บริการ
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#dae6ec] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a href="#promotions" className="hover:text-white transition-all duration-300 relative group">
-                  โปรโมชั่น
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#dae6ec] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-all duration-300 relative group">
-                  ติดต่อ
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#dae6ec] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
+            {/* Services Section */}
+            <div className="lg:col-span-1">
+              <h4 className="text-xl font-bold mb-8 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                บริการของเรา
+              </h4>
+              <ul className="space-y-4">
+                {services.map((service, index) => (
+                  <li key={index} className="group">
+                    <a 
+                      href="#services" 
+                      className="flex items-center text-gray-400 hover:text-white transition-all duration-300 group-hover:translate-x-2"
+                    >
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-300"></div>
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Right - Contact */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 bg-gradient-to-r from-white to-[#dae6ec] bg-clip-text text-transparent">ติดต่อเรา</h4>
-            <div className="space-y-4 text-gray-400 text-sm">
-              <div className="flex items-start group hover:text-white transition-colors duration-300">
-                <MapPin className="w-5 h-5 mr-3 mt-0.5 text-[#dae6ec] group-hover:scale-110 transition-transform duration-300" />
-                <span>77/16 หมู่ 3 ต.ตะเคียนเตี้ย อ.บางละมุง จ.ชลบุรี</span>
-              </div>
-              <div className="flex items-center group hover:text-white transition-colors duration-300">
-                <Phone className="w-5 h-5 mr-3 text-[#dae6ec] group-hover:scale-110 transition-transform duration-300" />
-                <a href="tel:062-649-9979" className="hover:underline">062-649-9979</a>
-              </div>
-              <div className="flex items-start group hover:text-white transition-colors duration-300">
-                <Clock className="w-5 h-5 mr-3 mt-0.5 text-[#dae6ec] group-hover:scale-110 transition-transform duration-300" />
-                <div>
-                  <div>จันทร์-ศุกร์: 10:00-20:00 น.</div>
-                  <div>เสาร์-อาทิตย์: 09:00-18:00 น.</div>
+            {/* Quick Links */}
+            <div className="lg:col-span-1">
+              <h4 className="text-xl font-bold mb-8 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                ลิงก์ด่วน
+              </h4>
+              <ul className="space-y-4">
+                {[
+                  { name: "หน้าแรก", href: "#home" },
+                  { name: "บริการ", href: "#services" },
+                  { name: "โปรโมชั่น", href: "#promotions" },
+                  { name: "รีวิว", href: "#reviews" },
+                  { name: "ติดต่อ", href: "#contact" }
+                ].map((link, index) => (
+                  <li key={index} className="group">
+                    <a 
+                      href={link.href} 
+                      className="flex items-center text-gray-400 hover:text-white transition-all duration-300 group-hover:translate-x-2"
+                    >
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-300"></div>
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div className="lg:col-span-1">
+              <h4 className="text-xl font-bold mb-8 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                ติดต่อเรา
+              </h4>
+              <div className="space-y-6">
+                <div className="group">
+                  <div className="flex items-start p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <MapPin className="w-5 h-5 mr-3 mt-1 text-blue-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="text-sm text-gray-300 leading-relaxed">
+                      77/16 หมู่ 3 ต.ตะเคียนเตี้ย<br />
+                      อ.บางละมุง จ.ชลบุรี
+                    </div>
+                  </div>
+                </div>
+
+                <div className="group">
+                  <a 
+                    href="tel:062-649-9979"
+                    className="flex items-center p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300"
+                  >
+                    <Phone className="w-5 h-5 mr-3 text-green-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                      062-649-9979
+                    </span>
+                  </a>
+                </div>
+
+                <div className="group">
+                  <div className="p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10">
+                    <div className="flex items-center mb-3">
+                      <Clock className="w-5 h-5 mr-3 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-gray-300 font-medium">เวลาทำการ</span>
+                    </div>
+                    <div className="text-sm text-gray-400 space-y-1 ml-8">
+                      <div>จันทร์-ศุกร์: 10:00-20:00 น.</div>
+                      <div>เสาร์-อาทิตย์: 09:00-18:00 น.</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700/50 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 MY HOME Dental Clinic. สงวนลิขสิทธิ์
-            </p>
+        {/* Bottom Section */}
+        <div className="border-t border-white/10 py-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
+            {/* Copyright */}
+            <div className="flex items-center space-x-2">
+              <Heart className="w-4 h-4 text-red-400" />
+              <p className="text-gray-400 text-sm">
+                © 2024 MY HOME Dental Clinic. สงวนลิขสิทธิ์
+              </p>
+            </div>
+
+            {/* Social Links */}
             <div className="flex items-center space-x-6">
               <a 
                 href="https://www.facebook.com/Myhomedent" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center text-blue-400 hover:text-blue-300 transition-all duration-300 hover:scale-110 group"
+                className="group flex items-center space-x-3 px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 rounded-2xl backdrop-blur-sm border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300"
               >
-                <Facebook className="w-6 h-6 mr-2 group-hover:animate-bounce" />
-                <span className="text-sm">Facebook</span>
+                <Facebook className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm text-blue-300 group-hover:text-blue-200 transition-colors duration-300">
+                  Facebook
+                </span>
               </a>
+              
               <a 
                 href="tel:062-649-9979"
-                className="flex items-center text-green-400 hover:text-green-300 transition-all duration-300 hover:scale-110 group"
+                className="group flex items-center space-x-3 px-6 py-3 bg-green-600/20 hover:bg-green-600/30 rounded-2xl backdrop-blur-sm border border-green-500/30 hover:border-green-400/50 transition-all duration-300"
               >
-                <Phone className="w-6 h-6 mr-2 group-hover:animate-bounce" />
-                <span className="text-sm">062-649-9979</span>
+                <Phone className="w-5 h-5 text-green-400 group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm text-green-300 group-hover:text-green-200 transition-colors duration-300">
+                  062-649-9979
+                </span>
               </a>
             </div>
           </div>
