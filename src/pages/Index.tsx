@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +11,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { FacebookSection } from "@/components/FacebookSection";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 const Index = () => {
   return (
@@ -20,6 +20,7 @@ const Index = () => {
       <HeroSection />
       <ServicesSection />
       <PromotionsSection />
+      <ReviewsSection />
       <WhyChooseUsSection />
       <FacebookSection />
       <ContactSection />
