@@ -41,9 +41,12 @@
 
     /* Consistent Dental theme colors */
     --dental-primary: 210 50% 25%;
+    --dental-primary-hover: 210 50% 20%;
     --dental-secondary: 150 40% 30%;
+    --dental-secondary-hover: 150 40% 25%;
     --dental-accent: 210 50% 88%;
     --dental-success: 142 76% 36%;
+    --dental-success-hover: 142 76% 31%;
     --dental-warning: 45 93% 47%;
     --dental-gray: 210 15% 95%;
     --dental-text: 210 20% 15%;
@@ -100,8 +103,16 @@
     background-color: hsl(var(--dental-primary));
   }
   
+  .bg-dental-primary-hover {
+    background-color: hsl(var(--dental-primary-hover));
+  }
+  
   .bg-dental-secondary {
     background-color: hsl(var(--dental-secondary));
+  }
+  
+  .bg-dental-secondary-hover {
+    background-color: hsl(var(--dental-secondary-hover));
   }
   
   .bg-dental-accent {
@@ -110,6 +121,10 @@
   
   .bg-dental-success {
     background-color: hsl(var(--dental-success));
+  }
+  
+  .bg-dental-success-hover {
+    background-color: hsl(var(--dental-success-hover));
   }
   
   .bg-dental-warning {
@@ -151,15 +166,15 @@
 
   /* Standard Button System */
   .btn-primary {
-    @apply bg-dental-primary hover:bg-dental-primary/90 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md;
+    @apply bg-dental-primary hover:bg-dental-primary-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-dental-secondary hover:bg-dental-secondary/90 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md;
+    @apply bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md;
   }
 
   .btn-success {
-    @apply bg-dental-success hover:bg-dental-success/90 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md;
+    @apply bg-dental-success hover:bg-dental-success-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md;
   }
 
   .btn-outline {
@@ -168,7 +183,7 @@
 
   /* Standard Spacing System */
   .section-spacing {
-    @apply py-8 md:py-12 lg:py-16;
+    @apply py-6 md:py-8 lg:py-12;
   }
 
   .container-spacing {
@@ -180,7 +195,7 @@
   }
 
   .whitespace-section {
-    @apply mb-6 md:mb-8 lg:mb-10;
+    @apply mb-4 md:mb-6 lg:mb-8;
   }
 
   /* Standard Border Radius */
