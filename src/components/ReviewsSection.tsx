@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Star, Heart, Eye, Award } from "lucide-react";
 import { reviewImages, categories } from "./reviews/ReviewImageData";
@@ -7,7 +6,7 @@ import { ReviewImageCarousel } from "./reviews/ReviewImageCarousel";
 import { ReviewThumbnails } from "./reviews/ReviewThumbnails";
 import { ReviewCTA } from "./reviews/ReviewCTA";
 
-export const ReviewsSection = () => {
+const ReviewsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("ทั้งหมด");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -137,3 +136,5 @@ export const ReviewsSection = () => {
     </section>
   );
 };
+
+export default ReviewsSection;

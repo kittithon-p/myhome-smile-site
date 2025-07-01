@@ -2,7 +2,7 @@
 import { lazy } from 'react';
 
 export const LazyReviewsSection = lazy(() => 
-  import('./ReviewsSection').then(module => ({ default: module.ReviewsSection }))
+  import('./ReviewsSection')
 );
 
 export const LazyPromotionsSection = lazy(() => 
