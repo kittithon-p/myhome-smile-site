@@ -10,8 +10,7 @@ import { FloatingActionButtons } from "@/components/FloatingActionButtons";
 import { 
   LazyReviewsSection, 
   LazyPromotionsSection, 
-  LazyWhyChooseUsSection, 
-  LazyFacebookSection 
+  LazyWhyChooseUsSection
 } from "@/components/LazyComponents";
 
 // Loading component for lazy sections
@@ -45,10 +44,6 @@ const Index = () => {
       
       <Suspense fallback={<SectionLoader />}>
         <LazyWhyChooseUsSection />
-      </Suspense>
-      
-      <Suspense fallback={<SectionLoader />}>
-        <LazyFacebookSection />
       </Suspense>
       
       <ContactSection />
