@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Facebook, Phone, Menu, X, MessageCircle, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -33,12 +32,17 @@ export const Header = () => {
 
   // Smooth scroll to section
   const scrollToSection = (sectionId: string) => {
+    console.log(`Attempting to scroll to section: ${sectionId}`);
     const element = document.getElementById(sectionId);
+    console.log(`Found element:`, element);
+    
     if (element) {
       element.scrollIntoView({ 
         behavior: "smooth",
         block: "start"
       });
+    } else {
+      console.error(`Element with id "${sectionId}" not found`);
     }
     setIsMenuOpen(false);
   };
@@ -78,7 +82,10 @@ export const Header = () => {
             {navigationItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => {
+                  console.log(`Clicked navigation item: ${item.name} (${item.id})`);
+                  scrollToSection(item.id);
+                }}
                 className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                   activeSection === item.id
                     ? "text-dental-primary bg-dental-accent shadow-sm"
@@ -141,7 +148,10 @@ export const Header = () => {
               {navigationItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => {
+                    console.log(`Clicked mobile navigation item: ${item.name} (${item.id})`);
+                    scrollToSection(item.id);
+                  }}
                   className={`w-full text-left py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
                     activeSection === item.id
                       ? "text-dental-primary bg-dental-accent"

@@ -32,7 +32,7 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section className="section-spacing bg-gradient-to-br from-gray-50/50 to-white relative overflow-hidden">
+    <section id="reviews" className="section-spacing bg-gradient-to-br from-gray-50/50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-repeat" style={{
