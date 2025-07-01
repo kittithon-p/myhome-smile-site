@@ -47,7 +47,7 @@ export const WhyChooseUsSection = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid-standard mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 radius-card shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -61,8 +61,8 @@ export const WhyChooseUsSection = () => {
           ))}
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid-standard">
+        {/* Reasons Grid - Changed to horizontal layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (
             <div key={index} className="text-center group relative">
               <div className="relative z-10 card-spacing radius-card bg-white hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-gray-200">
