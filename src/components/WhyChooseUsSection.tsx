@@ -12,7 +12,7 @@ const reasons = [
   {
     icon: MapPin,
     title: "ทำเลสะดวก",
-    description: "ใจกลางบางละมุง ชลบุรี",
+    description: "ใจกลางบangละมุง ชลบุรี",
     detail: "เดินทางง่าย จอดรถสะดวก ใกล้ห้างดัง",
     color: "text-dental-secondary"
   },
@@ -37,10 +37,10 @@ export const WhyChooseUsSection = () => {
           <p className="text-body-large max-w-2xl mx-auto">
             ความสะดวก ความเชื่อใจ และการบริการที่ดีที่สุด
           </p>
-          <div className="w-16 h-1 bg-blue-200 mx-auto mt-6 radius-standard"></div>
+          <div className="w-16 h-1 bg-dental-primary/20 mx-auto mt-6 radius-standard"></div>
         </div>
 
-        {/* Reasons Grid - Changed to horizontal layout */}
+        {/* Reasons Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (
             <div key={index} className="text-center group relative">

@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Phone, Facebook, CheckCircle, Clock, Shield, Star } from "lucide-react";
+import { Phone, Facebook, Shield, Clock, Star } from "lucide-react";
 
 export const SimplifiedHeroSection = () => {
   return (
@@ -32,7 +32,7 @@ export const SimplifiedHeroSection = () => {
               </p>
             </div>
             
-            {/* Key Benefits - Reduced to 2 most important */}
+            {/* Key Benefits */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-lg mx-auto lg:mx-0">
               <div className="flex items-center space-x-3 bg-white/60 rounded-2xl p-4 shadow-soft">
                 <Shield className="w-5 h-5 text-dental-primary" />
@@ -44,11 +44,12 @@ export const SimplifiedHeroSection = () => {
               </div>
             </div>
             
-            {/* Single Primary CTA */}
+            {/* Primary CTA */}
             <div className="flex flex-col items-center lg:items-start">
               <Button 
                 size="lg" 
-                className="mobile-cta btn-primary shadow-strong hover:shadow-3xl group mb-4"
+                variant="dental-primary"
+                className="mobile-cta shadow-strong hover:shadow-3xl group mb-4"
                 onClick={() => window.open('tel:062-649-9979', '_self')}
               >
                 <Phone className="w-6 h-6 mr-3 group-hover:animate-bounce" />
@@ -60,9 +61,9 @@ export const SimplifiedHeroSection = () => {
               
               {/* Secondary CTA */}
               <Button 
-                variant="outline" 
+                variant="dental-outline"
                 size="lg"
-                className="group hover:bg-dental-accent/30 hover:border-dental-primary transition-all duration-200"
+                className="group hover:bg-dental-accent/30 transition-all duration-200"
                 onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
               >
                 <Facebook className="w-5 h-5 mr-2" />
@@ -71,13 +72,13 @@ export const SimplifiedHeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Simplified */}
+          {/* Right Content */}
           <div className="lg:col-span-6 animate-slide-up">
             <div className="relative card-elevated hover:shadow-3xl group overflow-hidden">
               <div className="aspect-[4/3] relative">
                 <img 
                   src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop&auto=format&q=75"
-                  alt="ทีมทันตแพทย์และคนไข้ยิ้ม"
+                  alt="ทีมทันตแพทย์และคนไข้ยิ้ม - My Home Dental Clinic"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="eager"
                 />
@@ -85,7 +86,7 @@ export const SimplifiedHeroSection = () => {
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                 
-                {/* Simplified Trust Indicators */}
+                {/* Trust Indicators */}
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-white/95 rounded-3xl p-6 shadow-strong border border-white/20">
                     <div className="grid grid-cols-2 gap-6 text-center">
@@ -106,7 +107,7 @@ export const SimplifiedHeroSection = () => {
                 </div>
               </div>
 
-              {/* Single Quality Badge */}
+              {/* Quality Badge */}
               <div className="absolute top-6 right-6">
                 <div className="bg-dental-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-scale-in flex items-center">
                   <Star className="w-4 h-4 mr-2" />
