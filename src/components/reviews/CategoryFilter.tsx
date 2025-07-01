@@ -13,10 +13,10 @@ export const CategoryFilter = ({ categories, selectedCategory, onCategoryChange 
           <button
             key={category}
             onClick={() => onCategoryChange(category)}
-            className={`px-8 py-4 rounded-2xl text-base font-medium transition-all duration-300 hover:scale-105 ${
+            className={`px-8 py-4 rounded-2xl text-base font-medium transition-all duration-200 shadow-soft hover:shadow-strong ${
               selectedCategory === category
-                ? "bg-dental-primary text-white shadow-lg hover:bg-dental-primary-hover"
-                : "bg-white text-dental-light border-2 border-gray-200 hover:bg-gray-50 hover:border-dental-primary/30 hover:text-dental-primary shadow-soft"
+                ? "bg-dental-primary text-white hover:bg-dental-primary-hover"
+                : "bg-white text-dental-light border-2 border-gray-200 hover:bg-gray-50 hover:border-dental-primary/30 hover:text-dental-primary"
             }`}
           >
             {category}
