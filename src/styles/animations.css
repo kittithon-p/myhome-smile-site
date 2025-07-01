@@ -1,23 +1,192 @@
 
-/* Animations and Transitions */
+/* Enhanced Animations and Transitions */
 @layer utilities {
-  /* Animations */
+  
+  /* Base Animation Classes */
   .animate-fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 0.6s ease-out forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.3s ease-out forwards;
+    animation: scaleIn 0.4s ease-out forwards;
   }
 
+  /* Interactive Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .hover-lift:hover {
+    @apply transform -translate-y-2 shadow-xl;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out;
+  }
+  
+  .hover-scale:hover {
+    @apply scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .hover-glow:hover {
+    @apply shadow-lg;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+  }
+
+  .hover-shine {
+    @apply relative overflow-hidden;
+  }
+  
+  .hover-shine::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-700 ease-out;
+  }
+  
+  .hover-shine:hover::before {
+    @apply translate-x-full;
+  }
+
+  /* Button Animation Enhancements */
+  .btn-animated {
+    @apply relative overflow-hidden transition-all duration-300 ease-out;
+  }
+  
+  .btn-animated::before {
+    content: '';
+    @apply absolute inset-0 bg-white/10 transform scale-x-0 origin-left transition-transform duration-300 ease-out;
+  }
+  
+  .btn-animated:hover::before {
+    @apply scale-x-100;
+  }
+
+  .btn-pulse {
+    @apply animate-pulse-glow;
+  }
+
+  .btn-bounce:hover {
+    @apply animate-bounce-gentle;
+  }
+
+  /* Card Animation System */
+  .card-enter {
+    @apply animate-fade-in-up;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.12);
+  }
+
+  /* Stagger Animation Utilities */
+  .stagger-item:nth-child(1) {
+    @apply animate-fade-in-up-delay-100;
+  }
+  
+  .stagger-item:nth-child(2) {
+    @apply animate-fade-in-up-delay-200;
+  }
+  
+  .stagger-item:nth-child(3) {
+    @apply animate-fade-in-up-delay-300;
+  }
+  
+  .stagger-item:nth-child(4) {
+    @apply animate-fade-in-up-delay-400;
+  }
+
+  /* Icon Animation Effects */
+  .icon-spin-hover:hover {
+    @apply animate-spin;
+  }
+
+  .icon-bounce-hover:hover {
+    @apply animate-bounce-gentle;
+  }
+
+  .icon-wiggle-hover:hover {
+    @apply animate-wiggle;
+  }
+
+  .icon-float {
+    @apply animate-float;
+  }
+
+  /* Text Animation Effects */
+  .text-gradient-animate {
+    @apply bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+  }
+
+  .text-typing {
+    @apply animate-typing border-r-2 border-dental-primary;
+    animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* Loading Animation States */
+  .loading-dots::after {
+    content: '';
+    @apply inline-block w-1 h-1 bg-current rounded-full ml-1 animate-pulse;
+    animation: loading-dots 1.4s ease-in-out infinite both;
+  }
+
+  .loading-spinner {
+    @apply inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Scroll-based Animation Triggers */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Enhanced Keyframes */
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -28,7 +197,7 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -39,7 +208,7 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.9);
     }
     to {
       opacity: 1;
@@ -47,26 +216,106 @@
     }
   }
 
-  /* Reduced motion support */
+  @keyframes loading-dots {
+    0%, 80%, 100% {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Performance Optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Accessibility - Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-in,
     .animate-slide-up,
-    .animate-scale-in {
-      animation: none;
+    .animate-scale-in,
+    .animate-bounce-gentle,
+    .animate-wiggle,
+    .animate-float,
+    .animate-pulse-glow,
+    .animate-gradient-x,
+    .hover-lift,
+    .hover-scale,
+    .hover-glow,
+    .hover-shine,
+    .card-hover,
+    .scroll-fade-in,
+    .scroll-slide-left,
+    .scroll-scale-in {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
     }
     
     * {
       transition-duration: 0.01ms !important;
       animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
     }
   }
 
-  /* High contrast mode support */
+  /* High Contrast Mode Support */
   @media (prefers-contrast: high) {
-    :root {
-      --dental-primary: 210 100% 20%;
-      --dental-text: 0 0% 0%;
-      --dental-text-light: 0 0% 20%;
+    .hover-glow:hover,
+    .card-glow:hover {
+      box-shadow: 0 0 0 2px currentColor;
+    }
+    
+    .text-gradient-animate {
+      background: none;
+      color: currentColor;
+    }
+  }
+
+  /* Focus Animation Enhancements */
+  .focus-ring-animated:focus-visible {
+    @apply outline-2 outline-offset-2 outline-dental-primary;
+    animation: pulse-glow 0.3s ease-out;
+  }
+
+  /* Modal and Dialog Animations */
+  .modal-enter {
+    @apply animate-scale-in-center;
+  }
+
+  .modal-backdrop {
+    @apply animate-fade-in;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Notification Animations */
+  .notification-slide-in {
+    @apply animate-slide-in-right;
+  }
+
+  .notification-slide-out {
+    animation: slide-out-right 0.3s ease-in forwards;
+  }
+
+  @keyframes slide-out-right {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
     }
   }
 }
