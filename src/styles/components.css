@@ -1,124 +1,210 @@
 
-/* Component Styles */
+/* Component Styles - Medical Grade Components */
 @layer utilities {
-  /* Cards */
-  .card-modern {
-    @apply bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100;
+  /* Professional Button System */
+  .btn-medical-primary {
+    @apply bg-medical-primary hover:bg-medical-primary-hover text-white font-medium px-6 py-3 rounded-xl shadow-medical hover:shadow-medical-lg transition-all duration-200;
   }
 
-  .card-elevated {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100;
+  .btn-medical-secondary {
+    @apply bg-medical-secondary hover:bg-medical-secondary-hover text-white font-medium px-6 py-3 rounded-xl shadow-medical hover:shadow-medical-lg transition-all duration-200;
   }
 
-  .card-interactive {
-    @apply hover:-translate-y-1 hover:shadow-lg transition-all duration-300;
+  .btn-medical-outline {
+    @apply border-2 border-medical-primary bg-transparent text-medical-primary hover:bg-medical-primary hover:text-white font-medium px-6 py-3 rounded-xl transition-all duration-200;
   }
 
-  .card-hover {
-    @apply hover:-translate-y-1 transition-all duration-300;
+  .btn-medical-ghost {
+    @apply bg-transparent text-medical-primary hover:bg-medical-primary-light font-medium px-6 py-3 rounded-xl transition-all duration-200;
   }
 
-  /* Buttons */
-  .btn-animated {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  .btn-medical-lg {
+    @apply px-8 py-4 text-lg rounded-xl;
   }
 
-  .btn-pulse {
-    animation: pulse-soft 2s infinite;
+  .btn-medical-sm {
+    @apply px-4 py-2 text-sm rounded-lg;
   }
 
-  /* Interactive elements */
-  .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  /* Professional Card System */
+  .card-medical-service {
+    @apply bg-medical-surface border border-medical-border rounded-2xl p-6 md:p-8 shadow-medical hover:shadow-medical-lg transition-all duration-300 group;
   }
 
-  .hover-scale {
+  .card-medical-testimonial {
+    @apply bg-white border border-medical-border rounded-2xl p-6 shadow-medical hover:shadow-medical-lg transition-all duration-300;
+  }
+
+  .card-medical-pricing {
+    @apply bg-white border-2 border-medical-border rounded-3xl p-8 text-center relative overflow-hidden transition-all duration-300 hover:border-medical-primary hover:shadow-medical-xl;
+  }
+
+  .card-medical-feature {
+    @apply bg-medical-surface border border-medical-border rounded-xl p-6 text-center transition-all duration-300 hover:bg-white hover:shadow-medical;
+  }
+
+  /* Interactive Card Effects */
+  .card-hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .card-hover-scale {
     @apply transition-transform duration-300 hover:scale-105;
   }
 
-  .hover-glow {
+  .card-hover-glow {
     @apply transition-all duration-300;
   }
 
-  .hover-glow:hover {
-    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+  .card-hover-glow:hover {
+    box-shadow: 0 20px 40px hsl(var(--medical-primary) / 0.15);
   }
 
-  /* Icons */
-  .icon-container {
-    @apply transition-all duration-300;
+  /* Professional Form Elements */
+  .input-medical {
+    @apply w-full px-4 py-3 border border-medical-border rounded-xl bg-white text-medical-text placeholder-medical-text-muted focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-medical-primary transition-all duration-200;
   }
 
-  .icon-hover-bounce:hover {
-    animation: bounce 1s ease-in-out;
+  .textarea-medical {
+    @apply w-full px-4 py-3 border border-medical-border rounded-xl bg-white text-medical-text placeholder-medical-text-muted focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-medical-primary transition-all duration-200 resize-none;
   }
 
-  .icon-hover-spin:hover {
-    animation: spin 1s ease-in-out;
+  .select-medical {
+    @apply w-full px-4 py-3 border border-medical-border rounded-xl bg-white text-medical-text focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-medical-primary transition-all duration-200;
   }
 
-  .icon-hover-wiggle:hover {
-    animation: wiggle 0.5s ease-in-out;
+  /* Medical Icon Containers */
+  .icon-medical-primary {
+    @apply w-12 h-12 bg-medical-primary-light text-medical-primary rounded-xl flex items-center justify-center;
   }
 
-  .icon-floating {
-    animation: float 3s ease-in-out infinite;
+  .icon-medical-secondary {
+    @apply w-12 h-12 bg-medical-secondary-light text-medical-secondary rounded-xl flex items-center justify-center;
   }
 
-  /* Hero elements */
-  .hero-content {
-    @apply relative z-10;
+  .icon-medical-accent {
+    @apply w-12 h-12 bg-medical-accent-light text-medical-accent rounded-xl flex items-center justify-center;
   }
 
-  .hero-image {
-    @apply relative z-10;
+  .icon-medical-lg {
+    @apply w-16 h-16;
   }
 
-  .hero-badge {
-    animation: pulse-soft 2s infinite;
+  .icon-medical-sm {
+    @apply w-8 h-8;
   }
 
-  /* Scroll indicator */
-  .scroll-indicator {
-    animation: bounce 2s infinite;
+  /* Trust Indicators */
+  .trust-badge {
+    @apply inline-flex items-center px-4 py-2 bg-medical-success-light text-medical-success rounded-full text-sm font-medium;
   }
 
-  /* Performance optimization */
-  .gpu-accelerated {
-    transform: translateZ(0);
-    will-change: transform;
+  .trust-rating {
+    @apply flex items-center space-x-1 text-yellow-400;
   }
 
-  /* Effects */
-  .hover-shine {
-    position: relative;
-    overflow: hidden;
+  .trust-seal {
+    @apply bg-white border border-medical-border rounded-xl p-4 text-center shadow-medical-sm;
   }
 
-  .hover-shine:hover::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    animation: shine 0.6s ease-in-out;
+  /* Professional Navigation */
+  .nav-medical {
+    @apply bg-white/95 backdrop-blur-md border-b border-medical-border sticky top-0 z-medical-nav;
   }
-}
 
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
+  .nav-medical-link {
+    @apply text-medical-text hover:text-medical-primary font-medium transition-colors duration-200 relative;
+  }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-3deg); }
-  75% { transform: rotate(3deg); }
-}
+  .nav-medical-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-medical-primary transition-all duration-300;
+  }
 
-@keyframes shine {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  .nav-medical-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Medical Badges */
+  .badge-medical-success {
+    @apply bg-medical-success text-white px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-medical-primary {
+    @apply bg-medical-primary text-white px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-medical-outline {
+    @apply border border-medical-primary text-medical-primary px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Professional Dividers */
+  .divider-medical {
+    @apply w-full h-px bg-medical-border;
+  }
+
+  .divider-medical-vertical {
+    @apply w-px h-full bg-medical-border;
+  }
+
+  .divider-medical-accent {
+    @apply w-16 h-1 bg-medical-primary mx-auto rounded-full;
+  }
+
+  /* Loading States */
+  .loading-medical {
+    @apply inline-block w-6 h-6 border-2 border-medical-primary border-t-transparent rounded-full animate-spin;
+  }
+
+  .skeleton-medical {
+    @apply bg-medical-border animate-pulse rounded;
+  }
+
+  /* Professional Overlays */
+  .overlay-medical {
+    @apply absolute inset-0 bg-black/50 backdrop-blur-sm;
+  }
+
+  .overlay-medical-light {
+    @apply absolute inset-0 bg-white/80 backdrop-blur-sm;
+  }
+
+  /* Medical Content Blocks */
+  .content-medical {
+    @apply prose prose-lg max-w-none;
+  }
+
+  .content-medical h2 {
+    @apply text-medical-primary;
+  }
+
+  .content-medical h3 {
+    @apply text-medical-primary;
+  }
+
+  .content-medical a {
+    @apply text-medical-primary hover:text-medical-primary-hover;
+  }
+
+  /* Professional Shadows */
+  .shadow-medical-inset {
+    box-shadow: inset 0 2px 4px 0 hsl(var(--medical-primary) / 0.06);
+  }
+
+  .shadow-medical-colored {
+    box-shadow: 0 10px 25px -5px hsl(var(--medical-primary) / 0.2);
+  }
+
+  /* Accessibility Enhancements */
+  .focus-medical {
+    @apply focus:outline-none focus:ring-2 focus:ring-medical-primary focus:ring-offset-2;
+  }
+
+  .sr-medical {
+    @apply sr-only;
+  }
+
+  /* Professional hover effects */
+  .hover-medical {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-medical-lg;
+  }
 }

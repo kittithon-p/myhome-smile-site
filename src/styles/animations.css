@@ -1,7 +1,7 @@
 
-/* Animation System */
+/* Animation System - Medical Grade Animations */
 @layer utilities {
-  /* Accessibility first - respect user preferences */
+  /* Accessibility First - Respect User Preferences */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -9,30 +9,120 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 
-  /* Loading states */
-  .loading-spinner {
-    @apply inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin;
+  /* Professional Animation Classes */
+  .animate-medical-fade-in {
+    animation: medical-fade-in 0.6s ease-out forwards;
   }
 
-  /* Stagger animations for lists */
-  .list-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-  .list-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-  .list-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-  .list-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-  .list-stagger > *:nth-child(5) { animation-delay: 0.5s; }
-  .list-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+  .animate-medical-slide-up {
+    animation: medical-slide-up 0.6s ease-out forwards;
+  }
+
+  .animate-medical-slide-down {
+    animation: medical-slide-down 0.6s ease-out forwards;
+  }
+
+  .animate-medical-scale-in {
+    animation: medical-scale-in 0.4s ease-out forwards;
+  }
+
+  .animate-medical-float {
+    animation: medical-float 3s ease-in-out infinite;
+  }
+
+  .animate-medical-pulse {
+    animation: medical-pulse 2s ease-in-out infinite;
+  }
+
+  /* Stagger Animation System */
+  .stagger-medical > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-medical > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-medical > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-medical > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-medical > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-medical > *:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-medical > *:nth-child(7) { animation-delay: 0.7s; }
+  .stagger-medical > *:nth-child(8) { animation-delay: 0.8s; }
 
   .stagger-item {
     opacity: 0;
-    animation: fade-in-up 0.6s ease-out forwards;
+    transform: translateY(20px);
+    animation: medical-fade-in-up 0.6s ease-out forwards;
+  }
+
+  /* Medical Loading Animations */
+  .loading-medical-dots {
+    @apply inline-flex space-x-1;
+  }
+
+  .loading-medical-dots > div {
+    @apply w-2 h-2 bg-medical-primary rounded-full animate-bounce;
+  }
+
+  .loading-medical-dots > div:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .loading-medical-dots > div:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  /* Professional Hover Animations */
+  .hover-medical-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-medical-lg;
+  }
+
+  .hover-medical-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-medical-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-medical-glow:hover {
+    box-shadow: 0 20px 40px hsl(var(--medical-primary) / 0.2);
+  }
+
+  /* Medical Icon Animations */
+  .icon-medical-bounce:hover {
+    animation: medical-bounce 0.6s ease-in-out;
+  }
+
+  .icon-medical-spin:hover {
+    animation: medical-spin 1s ease-in-out;
+  }
+
+  .icon-medical-pulse {
+    animation: medical-pulse 2s ease-in-out infinite;
+  }
+
+  /* Trust Building Animations */
+  .trust-fade-in {
+    animation: medical-trust-fade 0.8s ease-out forwards;
+  }
+
+  .success-checkmark {
+    animation: medical-checkmark 0.6s ease-out forwards;
+  }
+
+  /* Performance Optimizations */
+  .will-change-medical {
+    will-change: transform, opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
 
-/* Keyframes */
-@keyframes fade-in {
+/* Medical Keyframes - Professional & Subtle */
+@keyframes medical-fade-in {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -43,7 +133,7 @@
   }
 }
 
-@keyframes fade-in-up {
+@keyframes medical-fade-in-up {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -54,10 +144,10 @@
   }
 }
 
-@keyframes fade-in-down {
+@keyframes medical-slide-up {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -65,7 +155,18 @@
   }
 }
 
-@keyframes scale-in {
+@keyframes medical-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes medical-scale-in {
   from {
     opacity: 0;
     transform: scale(0.9);
@@ -76,35 +177,114 @@
   }
 }
 
-@keyframes float {
+@keyframes medical-float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
-@keyframes bounce {
+@keyframes medical-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes medical-bounce {
   0%, 20%, 53%, 80%, 100% {
     transform: translate3d(0,0,0);
   }
   40%, 43% {
-    transform: translate3d(0,-10px,0);
+    transform: translate3d(0,-8px,0);
   }
   70% {
-    transform: translate3d(0,-5px,0);
+    transform: translate3d(0,-4px,0);
   }
   90% {
     transform: translate3d(0,-2px,0);
   }
 }
 
-@keyframes spin {
+@keyframes medical-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes medical-trust-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes medical-checkmark {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes medical-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Professional text shimmer effect */
+.text-medical-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--medical-primary)),
+    hsl(var(--medical-accent)),
+    hsl(var(--medical-primary))
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: medical-shimmer 3s ease-in-out infinite;
+}
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Medical loading spinner */
+.spinner-medical {
+  @apply inline-block w-6 h-6 border-2 border-medical-primary border-t-transparent rounded-full;
+  animation: medical-spin 1s linear infinite;
 }

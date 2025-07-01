@@ -1,9 +1,9 @@
 
-/* Base styles and fonts */
+/* Base styles and fonts - Medical Grade Foundation */
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
 
 @layer base {
-  /* CSS Reset */
+  /* Modern CSS Reset for Medical Standards */
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -15,37 +15,54 @@
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "kern" 1;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Sarabun', system-ui, sans-serif;
-    line-height: 1.6;
+    @apply bg-medical-bg text-medical-text antialiased;
+    font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
+    font-variant-numeric: tabular-nums;
   }
 
-  /* Typography */
+  /* Typography Hierarchy for Medical Content */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Prompt', 'Sarabun', system-ui, sans-serif;
+    font-family: 'Prompt', 'Sarabun', sans-serif;
     font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.025em;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: hsl(var(--medical-primary));
   }
 
-  /* Images */
+  /* High-contrast links for accessibility */
+  a {
+    color: hsl(var(--medical-primary));
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    color: hsl(var(--medical-primary-hover));
+    text-decoration: underline;
+  }
+
+  /* Professional image handling */
   img {
     @apply w-full h-auto;
     display: block;
+    border-radius: 0.5rem;
   }
 
-  /* Focus Management */
+  /* Focus Management for Medical Compliance */
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
   textarea:focus-visible,
   [tabindex]:focus-visible {
-    @apply outline-2 outline-offset-2 outline-blue-600;
+    @apply outline-2 outline-offset-2;
+    outline-color: hsl(var(--medical-primary));
   }
 
   /* Remove focus outline for mouse users */
@@ -53,8 +70,51 @@
     outline: none;
   }
 
-  /* Smooth transitions for all interactive elements */
-  a, button, input, textarea, select {
-    transition: all 0.2s ease-in-out;
+  /* Medical-grade form elements */
+  input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  /* Smooth transitions for professional feel */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* Thai text optimization */
+  .thai-text {
+    font-family: 'Sarabun', sans-serif;
+    word-break: break-word;
+    hyphens: auto;
+    line-height: 1.8;
+  }
+
+  /* Medical content readability */
+  .medical-content {
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Print styles for medical documents */
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
   }
 }

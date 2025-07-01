@@ -1,69 +1,183 @@
 
-/* Typography System */
+/* Typography System - Medical Grade Typography */
 @layer utilities {
-  /* Headings */
+  /* Hero Headlines - Professional & Trustworthy */
   .heading-hero {
-    @apply text-3xl md:text-5xl lg:text-6xl font-bold text-dental leading-tight tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-medical-primary leading-tight tracking-tight;
+    font-family: 'Prompt', sans-serif;
   }
 
+  /* Section Headlines - Clear Hierarchy */
   .heading-section {
-    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-dental leading-tight tracking-tight;
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-medical-primary leading-tight;
+    font-family: 'Prompt', sans-serif;
   }
 
+  /* Card Headlines - Professional Cards */
   .heading-card {
-    @apply text-xl md:text-2xl font-medium text-dental leading-normal;
+    @apply text-xl md:text-2xl font-medium text-medical-primary leading-normal;
+    font-family: 'Prompt', sans-serif;
   }
 
+  /* Subsection Headlines */
+  .heading-subsection {
+    @apply text-lg md:text-xl font-medium text-medical-primary leading-normal;
+    font-family: 'Prompt', sans-serif;
+  }
+
+  /* Small Headlines */
   .heading-small {
-    @apply text-lg font-medium text-dental leading-normal;
+    @apply text-base md:text-lg font-medium text-medical-primary leading-normal;
+    font-family: 'Prompt', sans-serif;
   }
 
-  /* Body text */
+  /* Body Text - Optimized for Thai */
   .text-body {
-    @apply text-base text-gray-700 leading-relaxed;
+    @apply text-base text-medical-text leading-relaxed thai-text;
   }
 
   .text-body-large {
-    @apply text-lg text-gray-700 leading-relaxed;
+    @apply text-lg text-medical-text leading-relaxed thai-text;
   }
 
+  .text-body-small {
+    @apply text-sm text-medical-text leading-relaxed thai-text;
+  }
+
+  /* Caption and Meta Text */
   .text-caption {
-    @apply text-sm text-gray-600 leading-normal;
+    @apply text-sm text-medical-text-light leading-normal thai-text;
   }
 
-  .text-small {
-    @apply text-xs text-gray-500 leading-normal;
+  .text-meta {
+    @apply text-xs text-medical-text-muted leading-normal thai-text;
   }
 
-  /* Text effects */
-  .text-shimmer {
-    @apply bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent;
-    background-size: 200% 100%;
-    animation: shimmer 2s ease-in-out infinite;
+  /* Medical Content Typography */
+  .text-medical {
+    @apply text-base text-medical-text leading-relaxed medical-content;
   }
 
-  .text-glow {
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  /* Professional Lead Text */
+  .text-lead {
+    @apply text-xl text-medical-text-light leading-relaxed thai-text;
   }
 
-  /* Thai text optimization */
-  .text-thai {
-    font-family: 'Sarabun', sans-serif;
-    word-break: break-word;
-    hyphens: auto;
+  /* Trust Building Text Effects */
+  .text-trust {
+    @apply text-medical-primary font-medium;
+    text-shadow: 0 1px 2px hsl(var(--medical-primary) / 0.1);
   }
 
-  /* Responsive font sizes */
+  .text-professional {
+    @apply text-medical-text font-normal tracking-wide;
+    letter-spacing: 0.025em;
+  }
+
+  /* Medical Brand Text */
+  .text-brand {
+    @apply bg-gradient-to-r from-medical-primary to-medical-secondary bg-clip-text text-transparent font-semibold;
+  }
+
+  /* Emphasis Text */
+  .text-emphasis {
+    @apply text-medical-primary font-semibold;
+  }
+
+  /* Success/Status Text */
+  .text-success {
+    @apply text-medical-success font-medium;
+  }
+
+  /* Responsive Typography Scales */
+  .text-responsive-sm {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+
   .text-responsive {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
   }
 
   .heading-responsive {
     font-size: clamp(1.5rem, 5vw, 3rem);
   }
+
+  .hero-responsive {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  /* Thai Text Optimization */
+  .thai-optimized {
+    font-family: 'Sarabun', sans-serif;
+    word-break: break-word;
+    hyphens: auto;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  /* Medical Documentation Text */
+  .text-documentation {
+    @apply text-sm text-medical-text-light leading-relaxed;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Professional Quote Text */
+  .text-quote {
+    @apply text-lg italic text-medical-text-light leading-relaxed;
+    quotes: '"' '"' ''' ''';
+  }
+
+  .text-quote::before {
+    content: open-quote;
+  }
+
+  .text-quote::after {
+    content: close-quote;
+  }
+
+  /* Accessibility Improvements */
+  .text-high-contrast {
+    color: hsl(var(--medical-text));
+    font-weight: 500;
+  }
+
+  /* Print Typography */
+  @media print {
+    .heading-hero,
+    .heading-section,
+    .heading-card {
+      color: black !important;
+      font-weight: 600 !important;
+    }
+
+    .text-body,
+    .text-medical {
+      color: black !important;
+      line-height: 1.6 !important;
+    }
+  }
 }
 
-@keyframes shimmer {
+/* Professional text animations */
+@keyframes text-shine {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+.text-shine {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--medical-primary)),
+    hsl(var(--medical-accent)),
+    hsl(var(--medical-primary))
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 3s ease-in-out infinite;
 }

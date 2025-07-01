@@ -1,72 +1,222 @@
 
-/* Layout System */
+/* Layout System - Medical Grade Layouts */
 @layer utilities {
-  /* Spacing */
+  /* Professional Spacing System */
   .section-spacing {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .section-spacing-sm {
     @apply py-12 md:py-16 lg:py-20;
   }
 
   .element-spacing {
-    @apply mb-8 md:mb-12;
+    @apply mb-8 md:mb-12 lg:mb-16;
   }
 
-  .container-spacing {
+  .element-spacing-sm {
+    @apply mb-6 md:mb-8 lg:mb-10;
+  }
+
+  /* Container System - Medical Standards */
+  .container-medical {
     @apply px-4 md:px-6 lg:px-8 max-w-7xl mx-auto;
   }
 
-  .card-spacing {
-    @apply p-6 md:p-8;
+  .container-narrow {
+    @apply px-4 md:px-6 lg:px-8 max-w-4xl mx-auto;
   }
 
-  /* Grid systems */
-  .grid-responsive {
+  .container-wide {
+    @apply px-4 md:px-6 lg:px-8 max-w-[90rem] mx-auto;
+  }
+
+  .container-full {
+    @apply px-4 md:px-6 lg:px-8 w-full mx-auto;
+  }
+
+  /* Professional Grid Systems */
+  .grid-medical {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10;
+  }
+
+  .grid-services {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8;
+  }
+
+  .grid-testimonials {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
   }
 
   .grid-hero {
-    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center;
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh];
   }
 
-  .grid-2-cols {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+  .grid-features {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start;
   }
 
-  .grid-4-cols {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6;
+  .grid-stats {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6;
   }
 
-  /* Flexbox utilities */
-  .flex-center {
+  /* Flexbox Utilities - Professional Layouts */
+  .flex-medical-center {
     @apply flex items-center justify-center;
   }
 
-  .flex-between {
+  .flex-medical-between {
     @apply flex items-center justify-between;
   }
 
-  .flex-start {
+  .flex-medical-start {
     @apply flex items-center justify-start;
   }
 
-  /* Container sizes */
-  .container-narrow {
+  .flex-medical-end {
+    @apply flex items-center justify-end;
+  }
+
+  .flex-medical-col {
+    @apply flex flex-col items-center;
+  }
+
+  /* Professional Card Layouts */
+  .card-medical {
+    @apply p-6 md:p-8 bg-medical-surface border border-medical-border rounded-2xl;
+  }
+
+  .card-medical-lg {
+    @apply p-8 md:p-10 bg-medical-surface border border-medical-border rounded-3xl;
+  }
+
+  .card-medical-sm {
+    @apply p-4 md:p-6 bg-medical-surface border border-medical-border rounded-xl;
+  }
+
+  /* Professional Section Layouts */
+  .section-medical {
+    @apply section-spacing bg-medical-bg relative overflow-hidden;
+  }
+
+  .section-medical-alt {
+    @apply section-spacing bg-medical-surface relative overflow-hidden;
+  }
+
+  .section-medical-primary {
+    @apply section-spacing bg-medical-primary text-white relative overflow-hidden;
+  }
+
+  /* Content Width Management */
+  .content-width {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .content-width-wide {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .content-width-narrow {
     @apply max-w-2xl mx-auto;
   }
 
-  .container-wide {
-    @apply max-w-6xl mx-auto;
-  }
-
-  .container-full {
-    @apply max-w-full mx-auto;
-  }
-
-  /* Mobile optimizations */
+  /* Mobile Optimizations */
   .mobile-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
 
-  .mobile-cta {
-    @apply w-full sm:w-auto;
+  .mobile-stack {
+    @apply flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6;
+  }
+
+  .mobile-center {
+    @apply text-center md:text-left;
+  }
+
+  .mobile-full {
+    @apply w-full md:w-auto;
+  }
+
+  /* Professional Aspect Ratios */
+  .aspect-medical-hero {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-medical-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-medical-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-medical-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Z-index Management */
+  .z-medical-nav {
+    z-index: 50;
+  }
+
+  .z-medical-overlay {
+    z-index: 40;
+  }
+
+  .z-medical-modal {
+    z-index: 60;
+  }
+
+  .z-medical-tooltip {
+    z-index: 70;
+  }
+
+  /* Professional Positioning */
+  .position-medical-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .position-medical-overlay {
+    @apply absolute inset-0;
+  }
+
+  /* Responsive Visibility */
+  .show-mobile {
+    @apply block md:hidden;
+  }
+
+  .show-desktop {
+    @apply hidden md:block;
+  }
+
+  .show-tablet {
+    @apply hidden md:block lg:hidden;
+  }
+
+  /* Professional Scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .scroll-medical {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--medical-border)) hsl(var(--medical-surface));
+  }
+
+  .scroll-medical::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scroll-medical::-webkit-scrollbar-track {
+    background: hsl(var(--medical-surface));
+  }
+
+  .scroll-medical::-webkit-scrollbar-thumb {
+    background: hsl(var(--medical-border));
+    border-radius: 3px;
+  }
+
+  .scroll-medical::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--medical-primary) / 0.3);
   }
 }

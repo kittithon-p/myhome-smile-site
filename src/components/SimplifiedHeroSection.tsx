@@ -1,133 +1,176 @@
 
 import { Button } from "@/components/ui/button";
-import { Phone, Facebook, Shield, Clock, Star } from "lucide-react";
+import { Phone, Facebook, Shield, Clock, Star, Award, Users, Heart } from "lucide-react";
 
 export const SimplifiedHeroSection = () => {
   return (
-    <section id="home" className="relative gradient-hero min-h-[80vh] flex items-center overflow-hidden">
-      {/* Professional Background Elements with Enhanced Animation */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-dental-primary/5 rounded-full blur-3xl animate-float opacity-60"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-dental-secondary/5 rounded-full blur-3xl animate-float opacity-60" style={{ animationDelay: '2s' }}></div>
+    <section id="home" className="relative gradient-medical-hero min-h-screen flex items-center overflow-hidden">
+      {/* Professional Medical Background */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-medical-primary/10 rounded-full blur-3xl animate-medical-float"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-medical-secondary/10 rounded-full blur-3xl animate-medical-float" style={{ animationDelay: '2s' }}></div>
       </div>
       
-      <div className="container-spacing relative z-10 py-8 md:py-12">
+      <div className="container-medical relative z-10 py-12">
         <div className="grid-hero">
-          {/* Left Content - Enhanced with Animations */}
-          <div className="lg:col-span-6 text-center lg:text-left hero-content">
-            {/* Main Headlines with Typing Animation */}
-            <div className="mb-8">
-              <h1 className="heading-hero mb-4 will-change-transform">
-                <span className="block animate-fade-in-up">ยิ้มสวย</span>
-                <span className="block bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent font-bold text-shimmer animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  มั่นใจทุกวัน
+          {/* Left Content - Professional Medical Presentation */}
+          <div className="lg:col-span-7 text-center lg:text-left">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center bg-medical-success-light text-medical-success px-6 py-3 rounded-full mb-8 animate-medical-fade-in trust-badge">
+              <Award className="w-5 h-5 mr-2" />
+              <span className="font-medium thai-optimized">คลินิกทันตกรรมมาตรฐานสากล</span>
+            </div>
+
+            {/* Professional Headlines */}
+            <div className="mb-10">
+              <h1 className="heading-hero mb-6 thai-optimized animate-medical-slide-up">
+                <span className="block">ยิ้มสวย สุขภาพดี</span>
+                <span className="block text-medical-shimmer font-bold">
+                  ด้วยใจแพทย์ผู้เชี่ยวชาญ
                 </span>
               </h1>
               
-              <p className="text-body-large max-w-lg mx-auto lg:mx-0 mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <p className="text-lead max-w-2xl mx-auto lg:mx-0 mb-8 thai-optimized animate-medical-fade-in" style={{ animationDelay: '0.3s' }}>
                 คลินิกทันตกรรมครบวงจร บางละมุง ชลบุรี
-                <span className="block text-dental-primary font-semibold mt-2 text-glow">
-                  ด้วยทีมแพทย์ผู้เชี่ยวชาญมากกว่า 10 ปี
+                <span className="block text-medical-primary font-semibold mt-3 text-trust">
+                  ทีมแพทย์ผู้เชี่ยวชาญมากกว่า 10 ปี พร้อมเทคโนโลยีทันสมัย
                 </span>
               </p>
             </div>
             
-            {/* Key Benefits with Stagger Animation */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-lg mx-auto lg:mx-0 list-stagger">
-              <div className="flex items-center space-x-3 bg-white/60 rounded-2xl p-4 shadow-soft stagger-item hover-lift">
-                <Shield className="w-5 h-5 text-dental-primary icon-hover-bounce" />
-                <span className="text-body font-medium text-dental">ทันตแพทย์ผู้เชี่ยวชาญ</span>
+            {/* Professional Trust Indicators */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-2xl mx-auto lg:mx-0 stagger-medical">
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-medical stagger-item hover-medical-lift">
+                <div className="icon-medical-primary">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <div className="text-medical-primary font-semibold thai-optimized">ทันตแพทย์ผู้เชี่ยวชาญ</div>
+                  <div className="text-medical-text-light text-sm thai-optimized">ใบประกอบวิชาชีพครบถ้วน</div>
+                </div>
               </div>
-              <div className="flex items-center space-x-3 bg-white/60 rounded-2xl p-4 shadow-soft stagger-item hover-lift">
-                <Clock className="w-5 h-5 text-dental-secondary icon-hover-spin" />
-                <span className="text-body font-medium text-dental">เปิดถึง 20:00 น.</span>
+              
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-medical stagger-item hover-medical-lift">
+                <div className="icon-medical-secondary">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <div className="text-medical-primary font-semibold thai-optimized">เปิดถึง 20:00 น.</div>
+                  <div className="text-medical-text-light text-sm thai-optimized">สะดวกสำหรับคนทำงาน</div>
+                </div>
               </div>
             </div>
             
-            {/* Primary CTA with Enhanced Animation */}
-            <div className="flex flex-col items-center lg:items-start">
+            {/* Professional CTA Section */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
               <Button 
                 size="lg" 
-                variant="dental-primary"
-                className="mobile-cta shadow-strong hover:shadow-3xl group mb-4 btn-pulse hover-glow animate-fade-in-up"
+                className="btn-medical-primary btn-medical-lg mobile-full group shadow-medical-lg hover:shadow-medical-xl animate-medical-scale-in"
                 style={{ animationDelay: '0.8s' }}
                 onClick={() => window.open('tel:062-649-9979', '_self')}
               >
-                <Phone className="w-6 h-6 mr-3 icon-hover-bounce" />
+                <Phone className="w-6 h-6 mr-3 icon-medical-bounce" />
                 <div className="text-left">
-                  <div className="font-bold">โทรจองคิวเลย</div>
+                  <div className="font-bold thai-optimized">โทรจองคิวเลย</div>
                   <div className="text-sm opacity-90">062-649-9979</div>
                 </div>
               </Button>
               
-              {/* Secondary CTA with Animation */}
               <Button 
-                variant="dental-outline"
+                variant="outline"
                 size="lg"
-                className="group hover:bg-dental-accent/30 transition-all duration-300 hover-lift animate-fade-in-up"
+                className="btn-medical-outline group hover-medical-lift animate-medical-fade-in"
                 style={{ animationDelay: '1s' }}
                 onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
               >
-                <Facebook className="w-5 h-5 mr-2 icon-hover-wiggle" />
-                ส่งข้อความ Facebook
+                <Facebook className="w-5 h-5 mr-2" />
+                <span className="thai-optimized">ส่งข้อความ Facebook</span>
               </Button>
+            </div>
+
+            {/* Professional Social Proof */}
+            <div className="flex items-center justify-center lg:justify-start mt-8 space-x-8 animate-medical-fade-in" style={{ animationDelay: '1.2s' }}>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-medical-primary">2000+</div>
+                <div className="text-medical-text-light text-sm thai-optimized">ผู้ป่วยไว้วางใจ</div>
+              </div>
+              <div className="divider-medical-vertical h-12"></div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <div className="text-medical-text-light text-sm thai-optimized">4.9/5 ดาว</div>
+              </div>
             </div>
           </div>
 
-          {/* Right Content with Enhanced Animations */}
-          <div className="lg:col-span-6 hero-image">
-            <div className="relative card-elevated hover:shadow-3xl group overflow-hidden animate-fade-in-down gpu-accelerated">
-              <div className="aspect-[4/3] relative">
+          {/* Right Content - Professional Medical Imagery */}
+          <div className="lg:col-span-5">
+            <div className="relative card-medical-lg hover-medical-glow group overflow-hidden animate-medical-slide-down gpu-accelerated">
+              <div className="aspect-medical-hero relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop&auto=format&q=75"
-                  alt="ทีมทันตแพทย์และคนไข้ยิ้ม - My Home Dental Clinic"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                  src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&h=400&fit=crop&auto=format&q=80"
+                  alt="ทีมทันตแพทย์ผู้เชี่ยวชาญ - MY HOME Dental Clinic บางละมุง ชลบุรี"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-medical"
                   loading="eager"
                 />
                 
-                {/* Gradient Overlay with Animation */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300"></div>
+                {/* Professional Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-medical-primary/20 via-transparent to-transparent group-hover:from-medical-primary/10 transition-all duration-300"></div>
                 
-                {/* Trust Indicators with Enhanced Animation */}
+                {/* Professional Stats Overlay */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 rounded-3xl p-6 shadow-strong border border-white/20 hover-lift animate-scale-in gpu-accelerated">
-                    <div className="grid grid-cols-2 gap-6 text-center">
-                      <div className="group">
-                        <div className="text-3xl md:text-4xl font-bold gradient-primary bg-clip-text text-transparent mb-2 hover:scale-110 transition-transform duration-300 text-shimmer">
+                  <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-medical-lg border border-white/20 hover-medical-lift animate-medical-scale-in gpu-accelerated">
+                    <div className="grid grid-cols-3 gap-6 text-center">
+                      <div className="group cursor-pointer">
+                        <div className="text-2xl md:text-3xl font-bold text-medical-primary mb-2 hover-medical-scale text-medical-shimmer">
                           98%
                         </div>
-                        <div className="text-caption text-dental-light">ความพอใจ</div>
+                        <div className="text-medical-text-light text-sm thai-optimized">ความพอใจ</div>
                       </div>
-                      <div className="group">
-                        <div className="text-3xl md:text-4xl font-bold text-dental-primary mb-2 hover:scale-110 transition-transform duration-300">
+                      <div className="group cursor-pointer">
+                        <div className="text-2xl md:text-3xl font-bold text-medical-secondary mb-2 hover-medical-scale">
                           10+
                         </div>
-                        <div className="text-caption text-dental-light">ปีประสบการณ์</div>
+                        <div className="text-medical-text-light text-sm thai-optimized">ปีประสบการณ์</div>
+                      </div>
+                      <div className="group cursor-pointer">
+                        <div className="text-2xl md:text-3xl font-bold text-medical-accent mb-2 hover-medical-scale">
+                          24/7
+                        </div>
+                        <div className="text-medical-text-light text-sm thai-optimized">สอบถามได้</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Quality Badge with Pulse Animation */}
+              {/* Medical Quality Certifications */}
               <div className="absolute top-6 right-6">
-                <div className="bg-dental-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hero-badge flex items-center">
-                  <Star className="w-4 h-4 mr-2 icon-floating" />
-                  คุณภาพสากล
+                <div className="bg-medical-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-medical-lg animate-medical-pulse flex items-center">
+                  <Heart className="w-4 h-4 mr-2 icon-medical-pulse" />
+                  <span className="thai-optimized">มาตรฐานสากล</span>
                 </div>
               </div>
 
-              {/* Hover Shine Effect */}
-              <div className="absolute inset-0 rounded-2xl hover-shine pointer-events-none"></div>
+              {/* Medical Certification Badge */}
+              <div className="absolute top-6 left-6">
+                <div className="bg-medical-success text-white px-3 py-2 rounded-full text-xs font-medium shadow-medical flex items-center">
+                  <Users className="w-3 h-3 mr-1" />
+                  <span className="thai-optimized">ได้รับรอง</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
-        <div className="w-6 h-10 border-2 border-dental-primary rounded-full flex justify-center items-start p-2 hover:border-dental-secondary transition-colors duration-300">
-          <div className="w-1 h-3 bg-dental-primary rounded-full animate-bounce"></div>
+      {/* Professional Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-medical-bounce">
+        <div className="w-6 h-10 border-2 border-medical-primary rounded-full flex justify-center items-start p-2 hover:border-medical-secondary transition-colors duration-300 bg-white/50 backdrop-blur-sm">
+          <div className="w-1 h-3 bg-medical-primary rounded-full animate-bounce"></div>
         </div>
       </div>
     </section>

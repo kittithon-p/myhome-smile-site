@@ -1,79 +1,129 @@
 
-/* Color System */
+/* Medical Color System - Professional & Trustworthy */
 @layer base {
   :root {
-    /* Shadcn colors */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
-    --primary: 210 55% 28%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 15%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 215 25% 15%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 55% 28%;
-    --radius: 0.75rem;
+    /* Medical Primary Colors - Professional Blue */
+    --medical-primary: 210 85% 25%;
+    --medical-primary-hover: 210 85% 20%;
+    --medical-primary-light: 210 85% 95%;
+    --medical-primary-dark: 210 85% 15%;
 
-    /* Dental brand colors */
-    --dental-primary: 210 55% 25%;
-    --dental-primary-hover: 210 55% 20%;
-    --dental-secondary: 155 45% 30%;
-    --dental-secondary-hover: 155 45% 25%;
-    --dental-accent: 210 45% 92%;
-    --dental-success: 142 70% 35%;
-    --dental-success-hover: 142 70% 30%;
-    --dental-light: 210 30% 97%;
+    /* Medical Secondary Colors - Trust Green */
+    --medical-secondary: 160 70% 35%;
+    --medical-secondary-hover: 160 70% 30%;
+    --medical-secondary-light: 160 70% 95%;
+
+    /* Medical Accent Colors - Clean Cyan */
+    --medical-accent: 190 80% 45%;
+    --medical-accent-hover: 190 80% 40%;
+    --medical-accent-light: 190 80% 95%;
+
+    /* Medical Neutrals - Clean & Professional */
+    --medical-bg: 0 0% 100%;
+    --medical-surface: 210 20% 98%;
+    --medical-border: 210 20% 90%;
+    --medical-text: 210 20% 15%;
+    --medical-text-light: 210 15% 45%;
+    --medical-text-muted: 210 10% 60%;
+
+    /* Medical Success - Healthy Green */
+    --medical-success: 140 70% 35%;
+    --medical-success-hover: 140 70% 30%;
+    --medical-success-light: 140 70% 95%;
+
+    /* Medical Warning - Professional Orange */
+    --medical-warning: 35 85% 50%;
+    --medical-warning-hover: 35 85% 45%;
+    --medical-warning-light: 35 85% 95%;
+
+    /* Medical Error - Medical Red */
+    --medical-error: 0 75% 50%;
+    --medical-error-hover: 0 75% 45%;
+    --medical-error-light: 0 75% 95%;
+
+    /* Shadcn compatibility */
+    --background: var(--medical-bg);
+    --foreground: var(--medical-text);
+    --primary: var(--medical-primary);
+    --primary-foreground: 210 20% 98%;
+    --secondary: var(--medical-surface);
+    --secondary-foreground: var(--medical-text);
+    --muted: var(--medical-surface);
+    --muted-foreground: var(--medical-text-muted);
+    --accent: var(--medical-accent-light);
+    --accent-foreground: var(--medical-text);
+    --destructive: var(--medical-error);
+    --destructive-foreground: 210 20% 98%;
+    --border: var(--medical-border);
+    --input: var(--medical-border);
+    --ring: var(--medical-primary);
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 215 25% 8%;
-    --foreground: 210 40% 98%;
-    --dental-primary: 210 55% 35%;
-    --dental-secondary: 155 45% 40%;
+    --medical-bg: 210 20% 8%;
+    --medical-surface: 210 20% 12%;
+    --medical-text: 210 20% 90%;
+    --medical-text-light: 210 15% 70%;
+    --medical-border: 210 20% 20%;
   }
 }
 
 @layer utilities {
-  /* Background colors */
-  .bg-dental-primary { background-color: hsl(var(--dental-primary)); }
-  .bg-dental-primary-hover { background-color: hsl(var(--dental-primary-hover)); }
-  .bg-dental-secondary { background-color: hsl(var(--dental-secondary)); }
-  .bg-dental-secondary-hover { background-color: hsl(var(--dental-secondary-hover)); }
-  .bg-dental-accent { background-color: hsl(var(--dental-accent)); }
-  .bg-dental-success { background-color: hsl(var(--dental-success)); }
-  .bg-dental-success-hover { background-color: hsl(var(--dental-success-hover)); }
-  .bg-dental-light { background-color: hsl(var(--dental-light)); }
+  /* Background Colors */
+  .bg-medical-primary { background-color: hsl(var(--medical-primary)); }
+  .bg-medical-primary-hover { background-color: hsl(var(--medical-primary-hover)); }
+  .bg-medical-primary-light { background-color: hsl(var(--medical-primary-light)); }
   
-  /* Text colors */
-  .text-dental-primary { color: hsl(var(--dental-primary)); }
-  .text-dental-secondary { color: hsl(var(--dental-secondary)); }
-  .text-dental { color: hsl(var(--foreground)); }
+  .bg-medical-secondary { background-color: hsl(var(--medical-secondary)); }
+  .bg-medical-secondary-hover { background-color: hsl(var(--medical-secondary-hover)); }
+  .bg-medical-secondary-light { background-color: hsl(var(--medical-secondary-light)); }
   
-  /* Border colors */
-  .border-dental-primary { border-color: hsl(var(--dental-primary)); }
-  .border-dental-secondary { border-color: hsl(var(--dental-secondary)); }
-  .border-dental-accent { border-color: hsl(var(--dental-accent)); }
-
-  /* Gradients */
-  .gradient-hero {
-    background: linear-gradient(135deg, white, hsl(var(--dental-light)));
+  .bg-medical-accent { background-color: hsl(var(--medical-accent)); }
+  .bg-medical-accent-light { background-color: hsl(var(--medical-accent-light)); }
+  
+  .bg-medical-bg { background-color: hsl(var(--medical-bg)); }
+  .bg-medical-surface { background-color: hsl(var(--medical-surface)); }
+  
+  .bg-medical-success { background-color: hsl(var(--medical-success)); }
+  .bg-medical-success-light { background-color: hsl(var(--medical-success-light)); }
+  
+  /* Text Colors */
+  .text-medical-primary { color: hsl(var(--medical-primary)); }
+  .text-medical-secondary { color: hsl(var(--medical-secondary)); }
+  .text-medical-accent { color: hsl(var(--medical-accent)); }
+  .text-medical-text { color: hsl(var(--medical-text)); }
+  .text-medical-text-light { color: hsl(var(--medical-text-light)); }
+  .text-medical-text-muted { color: hsl(var(--medical-text-muted)); }
+  .text-medical-success { color: hsl(var(--medical-success)); }
+  
+  /* Border Colors */
+  .border-medical-primary { border-color: hsl(var(--medical-primary)); }
+  .border-medical-secondary { border-color: hsl(var(--medical-secondary)); }
+  .border-medical-border { border-color: hsl(var(--medical-border)); }
+  
+  /* Medical Gradients */
+  .gradient-medical-hero {
+    background: linear-gradient(135deg, 
+      hsl(var(--medical-bg)), 
+      hsl(var(--medical-primary-light)));
+  }
+  
+  .gradient-medical-primary {
+    background: linear-gradient(135deg, 
+      hsl(var(--medical-primary)), 
+      hsl(var(--medical-secondary)));
+  }
+  
+  .gradient-medical-surface {
+    background: linear-gradient(135deg, 
+      hsl(var(--medical-surface)), 
+      hsl(var(--medical-bg)));
   }
 
-  .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
-  }
-
-  .gradient-soft {
-    background: linear-gradient(135deg, hsl(var(--dental-accent)), white);
-  }
+  /* Professional shadows for medical UI */
+  .shadow-medical-sm { box-shadow: 0 1px 3px 0 hsl(var(--medical-primary) / 0.1); }
+  .shadow-medical { box-shadow: 0 4px 6px -1px hsl(var(--medical-primary) / 0.1); }
+  .shadow-medical-lg { box-shadow: 0 10px 15px -3px hsl(var(--medical-primary) / 0.1); }
+  .shadow-medical-xl { box-shadow: 0 20px 25px -5px hsl(var(--medical-primary) / 0.1); }
 }
