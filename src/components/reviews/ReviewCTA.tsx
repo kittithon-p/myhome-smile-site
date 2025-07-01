@@ -20,21 +20,27 @@ export const ReviewCTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg"
-              className="btn-primary mobile-cta hover:scale-105 transition-all duration-300"
+              className="mobile-cta btn-primary shadow-strong hover:shadow-3xl group"
               onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
             >
-              <Facebook className="w-5 h-5 mr-2" />
-              ปรึกษาฟรีทาง Facebook
+              <Facebook className="w-6 h-6 mr-3 group-hover:animate-bounce" />
+              <div className="text-left">
+                <div className="font-bold">ปรึกษาฟรีทาง Facebook</div>
+                <div className="text-sm opacity-90">ตอบภายใน 1 ชม.</div>
+              </div>
               <MessageCircle className="w-4 h-4 ml-2" />
             </Button>
             
             <Button 
               size="lg"
-              className="btn-outline mobile-cta hover:scale-105 transition-all duration-300"
+              className="mobile-cta btn-outline shadow-strong hover:shadow-3xl group"
               onClick={() => window.open('tel:062-649-9979', '_self')}
             >
-              <Phone className="w-5 h-5 mr-2" />
-              โทร 062-649-9979
+              <Phone className="w-6 h-6 mr-3 group-hover:animate-bounce" />
+              <div className="text-left">
+                <div className="font-bold">โทร 062-649-9979</div>
+                <div className="text-sm opacity-90">โทรเลย</div>
+              </div>
             </Button>
           </div>
           
