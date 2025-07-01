@@ -1,227 +1,40 @@
 
-/* Component Styles with Clean Animations */
+/* Component Styles */
 @layer utilities {
-  /* Modern Button System */
-  .btn-primary {
-    @apply inline-flex items-center justify-center bg-dental-primary hover:bg-dental-primary-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-ring-animated btn-animated;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-ring-animated btn-animated;
-  }
-
-  .btn-success {
-    @apply inline-flex items-center justify-center bg-dental-success hover:bg-dental-success-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-ring-animated btn-animated;
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center border-2 border-dental-primary bg-white text-dental-primary hover:bg-dental-primary hover:text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus-ring-animated;
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center bg-transparent hover:bg-dental-accent text-dental-primary font-medium px-6 py-3 rounded-xl transition-all duration-300 focus-ring-animated;
-  }
-
-  /* Button Animation Classes */
-  .btn-animated {
-    @apply relative overflow-hidden transition-all duration-300 ease-out;
-  }
-  
-  .btn-animated::before {
-    content: '';
-    @apply absolute inset-0 bg-white/10 transform scale-x-0 origin-left transition-transform duration-300 ease-out;
-  }
-  
-  .btn-animated:hover::before {
-    @apply scale-x-100;
-  }
-
-  .btn-pulse {
-    @apply animate-glow;
-  }
-
-  /* Enhanced Card System */
+  /* Cards */
   .card-modern {
-    @apply bg-white rounded-2xl shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100/50 hover:-translate-y-1 card-hover gpu-accelerated;
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100;
   }
 
-  .card-elevated {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-0 hover:-translate-y-2 card-glow gpu-accelerated;
-  }
-
-  .card-interactive {
-    @apply card-modern hover-lift hover-glow cursor-pointer;
-  }
-
-  .card-floating {
-    @apply card-elevated animate-float;
-  }
-
-  /* Card Animation Classes */
   .card-hover {
-    @apply transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1;
+    @apply hover:-translate-y-1 transition-all duration-300;
   }
 
-  .card-glow:hover {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.12);
+  /* Buttons */
+  .btn-animated {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
   }
 
-  /* Clean Gradients */
-  .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
+  /* Interactive elements */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
-  .gradient-accent {
-    background: linear-gradient(135deg, hsl(var(--dental-accent)), white);
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
   }
 
+  /* Gradients */
   .gradient-hero {
     background: linear-gradient(135deg, white, hsl(var(--dental-light)));
   }
 
-  /* Mobile Optimization */
-  .mobile-cta {
-    @apply w-full md:w-auto px-6 py-3 text-base font-medium rounded-xl transition-all duration-300 btn-animated hover:shadow-lg active:scale-95;
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
   }
 
-  .mobile-touch {
-    @apply min-h-[44px] min-w-[44px] transition-all duration-200 active:scale-95;
-  }
-
-  /* Icon Animation System */
-  .icon-container {
-    @apply relative overflow-hidden rounded-full transition-all duration-300;
-  }
-
-  .icon-hover-bounce:hover {
-    @apply animate-bounce-soft;
-  }
-
-  .icon-hover-spin:hover {
-    @apply animate-spin;
-  }
-
-  .icon-hover-wiggle:hover {
-    @apply animate-wiggle;
-  }
-
-  .icon-floating {
-    @apply animate-float;
-  }
-
-  /* Text Effects */
+  /* Text effects */
   .text-shimmer {
     @apply bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent;
-    background-size: 200% 200%;
-    animation: gradientMove 3s ease infinite;
-  }
-
-  .text-glow {
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-  }
-
-  /* List Animation System */
-  .list-stagger > * {
-    @apply stagger-item;
-  }
-
-  .list-hover-lift > *:hover {
-    @apply transform -translate-y-1 shadow-md transition-all duration-300;
-  }
-
-  /* Stagger Animation Utilities */
-  .stagger-item:nth-child(1) {
-    @apply animate-fade-in-up-delay-100;
-  }
-  
-  .stagger-item:nth-child(2) {
-    @apply animate-fade-in-up-delay-200;
-  }
-  
-  .stagger-item:nth-child(3) {
-    @apply animate-fade-in-up-delay-300;
-  }
-  
-  .stagger-item:nth-child(4) {
-    @apply animate-fade-in-up-delay-400;
-  }
-
-  /* Form Enhancements */
-  .form-field-animated {
-    @apply transition-all duration-300 focus:scale-105 focus:shadow-lg focus-ring-animated;
-  }
-
-  /* Hero Section Specific */
-  .hero-content {
-    @apply animate-fade-in-up;
-  }
-
-  .hero-image {
-    @apply animate-fade-in-down;
-  }
-
-  .hero-badge {
-    @apply animate-scale-in hover:animate-glow;
-  }
-
-  /* Service Card Animations */
-  .service-card {
-    @apply card-modern hover-lift hover-glow transition-all duration-300;
-  }
-
-  .service-icon {
-    @apply icon-hover-bounce transition-transform duration-300;
-  }
-
-  /* Contact Section */
-  .contact-form {
-    @apply space-y-4;
-  }
-
-  .contact-form > * {
-    @apply stagger-item;
-  }
-
-  .contact-button {
-    @apply btn-primary btn-pulse hover:shadow-glow;
-  }
-
-  /* Scroll Indicator */
-  .scroll-indicator {
-    @apply animate-bounce opacity-75 hover:opacity-100 transition-opacity duration-300;
-  }
-
-  /* Performance Optimizations */
-  .gpu-accelerated {
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-  }
-
-  /* Focus Animation Enhancements */
-  .focus-ring-animated:focus-visible {
-    @apply outline-2 outline-offset-2 outline-dental-primary;
-    animation: focusPulse 0.3s ease-out;
-  }
-
-  /* Keyframe Definitions */
-  @keyframes gradientMove {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @keyframes focusPulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-    }
   }
 }

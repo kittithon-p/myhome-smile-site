@@ -1,5 +1,5 @@
 
-/* Base styles and resets */
+/* Base styles and fonts */
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
 
 @layer base {
@@ -9,26 +9,18 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    line-height: 1.7;
-    letter-spacing: 0.01em;
-    font-weight: 400;
+    font-family: 'Sarabun', system-ui, sans-serif;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Prompt', 'Sarabun', system-ui, sans-serif;
     font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
+    line-height: 1.3;
   }
 
   img {
     @apply w-full h-auto;
-    max-width: 100%;
-  }
-
-  img:not([alt]) {
-    outline: 2px solid red;
   }
 
   html {
@@ -38,8 +30,7 @@
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
-    @apply outline-2 outline-offset-2 outline-dental-primary;
+  textarea:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600;
   }
 }
