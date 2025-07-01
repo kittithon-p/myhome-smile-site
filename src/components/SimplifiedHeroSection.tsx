@@ -90,7 +90,7 @@ export const SimplifiedHeroSection = () => {
                 
                 {/* Trust Indicators with Enhanced Animation */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/95 rounded-3xl p-6 shadow-strong border border-white/20 hover-lift animate-scale-in-center gpu-accelerated">
+                  <div className="bg-white/95 rounded-3xl p-6 shadow-strong border border-white/20 hover-lift animate-scale-in gpu-accelerated">
                     <div className="grid grid-cols-2 gap-6 text-center">
                       <div className="group">
                         <div className="text-3xl md:text-4xl font-bold gradient-primary bg-clip-text text-transparent mb-2 hover:scale-110 transition-transform duration-300 text-shimmer">
