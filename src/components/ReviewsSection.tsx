@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Star, Heart, Eye, Award } from "lucide-react";
 import { reviewImages, categories } from "./reviews/ReviewImageData";
@@ -94,42 +95,6 @@ const ReviewsSection = () => {
           currentImageIndex={currentImageIndex}
           onImageSelect={handleImageSelect}
         />
-
-        {/* Stats Section */}
-        <div className="mb-16">
-          <div className="card-modern card-spacing bg-gradient-to-br from-white to-dental-accent/20">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-dental-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-dental-primary" />
-                </div>
-                <div className="text-2xl font-bold text-dental-primary mb-2">500+</div>
-                <div className="text-caption text-dental-light">ผู้ป่วยที่พึงพอใจ</div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-dental-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-8 h-8 text-dental-secondary" />
-                </div>
-                <div className="text-2xl font-bold text-dental-primary mb-2">4.9/5</div>
-                <div className="text-caption text-dental-light">คะแนนรีวิวเฉลี่ย</div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-yellow-600" />
-                </div>
-                <div className="text-2xl font-bold text-dental-primary mb-2">10+</div>
-                <div className="text-caption text-dental-light">ปีประสบการณ์</div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Eye className="w-8 h-8 text-green-600" />
-                </div>
-                <div className="text-2xl font-bold text-dental-primary mb-2">6</div>
-                <div className="text-caption text-dental-light">ประเภทการรักษา</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <ReviewCTA />
       </div>
