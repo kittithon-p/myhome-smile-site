@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Facebook, CheckCircle, Clock, Award, Users, Phone, MessageCircle, Star, Shield, Zap } from "lucide-react";
 
@@ -16,28 +15,6 @@ export const HeroSection = () => {
         <div className="grid-hero">
           {/* Left Content - Enhanced */}
           <div className="lg:col-span-6 text-center lg:text-left animate-fade-in">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-soft mb-8 border border-dental-accent">
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2">
-                  <Award className="w-5 h-5 text-dental-primary" />
-                  <span className="text-caption font-semibold text-dental">ประสบการณ์ 10+ ปี</span>
-                </div>
-                <div className="w-px h-4 bg-dental-accent"></div>
-                <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-dental-secondary" />
-                  <span className="text-caption font-semibold text-dental">ลูกค้า 1,200+ ราย</span>
-                </div>
-                <div className="w-px h-4 bg-dental-accent"></div>
-                <div className="flex items-center space-x-1">
-                  {[1,2,3,4,5].map(i => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
-                  <span className="text-caption font-semibold text-dental ml-1">4.8</span>
-                </div>
-              </div>
-            </div>
-            
             {/* Main Headlines */}
             <div className="element-spacing mb-12">
               <h1 className="heading-hero mb-6">
