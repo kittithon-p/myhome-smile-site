@@ -1,5 +1,5 @@
 
-import { Clock, MapPin, MessageCircle, Award, Users, Shield } from "lucide-react";
+import { Clock, MapPin, MessageCircle } from "lucide-react";
 
 const reasons = [
   {
@@ -25,12 +25,6 @@ const reasons = [
   }
 ];
 
-const stats = [
-  { icon: Award, number: "10+", label: "ปีประสบการณ์", color: "text-dental-primary" },
-  { icon: Users, number: "1,200+", label: "ลูกค้าพอใจ", color: "text-dental-secondary" },
-  { icon: Shield, number: "98%", label: "ความพอใจ", color: "text-purple-600" }
-];
-
 export const WhyChooseUsSection = () => {
   return (
     <section className="section-spacing bg-white relative overflow-hidden">
@@ -44,21 +38,6 @@ export const WhyChooseUsSection = () => {
             ความสะดวก ความเชื่อใจ และการบริการที่ดีที่สุด
           </p>
           <div className="w-16 h-1 bg-blue-200 mx-auto mt-6 radius-standard"></div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 radius-card shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className={`w-8 h-8 ${stat.color}`} />
-              </div>
-              <div className={`text-2xl md:text-3xl font-light ${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
-                {stat.number}
-              </div>
-              <div className="text-body font-medium">{stat.label}</div>
-            </div>
-          ))}
         </div>
 
         {/* Reasons Grid - Changed to horizontal layout */}
