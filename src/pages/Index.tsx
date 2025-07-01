@@ -2,6 +2,7 @@
 import { Suspense } from "react";
 import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { SocialSecuritySection } from "@/components/SocialSecuritySection";
 import { ContactSection } from "@/components/ContactSection";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -32,6 +33,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <ServicesSection />
+      <SocialSecuritySection />
       
       <Suspense fallback={<SectionLoader />}>
         <LazyPromotionsSection />
