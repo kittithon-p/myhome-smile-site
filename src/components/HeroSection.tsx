@@ -1,9 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { Facebook, CheckCircle, Clock, Award, Users, Phone, MessageCircle, Star, Shield, Zap } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <section id="home" className="relative gradient-hero min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative gradient-hero min-h-[80vh] flex items-center overflow-hidden">
       {/* Professional Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-dental-primary/5 rounded-full blur-3xl animate-pulse"></div>
@@ -11,20 +12,20 @@ export const HeroSection = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-dental-accent/10 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container-spacing relative z-10 section-spacing">
+      <div className="container-spacing relative z-10 py-8 md:py-12">
         <div className="grid-hero">
           {/* Left Content - Enhanced */}
           <div className="lg:col-span-6 text-center lg:text-left animate-fade-in">
             {/* Main Headlines */}
-            <div className="element-spacing mb-12">
-              <h1 className="heading-hero mb-6">
+            <div className="mb-8">
+              <h1 className="heading-hero mb-4">
                 <span className="block">ยิ้มสวย</span>
                 <span className="block bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent font-bold">
                   มั่นใจทุกวัน
                 </span>
               </h1>
               
-              <p className="text-body-large max-w-lg mx-auto lg:mx-0 mb-8">
+              <p className="text-body-large max-w-lg mx-auto lg:mx-0 mb-6">
                 คลินิกทันตกรรมครบวงจร บางละมุง ชลบุรี
                 <span className="block text-dental-light mt-2">
                   ด้วยเทคโนโลยีทันสมัย และทีมแพทย์ผู้เชี่ยวชาญ
@@ -33,7 +34,7 @@ export const HeroSection = () => {
             </div>
             
             {/* Key Benefits */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto lg:mx-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto lg:mx-0">
               {[
                 { icon: Shield, text: "ทันตแพทย์ผู้เชี่ยวชาญ", color: "text-dental-primary" },
                 { icon: Clock, text: "เปิดถึง 20:00 น.", color: "text-dental-secondary" },
