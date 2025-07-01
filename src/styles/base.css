@@ -3,34 +3,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
 
 @layer base {
-  * {
-    @apply border-border;
+  /* CSS Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Sarabun', system-ui, sans-serif;
     line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
 
+  /* Typography */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Prompt', 'Sarabun', system-ui, sans-serif;
     font-weight: 600;
     line-height: 1.3;
+    letter-spacing: -0.025em;
   }
 
+  /* Images */
   img {
     @apply w-full h-auto;
+    display: block;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
+  /* Focus Management */
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
-  textarea:focus-visible {
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
     @apply outline-2 outline-offset-2 outline-blue-600;
+  }
+
+  /* Remove focus outline for mouse users */
+  .js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a, button, input, textarea, select {
+    transition: all 0.2s ease-in-out;
   }
 }

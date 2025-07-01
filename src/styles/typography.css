@@ -1,18 +1,24 @@
 
 /* Typography System */
 @layer utilities {
+  /* Headings */
   .heading-hero {
-    @apply text-3xl md:text-5xl font-bold text-dental leading-tight;
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold text-dental leading-tight tracking-tight;
   }
 
   .heading-section {
-    @apply text-2xl md:text-3xl font-semibold text-dental leading-tight;
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-dental leading-tight tracking-tight;
   }
 
   .heading-card {
-    @apply text-xl font-medium text-dental leading-normal;
+    @apply text-xl md:text-2xl font-medium text-dental leading-normal;
   }
 
+  .heading-small {
+    @apply text-lg font-medium text-dental leading-normal;
+  }
+
+  /* Body text */
   .text-body {
     @apply text-base text-gray-700 leading-relaxed;
   }
@@ -24,4 +30,40 @@
   .text-caption {
     @apply text-sm text-gray-600 leading-normal;
   }
+
+  .text-small {
+    @apply text-xs text-gray-500 leading-normal;
+  }
+
+  /* Text effects */
+  .text-shimmer {
+    @apply bg-gradient-to-r from-dental-primary via-dental-secondary to-dental-primary bg-clip-text text-transparent;
+    background-size: 200% 100%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Thai text optimization */
+  .text-thai {
+    font-family: 'Sarabun', sans-serif;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Responsive font sizes */
+  .text-responsive {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+
+  .heading-responsive {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }

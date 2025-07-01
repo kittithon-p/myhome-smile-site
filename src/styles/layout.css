@@ -1,8 +1,13 @@
 
 /* Layout System */
 @layer utilities {
+  /* Spacing */
   .section-spacing {
-    @apply py-12 md:py-16;
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  .element-spacing {
+    @apply mb-8 md:mb-12;
   }
 
   .container-spacing {
@@ -13,11 +18,55 @@
     @apply p-6 md:p-8;
   }
 
+  /* Grid systems */
   .grid-responsive {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
   }
 
   .grid-hero {
     @apply grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center;
+  }
+
+  .grid-2-cols {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+  }
+
+  .grid-4-cols {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  /* Flexbox utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+
+  /* Container sizes */
+  .container-narrow {
+    @apply max-w-2xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .container-full {
+    @apply max-w-full mx-auto;
+  }
+
+  /* Mobile optimizations */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-cta {
+    @apply w-full sm:w-auto;
   }
 }

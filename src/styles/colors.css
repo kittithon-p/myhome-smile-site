@@ -26,19 +26,32 @@
 
     /* Dental brand colors */
     --dental-primary: 210 55% 25%;
+    --dental-primary-hover: 210 55% 20%;
     --dental-secondary: 155 45% 30%;
+    --dental-secondary-hover: 155 45% 25%;
     --dental-accent: 210 45% 92%;
     --dental-success: 142 70% 35%;
+    --dental-success-hover: 142 70% 30%;
     --dental-light: 210 30% 97%;
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 210 40% 98%;
+    --dental-primary: 210 55% 35%;
+    --dental-secondary: 155 45% 40%;
   }
 }
 
 @layer utilities {
   /* Background colors */
   .bg-dental-primary { background-color: hsl(var(--dental-primary)); }
+  .bg-dental-primary-hover { background-color: hsl(var(--dental-primary-hover)); }
   .bg-dental-secondary { background-color: hsl(var(--dental-secondary)); }
+  .bg-dental-secondary-hover { background-color: hsl(var(--dental-secondary-hover)); }
   .bg-dental-accent { background-color: hsl(var(--dental-accent)); }
   .bg-dental-success { background-color: hsl(var(--dental-success)); }
+  .bg-dental-success-hover { background-color: hsl(var(--dental-success-hover)); }
   .bg-dental-light { background-color: hsl(var(--dental-light)); }
   
   /* Text colors */
@@ -50,4 +63,17 @@
   .border-dental-primary { border-color: hsl(var(--dental-primary)); }
   .border-dental-secondary { border-color: hsl(var(--dental-secondary)); }
   .border-dental-accent { border-color: hsl(var(--dental-accent)); }
+
+  /* Gradients */
+  .gradient-hero {
+    background: linear-gradient(135deg, white, hsl(var(--dental-light)));
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
+  }
+
+  .gradient-soft {
+    background: linear-gradient(135deg, hsl(var(--dental-accent)), white);
+  }
 }
