@@ -51,7 +51,7 @@ export const ProgressivePromotionsSection = () => {
         {additionalPromotions.length > 0 && (
           <div className="text-center mb-12">
             <Button 
-              variant="dental-outline"
+              variant="medical-outline"
               size="lg"
               className="group rounded-full"
               onClick={() => setShowAllPromotions(!showAllPromotions)}
@@ -108,7 +108,7 @@ export const ProgressivePromotionsSection = () => {
               </div>
               
               <Button 
-                variant="dental-primary"
+                variant="medical-primary"
                 size="lg" 
                 className="mobile-cta hover:scale-105 transition-all duration-300"
                 onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}

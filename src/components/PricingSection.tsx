@@ -85,7 +85,7 @@ export const PricingSection = () => {
             return (
               <Button
                 key={index}
-                variant={selectedCategory === index ? "dental-primary" : "dental-ghost"}
+                variant={selectedCategory === index ? "medical-primary" : "medical-ghost"}
                 size="lg"
                 onClick={() => setSelectedCategory(index)}
                 className="relative"
@@ -174,7 +174,7 @@ export const PricingSection = () => {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Button 
-                  variant="dental-primary"
+                  variant="medical-primary"
                   size="xl"
                   className="mobile-cta"
                   onClick={() => window.open('tel:062-649-9979', '_self')}
@@ -184,7 +184,7 @@ export const PricingSection = () => {
                 </Button>
                 
                 <Button 
-                  variant="dental-outline"
+                  variant="medical-outline"
                   size="xl"
                   className="mobile-cta"
                   onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}

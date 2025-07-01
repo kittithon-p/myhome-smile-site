@@ -127,7 +127,7 @@ export const FAQSection = () => {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant={activeCategory === category ? "dental-primary" : "dental-ghost"}
+                variant={activeCategory === category ? "medical-primary" : "medical-ghost"}
                 size="sm"
                 onClick={() => setActiveCategory(category)}
                 className="rounded-full"
@@ -205,7 +205,7 @@ export const FAQSection = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
                 <Button 
-                  variant="dental-primary"
+                  variant="medical-primary"
                   size="lg"
                   className="mobile-cta"
                   onClick={() => window.open('tel:062-649-9979', '_self')}
@@ -215,7 +215,7 @@ export const FAQSection = () => {
                 </Button>
                 
                 <Button 
-                  variant="dental-outline"
+                  variant="medical-outline"
                   size="lg"
                   className="mobile-cta"
                   onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}

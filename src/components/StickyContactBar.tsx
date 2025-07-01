@@ -38,7 +38,7 @@ export const StickyContactBar = () => {
           
           <div className="flex items-center gap-2">
             <Button
-              variant="dental-primary"
+              variant="medical-primary"
               size="sm"
               className="hidden sm:inline-flex"
               onClick={() => window.open('tel:062-649-9979', '_self')}
@@ -48,7 +48,7 @@ export const StickyContactBar = () => {
             </Button>
             
             <Button
-              variant="dental-secondary"
+              variant="medical-secondary"
               size="sm"
               onClick={() => window.open('https://lin.ee/8rP1iJi', '_blank')}
             >
@@ -57,7 +57,7 @@ export const StickyContactBar = () => {
             </Button>
             
             <Button
-              variant="dental-outline"
+              variant="medical-outline"
               size="sm"
               className="hidden sm:inline-flex"
               onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
@@ -68,7 +68,7 @@ export const StickyContactBar = () => {
             
             {/* Mobile-only call button */}
             <Button
-              variant="dental-primary"
+              variant="medical-primary"
               size="sm"
               className="sm:hidden"
               onClick={() => window.open('tel:062-649-9979', '_self')}
