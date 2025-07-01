@@ -12,35 +12,35 @@ export const ProgressivePromotionsSection = () => {
   const [showAllPromotions, setShowAllPromotions] = useState(false);
 
   return (
-    <section id="promotions" className="section-spacing bg-gradient-to-br from-white via-dental-accent/10 to-white relative overflow-hidden">
+    <section id="promotions" className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-dental-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-20 w-80 h-80 bg-dental-accent/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-orange-100 rounded-full blur-3xl opacity-40"></div>
       
-      <div className="container-spacing relative z-10">
-        {/* Simplified Section Header */}
-        <div className="text-center element-spacing max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-soft mb-6">
-            <Gift className="w-5 h-5 text-dental-primary mr-2 animate-bounce" />
-            <span className="text-caption font-medium text-dental-primary uppercase tracking-wider">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-sm mb-6">
+            <Gift className="w-5 h-5 text-orange-500 mr-2 animate-bounce" />
+            <span className="text-sm font-medium text-orange-600 uppercase tracking-wider">
               โปรโมชั่นพิเศษ
             </span>
           </div>
           
-          <h2 className="heading-section mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             โปรโมชั่นยอดนิยม
             <br />
-            <span className="bg-gradient-to-r from-dental-primary to-dental-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
               ประหยัดได้มากถึง 50%
             </span>
           </h2>
           
-          <p className="text-body-large text-dental-light max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             โปรโมชั่นที่ได้รับความนิยมมากที่สุด จำกัดเวลา อย่าพลาดโอกาสดี ๆ
           </p>
         </div>
 
-        {/* Main Promotions (Always visible) */}
+        {/* Main Promotions */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {mainPromotions.map((promo) => (
             <PromotionCard key={promo.id} promotion={promo} />
@@ -51,9 +51,9 @@ export const ProgressivePromotionsSection = () => {
         {additionalPromotions.length > 0 && (
           <div className="text-center mb-12">
             <Button 
-              variant="medical-outline"
+              variant="outline"
               size="lg"
-              className="group rounded-full"
+              className="group rounded-full border-2 hover:bg-blue-50 hover:border-blue-300 px-8 py-4 font-medium transition-all duration-200"
               onClick={() => setShowAllPromotions(!showAllPromotions)}
             >
               {showAllPromotions ? (
@@ -71,14 +71,14 @@ export const ProgressivePromotionsSection = () => {
           </div>
         )}
 
-        {/* Additional Promotions (Progressive Disclosure) */}
+        {/* Additional Promotions */}
         {showAllPromotions && additionalPromotions.length > 0 && (
           <div className="animate-fade-in">
             <div className="text-center mb-8">
-              <h3 className="heading-card text-dental-primary mb-2">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-2">
                 โปรโมชั่นเพิ่มเติม
               </h3>
-              <p className="text-body text-dental-light">
+              <p className="text-gray-600">
                 โปรโมชั่นอื่น ๆ ที่คุ้มค่าไม่แพ้กัน
               </p>
             </div>
@@ -91,26 +91,24 @@ export const ProgressivePromotionsSection = () => {
           </div>
         )}
 
-        {/* Simplified Bottom CTA Section */}
+        {/* Bottom CTA Section */}
         <div className="text-center">
-          <div className="card-modern card-spacing max-w-2xl mx-auto bg-gradient-to-br from-white to-dental-accent/30">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl max-w-2xl mx-auto border border-gray-100">
             <div className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-dental-primary mr-2" />
-                  <h3 className="heading-card text-dental-primary">
+                  <Heart className="w-6 h-6 text-red-500 mr-2" />
+                  <h3 className="text-2xl md:text-3xl font-semibold text-gray-800">
                     สนใจโปรโมชั่นไหนบ้าง?
                   </h3>
                 </div>
-                <p className="text-body text-dental-light">
+                <p className="text-gray-600 text-lg">
                   ติดต่อเราเพื่อจองคิวและรับคำปรึกษาฟรี
                 </p>
               </div>
               
               <Button 
-                variant="medical-primary"
-                size="lg" 
-                className="mobile-cta hover:scale-105 transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium text-lg hover:scale-105 transition-all duration-300 w-full sm:w-auto"
                 onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
               >
                 <Gift className="w-5 h-5 mr-2" />

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Facebook, Sparkles, Heart, Shield, Smile, Stethoscope, Zap, Wrench, ArrowRight, Star, ChevronDown, ChevronUp } from "lucide-react";
+import { Facebook, Sparkles, Heart, Shield, Smile, Stethoscope, Zap, Wrench, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 
 const allServices = [
   {
@@ -12,7 +12,7 @@ const allServices = [
     description: "ฟันขาวสะอาดใน 1 ชั่วโมง ด้วยเทคโนโลยีล้ำสมัย",
     price: "เริ่มต้น ฿1,500",
     popular: true,
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=250&fit=crop&auto=format&q=75"
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=300&fit=crop&auto=format&q=75"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const allServices = [
     description: "ฟันสวยเป็นธรรมชาติ เปลี่ยนรอยยิ้มให้สมบูรณ์แบบ",
     price: "เริ่มต้น ฿8,000",
     popular: true,
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=250&fit=crop&auto=format&q=75"
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=300&fit=crop&auto=format&q=75"
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const allServices = [
     description: "ทดแทนฟันที่หายไป แข็งแรงเหมือนฟันจริง",
     price: "เริ่มต้น ฿25,000",
     popular: true,
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=250&fit=crop&auto=format&q=75"
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=300&fit=crop&auto=format&q=75"
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const allServices = [
     description: "รักษาฟันผุ ถอนฟันคุด ด้วยเทคนิคไม่เจ็บ",
     price: "เริ่มต้น ฿300",
     popular: false,
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&auto=format&q=75"
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&auto=format&q=75"
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const allServices = [
     description: "รักษาฟันให้อยู่ได้นาน ป้องกันการสูญเสียฟัน",
     price: "เริ่มต้น ฿3,000",
     popular: false,
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop&auto=format&q=75"
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&auto=format&q=75"
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ const allServices = [
     description: "เหมาะกับวัยรุ่นและวัยทำงาน มองไม่เห็นขณะใส่",
     price: "เริ่มต้น ฿80,000",
     popular: false,
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=250&fit=crop&auto=format&q=75"
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=300&fit=crop&auto=format&q=75"
   }
 ];
 
@@ -68,7 +68,7 @@ export const ProgressiveServicesSection = () => {
   const [showAllServices, setShowAllServices] = useState(false);
 
   const ServiceCard = ({ service }: { service: typeof allServices[0] }) => (
-    <Card className="group card-elevated hover:-translate-y-2 transition-all duration-200 overflow-hidden bg-white/95 border-0">
+    <Card className="group hover:-translate-y-2 transition-all duration-300 overflow-hidden bg-white shadow-lg hover:shadow-xl border-0 rounded-2xl">
       <CardContent className="p-0">
         <div className="relative h-48 overflow-hidden">
           <img 
@@ -77,34 +77,34 @@ export const ProgressiveServicesSection = () => {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
           
           <div className="absolute top-4 left-4">
-            <div className="w-12 h-12 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
-              <service.icon className="w-6 h-6 text-dental-primary" />
+            <div className="w-12 h-12 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg">
+              <service.icon className="w-6 h-6 text-blue-600" />
             </div>
           </div>
         </div>
         
-        <div className="card-spacing space-y-4">
+        <div className="p-6 space-y-4">
           <div className="space-y-3">
-            <h4 className="heading-card group-hover:text-dental-primary transition-colors duration-200">
+            <h4 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-200">
               {service.title}
             </h4>
             
-            <p className="text-body text-dental-light leading-relaxed">
+            <p className="text-gray-600 leading-relaxed">
               {service.description}
             </p>
           </div>
           
-          <div className="bg-dental-accent rounded-xl p-4">
-            <div className="text-dental-primary font-bold text-lg">
+          <div className="bg-blue-50 rounded-xl p-4">
+            <div className="text-blue-600 font-bold text-lg">
               {service.price}
             </div>
           </div>
           
           <Button 
-            className="btn-primary w-full group-hover:bg-dental-primary-hover transition-all duration-200"
+            className="bg-blue-600 hover:bg-blue-700 text-white w-full rounded-xl py-3 font-medium transition-all duration-200"
             onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
           >
             <Facebook className="w-4 h-4 mr-2" />
@@ -117,36 +117,36 @@ export const ProgressiveServicesSection = () => {
   );
 
   return (
-    <section id="services" className="section-spacing bg-gradient-hero relative overflow-hidden">
+    <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-repeat" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E8F4F8' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DBEAFE' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
       </div>
       
-      <div className="container-spacing relative z-10">
-        {/* Section Header - Simplified */}
-        <div className="text-center element-spacing max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center bg-white/80 rounded-full px-6 py-3 shadow-soft mb-6">
-            <Heart className="w-5 h-5 text-dental-primary mr-2" />
-            <span className="text-caption font-medium text-dental-primary uppercase tracking-wider">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-sm mb-6">
+            <Heart className="w-5 h-5 text-blue-600 mr-2" />
+            <span className="text-sm font-medium text-blue-600 uppercase tracking-wider">
               บริการยอดนิยม
             </span>
           </div>
           
-          <h2 className="heading-section mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             บริการทันตกรรม
             <br />
-            <span className="text-dental-primary">ที่ได้รับความนิยมสูงสุด</span>
+            <span className="text-blue-600">ที่ได้รับความนิยมสูงสุด</span>
           </h2>
           
-          <p className="text-body-large text-dental-light max-w-2xl mx-auto">
-            3 บริการหลักที่ลูกค้าส่วนใหญ่เลือกใช้ ด้วยเทคโนโลジีทันสมัยและทีมแพทย์ผู้เชี่ยวชาญ
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            3 บริการหลักที่ลูกค้าส่วนใหญ่เลือกใช้ ด้วยเทคโนโลยีทันสมัยและทีมแพทย์ผู้เชี่ยวชาญ
           </p>
         </div>
 
-        {/* Main Services (Always visible) */}
+        {/* Main Services */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {mainServices.map((service) => (
             <ServiceCard key={service.id} service={service} />
@@ -158,7 +158,7 @@ export const ProgressiveServicesSection = () => {
           <Button 
             variant="outline"
             size="lg"
-            className="group hover:bg-dental-accent/30 hover:border-dental-primary transition-all duration-200"
+            className="group hover:bg-blue-50 hover:border-blue-300 border-2 rounded-xl px-8 py-4 font-medium transition-all duration-200"
             onClick={() => setShowAllServices(!showAllServices)}
           >
             {showAllServices ? (
@@ -175,14 +175,14 @@ export const ProgressiveServicesSection = () => {
           </Button>
         </div>
 
-        {/* Additional Services (Progressive Disclosure) */}
+        {/* Additional Services */}
         {showAllServices && (
           <div className="animate-fade-in">
             <div className="text-center mb-8">
-              <h3 className="heading-card text-dental-primary mb-2">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-2">
                 บริการเพิ่มเติม
               </h3>
-              <p className="text-body text-dental-light">
+              <p className="text-gray-600">
                 บริการทันตกรรมครบครัน สำหรับทุกความต้องการ
               </p>
             </div>
@@ -195,21 +195,21 @@ export const ProgressiveServicesSection = () => {
           </div>
         )}
 
-        {/* Simplified Bottom CTA */}
+        {/* Bottom CTA */}
         <div className="text-center">
-          <div className="card-modern card-spacing max-w-2xl mx-auto bg-gradient-to-br from-white to-dental-accent/30">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl max-w-2xl mx-auto border border-gray-100">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h3 className="heading-card text-dental-primary">
+                <h3 className="text-2xl md:text-3xl font-semibold text-gray-800">
                   ไม่แน่ใจว่าบริการไหนเหมาะกับคุณ?
                 </h3>
-                <p className="text-body text-dental-light">
+                <p className="text-gray-600 text-lg">
                   ปรึกษาฟรีกับทีมแพทย์ผู้เชี่ยวชาญ
                 </p>
               </div>
               
               <Button 
-                className="btn-primary mobile-cta"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium text-lg w-full sm:w-auto"
                 onClick={() => window.open('tel:062-649-9979', '_self')}
               >
                 <Stethoscope className="w-5 h-5 mr-2" />

@@ -10,7 +10,6 @@ export const StickyContactBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling 100px
       setIsVisible(window.scrollY > 100);
     };
 
@@ -22,25 +21,24 @@ export const StickyContactBar = () => {
 
   return (
     <div className={cn(
-      "fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-dental-accent shadow-lg transition-transform duration-300",
+      "fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-2xl transition-transform duration-300",
       isVisible ? "translate-y-0" : "translate-y-full"
     )}>
-      <div className="container-spacing py-3">
+      <div className="container mx-auto max-w-7xl px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex-1">
-            <div className="text-sm font-medium text-dental-primary">
+            <div className="text-sm font-semibold text-gray-800">
               ต้องการปรึกษาหรือนัดหมาย?
             </div>
-            <div className="text-xs text-dental-light">
+            <div className="text-xs text-gray-600">
               โทรเลย หรือส่งข้อความ - ตอบกลับเร็ว
             </div>
           </div>
           
           <div className="flex items-center gap-2">
             <Button
-              variant="medical-primary"
+              className="bg-blue-600 hover:bg-blue-700 text-white hidden sm:inline-flex rounded-lg px-4 py-2"
               size="sm"
-              className="hidden sm:inline-flex"
               onClick={() => window.open('tel:062-649-9979', '_self')}
             >
               <Phone className="w-4 h-4 mr-1" />
@@ -48,7 +46,7 @@ export const StickyContactBar = () => {
             </Button>
             
             <Button
-              variant="medical-secondary"
+              className="bg-green-600 hover:bg-green-700 text-white rounded-lg px-4 py-2"
               size="sm"
               onClick={() => window.open('https://lin.ee/8rP1iJi', '_blank')}
             >
@@ -57,9 +55,9 @@ export const StickyContactBar = () => {
             </Button>
             
             <Button
-              variant="medical-outline"
+              variant="outline"
               size="sm"
-              className="hidden sm:inline-flex"
+              className="hidden sm:inline-flex border-blue-200 text-blue-600 hover:bg-blue-50 rounded-lg px-4 py-2"
               onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
             >
               <Calendar className="w-4 h-4 mr-1" />
@@ -68,9 +66,8 @@ export const StickyContactBar = () => {
             
             {/* Mobile-only call button */}
             <Button
-              variant="medical-primary"
+              className="bg-blue-600 hover:bg-blue-700 text-white sm:hidden rounded-lg p-2"
               size="sm"
-              className="sm:hidden"
               onClick={() => window.open('tel:062-649-9979', '_self')}
             >
               <Phone className="w-4 h-4" />
@@ -80,7 +77,7 @@ export const StickyContactBar = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsDismissed(true)}
-              className="p-1 h-8 w-8"
+              className="p-2 h-8 w-8 hover:bg-gray-100 rounded-lg"
               aria-label="ปิด"
             >
               <X className="w-4 h-4" />
