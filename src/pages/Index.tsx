@@ -4,11 +4,14 @@ import { SimplifiedHeroSection } from "@/components/SimplifiedHeroSection";
 import { QuickDecisionHelper } from "@/components/QuickDecisionHelper";
 import { ProgressiveServicesSection } from "@/components/ProgressiveServicesSection";
 import { SocialSecuritySection } from "@/components/SocialSecuritySection";
+import { PricingSection } from "@/components/PricingSection";
 import { ProgressivePromotionsSection } from "@/components/ProgressivePromotionsSection";
+import { FAQSection } from "@/components/FAQSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingActionButtons } from "@/components/FloatingActionButtons";
+import { StickyContactBar } from "@/components/StickyContactBar";
 import { 
   LazyReviewsSection, 
   LazyWhyChooseUsSection
@@ -33,7 +36,7 @@ const Index = () => {
       <Header />
       <SimplifiedHeroSection />
       
-      {/* Quick Decision Helper - New Progressive Disclosure Feature */}
+      {/* Quick Decision Helper - Progressive Disclosure Feature */}
       <section className="py-8 bg-gradient-to-br from-dental-accent/5 to-white">
         <div className="container-spacing">
           <QuickDecisionHelper />
@@ -41,12 +44,15 @@ const Index = () => {
       </section>
       
       <ProgressiveServicesSection />
+      <PricingSection />
       <SocialSecuritySection />
       <ProgressivePromotionsSection />
       
       <Suspense fallback={<SectionLoader />}>
         <LazyReviewsSection />
       </Suspense>
+      
+      <FAQSection />
       
       <Suspense fallback={<SectionLoader />}>
         <LazyWhyChooseUsSection />
@@ -55,6 +61,7 @@ const Index = () => {
       <ContactSection />
       <Footer />
       <FloatingActionButtons />
+      <StickyContactBar />
     </div>
   );
 };

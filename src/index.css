@@ -31,19 +31,19 @@
     --ring: 210 55% 28%;
     --radius: 0.75rem;
 
-    /* Professional Dental Brand Colors */
-    --dental-primary: 210 55% 28%;        /* Deep Professional Blue */
-    --dental-primary-hover: 210 55% 24%;  /* Darker Blue for hover */
-    --dental-secondary: 155 45% 35%;      /* Professional Teal Green */
-    --dental-secondary-hover: 155 45% 30%; /* Darker Green for hover */
-    --dental-accent: 210 45% 92%;         /* Very Light Blue Background */
-    --dental-success: 142 70% 40%;        /* Fresh Green for success */
-    --dental-success-hover: 142 70% 35%;  /* Darker success green */
-    --dental-warning: 45 95% 50%;         /* Professional Orange */
+    /* Professional Dental Brand Colors - Improved Contrast */
+    --dental-primary: 210 55% 25%;        /* Darker for better contrast */
+    --dental-primary-hover: 210 55% 20%;  /* Even darker for hover */
+    --dental-secondary: 155 45% 30%;      /* Darker teal for better contrast */
+    --dental-secondary-hover: 155 45% 25%; /* Darker green for hover */
+    --dental-accent: 210 45% 92%;         /* Light background remains */
+    --dental-success: 142 70% 35%;        /* Darker green for better contrast */
+    --dental-success-hover: 142 70% 30%;  /* Darker success green */
+    --dental-warning: 45 95% 45%;         /* Darker orange for contrast */
     --dental-light: 210 30% 97%;          /* Almost White with blue tint */
     --dental-gray: 215 15% 95%;           /* Professional Gray */
-    --dental-text: 215 25% 15%;           /* Dark Professional Text */
-    --dental-text-light: 215 20% 35%;     /* Improved contrast for light text */
+    --dental-text: 215 25% 10%;           /* Much darker for better contrast */
+    --dental-text-light: 215 20% 25%;     /* Better contrast for light text */
   }
 }
 
@@ -304,12 +304,45 @@
   .shadow-strong {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
+
+  /* === ACCESSIBILITY IMPROVEMENTS === */
+  .focus-visible {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dental-primary;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --dental-primary: 210 100% 20%;
+      --dental-text: 0 0% 0%;
+      --dental-text-light: 0 0% 20%;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-scale-in {
+      animation: none;
+    }
+    
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
 }
 
 /* Global Improvements */
 img {
   @apply w-full h-auto;
   max-width: 100%;
+}
+
+/* Ensure all images have alt text or are marked as decorative */
+img:not([alt]) {
+  outline: 2px solid red;
 }
 
 .line-clamp-2 {
@@ -328,11 +361,30 @@ img {
 
 /* Enhanced Focus states for accessibility */
 button:focus-visible,
-a:focus-visible {
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   @apply outline-2 outline-offset-2 outline-dental-primary;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  @apply absolute -top-10 left-4 bg-dental-primary text-white px-4 py-2 rounded-md z-50 transition-all duration-200;
+}
+
+.skip-link:focus {
+  @apply top-4;
 }
 
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
+}
+
+/* Ensure dropdowns have proper background and z-index */
+[role="menu"],
+[role="listbox"],
+.dropdown-menu {
+  @apply bg-white shadow-lg border border-gray-200 rounded-lg z-50;
 }
