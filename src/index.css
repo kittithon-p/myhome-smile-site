@@ -43,7 +43,7 @@
     --dental-light: 210 30% 97%;          /* Almost White with blue tint */
     --dental-gray: 215 15% 95%;           /* Professional Gray */
     --dental-text: 215 25% 15%;           /* Dark Professional Text */
-    --dental-text-light: 215 15% 45%;     /* Light Professional Text */
+    --dental-text-light: 215 20% 35%;     /* Improved contrast for light text */
   }
 }
 
@@ -55,17 +55,17 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    line-height: 1.6;
+    line-height: 1.7; /* Improved for Thai text readability */
     letter-spacing: 0.01em;
     font-weight: 400;
   }
 
-  /* Professional Typography System */
+  /* Thai-optimized Typography System */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Prompt', 'Sarabun', system-ui, sans-serif;
     font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+    line-height: 1.4; /* Better for Thai headings */
+    letter-spacing: -0.01em;
   }
 }
 
@@ -148,55 +148,50 @@
     outline-color: hsl(var(--dental-primary));
   }
 
-  /* === TYPOGRAPHY SYSTEM === */
+  /* === IMPROVED TYPOGRAPHY SYSTEM === */
   .heading-hero {
-    @apply text-[28px] md:text-[42px] lg:text-[52px] font-bold text-dental leading-[1.2] tracking-tight;
+    @apply text-2xl md:text-4xl lg:text-5xl font-bold text-dental leading-tight;
   }
 
   .heading-section {
-    @apply text-[22px] md:text-[32px] font-semibold text-dental leading-[1.3];
+    @apply text-xl md:text-2xl lg:text-3xl font-semibold text-dental leading-tight;
   }
 
   .heading-card {
-    @apply text-[18px] md:text-[24px] font-medium text-dental leading-[1.4];
+    @apply text-lg md:text-xl font-medium text-dental leading-normal;
   }
 
   .text-body {
-    @apply text-[14px] md:text-[16px] text-dental-light leading-relaxed;
+    @apply text-base text-dental-light leading-relaxed;
   }
 
   .text-body-large {
-    @apply text-[16px] md:text-[18px] text-dental-light leading-relaxed;
+    @apply text-lg text-dental-light leading-relaxed;
   }
 
   .text-caption {
-    @apply text-[12px] md:text-[14px] text-dental-light;
+    @apply text-sm text-dental-light leading-normal;
   }
 
-  /* === OPTIMIZED BUTTON SYSTEM === */
+  /* === BUTTON SYSTEM === */
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-dental-primary hover:bg-dental-primary-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
-    will-change: transform;
+    @apply inline-flex items-center justify-center bg-dental-primary hover:bg-dental-primary-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
-    will-change: transform;
+    @apply inline-flex items-center justify-center bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-md;
   }
 
   .btn-success {
-    @apply inline-flex items-center justify-center bg-dental-success hover:bg-dental-success-hover text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
-    will-change: transform;
+    @apply inline-flex items-center justify-center bg-dental-success hover:bg-dental-success-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-md;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center border-2 border-dental-primary bg-white text-dental-primary hover:bg-dental-primary hover:text-white font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
-    will-change: transform;
+    @apply inline-flex items-center justify-center border-2 border-dental-primary bg-white text-dental-primary hover:bg-dental-primary hover:text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-md;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center bg-transparent hover:bg-dental-accent text-dental-primary font-medium px-6 py-3 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
-    will-change: transform;
+    @apply inline-flex items-center justify-center bg-transparent hover:bg-dental-accent text-dental-primary font-medium px-6 py-3 rounded-xl transition-all duration-200;
   }
 
   /* === SPACING SYSTEM === */
@@ -216,27 +211,25 @@
     @apply space-y-6 md:space-y-8;
   }
 
-  /* === OPTIMIZED LAYOUT SYSTEM === */
+  /* === LAYOUT SYSTEM === */
   .card-modern {
-    @apply bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100/50;
-    will-change: transform;
+    @apply bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100/50;
   }
 
   .card-elevated {
-    @apply bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-200 border-0 hover:-translate-y-2;
-    will-change: transform;
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border-0;
   }
 
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
+    background: linear-gradient(135deg, hsl(var(--dental-primary)), hsl(var(--dental-secondary)));
   }
 
   .gradient-accent {
-    background: linear-gradient(135deg, hsl(var(--dental-accent)), white, hsl(var(--dental-light)));
+    background: linear-gradient(135deg, hsl(var(--dental-accent)), white);
   }
 
   .gradient-hero {
-    background: linear-gradient(135deg, white, hsl(var(--dental-accent) / 0.3), hsl(var(--dental-light) / 0.5));
+    background: linear-gradient(135deg, white, hsl(var(--dental-light)));
   }
 
   /* === GRID SYSTEM === */
@@ -245,19 +238,19 @@
   }
 
   .grid-hero {
-    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center;
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center;
   }
 
   /* === MOBILE OPTIMIZATION === */
   .mobile-cta {
-    @apply w-full md:w-auto px-8 py-4 text-base font-semibold rounded-2xl transition-all duration-200;
+    @apply w-full md:w-auto px-6 py-3 text-base font-medium rounded-xl transition-all duration-200;
   }
 
   .mobile-touch {
     @apply min-h-[44px] min-w-[44px];
   }
 
-  /* === OPTIMIZED ANIMATIONS === */
+  /* === ANIMATIONS === */
   .animate-fade-in {
     animation: fadeIn 0.4s ease-out forwards;
   }
@@ -305,15 +298,11 @@
 
   /* === UTILITY CLASSES === */
   .shadow-soft {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
   .shadow-strong {
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-  }
-
-  .shadow-3xl {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -337,8 +326,13 @@ img {
   overflow: hidden;
 }
 
-/* Focus states for accessibility */
+/* Enhanced Focus states for accessibility */
 button:focus-visible,
 a:focus-visible {
   @apply outline-2 outline-offset-2 outline-dental-primary;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
 }

@@ -1,66 +1,112 @@
 
 import { Button } from "@/components/ui/button";
 import { Facebook, Phone, Menu, X, MessageCircle, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Track active section for navigation highlighting
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "services", "promotions", "reviews", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Smooth scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const navigationItems = [
+    { name: "หน้าแรก", id: "home" },
+    { name: "บริการ", id: "services" },
+    { name: "โปรโมชั่น", id: "promotions" },
+    { name: "รีวิว", id: "reviews" },
+    { name: "ติดต่อ", id: "contact" }
+  ];
 
   return (
     <header className="bg-white/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-dental-accent">
       <div className="container-spacing py-4">
         <div className="flex items-center justify-between">
-          {/* Logo Section - Enhanced */}
-          <div className="flex items-center space-x-4">
+          {/* Logo Section */}
+          <div className="flex items-center space-x-3">
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-dental-primary/20 to-dental-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-dental-primary/10 to-dental-secondary/10 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
               <img 
                 src="/lovable-uploads/4c63632a-0dc5-4fdc-ba0e-4adb5cf31b03.png" 
                 alt="MY HOME Dental Clinic Logo" 
-                className="relative w-12 h-12 md:w-14 md:h-14 object-contain transition-transform duration-300 group-hover:scale-110"
+                className="relative w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl md:text-3xl font-bold gradient-primary bg-clip-text text-transparent">
+              <h1 className="text-xl md:text-2xl font-bold text-dental">
                 MY HOME
               </h1>
-              <p className="text-caption text-dental-light">Dental Clinic</p>
+              <p className="text-sm text-dental-light leading-tight">Dental Clinic</p>
             </div>
           </div>
 
-          {/* Desktop Navigation - Modern */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {[
-              { name: "หน้าแรก", href: "#home" },
-              { name: "บริการ", href: "#services" },
-              { name: "โปรโมชั่น", href: "#promotions" },
-              { name: "รีวิว", href: "#reviews" },
-              { name: "ติดต่อ", href: "#contact" }
-            ].map((item) => (
-              <a 
-                key={item.name}
-                href={item.href} 
-                className="relative text-body font-medium text-dental hover:text-dental-primary transition-all duration-300 group"
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-2">
+            {navigationItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                  activeSection === item.id
+                    ? "text-dental-primary bg-dental-accent shadow-sm"
+                    : "text-dental hover:text-dental-primary hover:bg-dental-accent/50"
+                }`}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-dental-primary to-dental-secondary transition-all duration-300 group-hover:w-full rounded-full"></span>
-              </a>
+                {activeSection === item.id && (
+                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-dental-primary rounded-full"></span>
+                )}
+              </button>
             ))}
           </nav>
 
-          {/* Desktop CTA Buttons - Enhanced */}
+          {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <Button 
               variant="ghost" 
               size="sm" 
-              className="btn-ghost text-sm"
+              className="text-sm font-medium text-dental-primary hover:bg-dental-accent"
               onClick={() => window.open('tel:062-649-9979', '_self')}
             >
               <Phone className="w-4 h-4 mr-2" />
               โทรเลย
             </Button>
             <Button 
-              className="btn-primary text-sm"
+              size="sm"
+              className="bg-dental-primary hover:bg-dental-primary-hover text-white font-medium"
               onClick={() => window.open('https://www.facebook.com/Myhomedent', '_blank')}
             >
               <Facebook className="w-4 h-4 mr-2" />
@@ -68,62 +114,52 @@ export const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button - Enhanced */}
+          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="sm"
-            className="lg:hidden btn-ghost p-3"
+            className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <div className="relative w-6 h-6">
-              <Menu 
-                className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-                }`} 
-              />
-              <X 
-                className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
-                }`} 
-              />
-            </div>
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </Button>
         </div>
 
-        {/* Mobile Menu - Redesigned */}
-        <div className={`lg:hidden transition-all duration-500 ease-out overflow-hidden ${
+        {/* Mobile Menu */}
+        <div className={`lg:hidden transition-all duration-300 ease-out overflow-hidden ${
           isMenuOpen 
-            ? 'max-h-screen opacity-100 mt-8' 
+            ? 'max-h-96 opacity-100 mt-6' 
             : 'max-h-0 opacity-0 mt-0'
         }`}>
-          <div className="card-modern card-spacing animate-fade-in">
+          <div className="bg-white rounded-2xl shadow-lg border border-dental-accent p-6">
             {/* Mobile Navigation */}
-            <nav className="space-y-4 mb-8">
-              {[
-                { name: "หน้าแรก", href: "#home" },
-                { name: "บริการ", href: "#services" },
-                { name: "โปรโมชั่น", href: "#promotions" },
-                { name: "รีวิว", href: "#reviews" },
-                { name: "ติดต่อ", href: "#contact" }
-              ].map((item) => (
-                <a 
-                  key={item.name}
-                  href={item.href} 
-                  className="block py-3 px-4 text-body font-medium text-dental hover:text-dental-primary hover:bg-dental-accent rounded-2xl transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+            <nav className="space-y-2 mb-6">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`w-full text-left py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                    activeSection === item.id
+                      ? "text-dental-primary bg-dental-accent"
+                      : "text-dental hover:text-dental-primary hover:bg-dental-accent/50"
+                  }`}
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
             </nav>
             
             {/* Quick Info */}
-            <div className="bg-dental-accent rounded-2xl p-4 mb-6">
-              <div className="flex items-center text-caption text-dental-light mb-2">
+            <div className="bg-dental-accent rounded-xl p-4 mb-6">
+              <div className="flex items-center text-sm text-dental-light mb-1">
                 <MapPin className="w-4 h-4 mr-2" />
                 <span>บางละมุง ชลบุรี</span>
               </div>
-              <div className="text-body font-medium text-dental">
+              <div className="font-medium text-dental">
                 เปิดทุกวัน 10:00-20:00 น.
               </div>
             </div>
@@ -131,7 +167,7 @@ export const Header = () => {
             {/* Mobile CTA Buttons */}
             <div className="space-y-3">
               <Button 
-                className="mobile-cta btn-success"
+                className="w-full bg-dental-success hover:bg-dental-success-hover text-white font-medium py-3"
                 onClick={() => {
                   window.open('tel:062-649-9979', '_self');
                   setIsMenuOpen(false);
@@ -142,7 +178,7 @@ export const Header = () => {
               </Button>
               
               <Button 
-                className="mobile-cta btn-secondary"
+                className="w-full bg-dental-secondary hover:bg-dental-secondary-hover text-white font-medium py-3"
                 onClick={() => {
                   window.open('https://lin.ee/8rP1iJi', '_blank');
                   setIsMenuOpen(false);
@@ -153,7 +189,7 @@ export const Header = () => {
               </Button>
               
               <Button 
-                className="mobile-cta btn-primary"
+                className="w-full bg-dental-primary hover:bg-dental-primary-hover text-white font-medium py-3"
                 onClick={() => {
                   window.open('https://www.facebook.com/Myhomedent', '_blank');
                   setIsMenuOpen(false);
